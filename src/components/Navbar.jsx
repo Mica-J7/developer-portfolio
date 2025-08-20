@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+// Navbar extracted from HTML; class -> className, stroke-* -> camelCase
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  // Smooth scroll handler moved from inline JS to React event handler
   const onNavClick = (e) => {
     const href = e.currentTarget.getAttribute('href');
     if (!href || !href.startsWith('#')) return;
@@ -25,22 +26,24 @@ export default function Navbar() {
   return (
     <motion.header
       id="top"
-      className="sticky top-0 z-50 border-b border-slate-800/60 bg-slate-950/70 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60"
+      className="sticky top-0 z-50 border-b border-teal-800/50 bg-slate-950/70 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60"
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-1">
         <nav className="flex h-16 items-center justify-between" aria-label="Primary">
           {/* Brand */}
           <a
             href="#about"
             onClick={onNavClick}
-            className="group inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded"
+            className="group inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 
+            focus-visible:ring-teal-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded"
           >
             <span
               aria-hidden="true"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold"
+              className="inline-flex h-8 w-9 items-center justify-center rounded-md bg-gradient-to-br 
+              from-teal-400 to-cyan-400 text-slate-900 font-bold"
             >
               MJ
             </span>
@@ -50,25 +53,27 @@ export default function Navbar() {
           </a>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-1">
+          <ul className="hidden md:flex items-center">
             {desktopLinks.map((item) => (
-              <li key={item.href}>
+              <li key={item.href} className="pb-1">
                 <a
                   href={item.href}
                   onClick={onNavClick}
-                  className="px-3 py-2 text-sm text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md"
+                  className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md"
                 >
                   {item.label}
                 </a>
               </li>
             ))}
-            <li className="pl-2">
+            <li className="pl-2 ml-2">
               <a
                 href="#contact"
                 onClick={onNavClick}
-                className="inline-flex items-center gap-2 rounded-md border border-teal-400/40 bg-teal-400/10 px-3 py-2 text-sm text-teal-300 hover:text-teal-100 hover:bg-teal-400/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
+                className="inline-flex items-center gap-2 rounded-md border border-teal-400/40 bg-teal-400/10
+                px-3 py-2 text-sm text-teal-300 hover:text-teal-100 hover:bg-teal-400/15 focus-visible:outline-none 
+                focus-visible:ring-2 focus-visible:ring-teal-400/70  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
               >
-                Me contacter
+                <span className="pb-0.5">Me contacter</span>
                 <svg
                   aria-hidden="true"
                   className="h-4 w-4"

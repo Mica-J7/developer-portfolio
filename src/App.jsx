@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar.jsx';
 import Presentation from './components/Presentation.jsx';
+import Skills from './components/Skills.jsx';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Navbar />
       <main id="content">
         <Presentation />
+        <Skills />
       </main>
     </div>
   );

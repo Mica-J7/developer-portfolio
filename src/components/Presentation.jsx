@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
+// Presentation section with React typewriter replacing the inline <script>
 export default function Presentation() {
   const [typedText, setTypedText] = useState('');
   const prefersReduced = useRef(false);
@@ -59,8 +60,8 @@ export default function Presentation() {
   };
 
   return (
-    <section id="about" className="relative overflow-hidden" aria-labelledby="hero-title">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-24">
+    <section id="about" className="scroll-mt-19 relative overflow-hidden" aria-labelledby="presentation-title">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-28">
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <motion.p
@@ -72,7 +73,7 @@ export default function Presentation() {
               Développeur Web
             </motion.p>
             <motion.h1
-              id="hero-title"
+              id="presentation-title"
               className="mt-3 font-mono text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -85,9 +86,7 @@ export default function Presentation() {
                 className="align-middle ml-1 inline-block text-teal-400"
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-              >
-                |
-              </motion.span>
+              ></motion.span>
             </motion.h1>
             <motion.p
               className="mt-5 max-w-2xl text-slate-300/90 leading-relaxed"
@@ -100,7 +99,7 @@ export default function Presentation() {
               les différents outils permettant de concevoir des sites performants, esthétiques et sécurisés.
             </motion.p>
             <motion.div
-              className="mt-8 flex flex-wrap items-center gap-3"
+              className="flex flex-wrap justify-center lg:justify-start items-center gap-4 mt-8"
               initial={{ y: 12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.25 }}
@@ -108,11 +107,13 @@ export default function Presentation() {
               <motion.a
                 href="#projects"
                 onClick={onAnchorClick}
-                className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 px-5 py-3 text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center w-38 gap-2 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 
+                px-5 py-3 text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2 
+                focus-visible:ring-teal-300  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Mes Projets
+                <span className="pb-1">Mes Projets</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"
@@ -127,11 +128,13 @@ export default function Presentation() {
               <motion.a
                 href="#contact"
                 onClick={onAnchorClick}
-                className="inline-flex items-center gap-2 rounded-md border border-slate-700/70 bg-slate-900/60 px-5 py-3 text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center w-38 gap-2 rounded-md border border-slate-700/70 bg-slate-900/60 
+                px-5 py-3 text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70  
+                hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Contact
+                <span className="pb-1">Contact</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"
@@ -143,6 +146,51 @@ export default function Presentation() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8v13H3V3h13m5 0l-8 8" />
                 </svg>
               </motion.a>
+            </motion.div>
+          </div>
+
+          <div className="lg:col-span-5">
+            {/* Accent card / visual */}
+            <motion.div
+              className="relative mx-auto max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-xl"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+            >
+              <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-teal-400/10 via-cyan-400/10 to-transparent blur-2xl"></div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
+                  MJ
+                </div>
+                <div>
+                  <h2 className="font-mono text-xl text-white">Titre RNCP Développeur Web - OpenClassrooms</h2>
+                  <p className="mt-1 text-sm text-slate-400">Clean code, API REST, responsive UI.</p>
+                </div>
+              </div>
+              <dl className="mt-6 grid grid-cols-3 gap-4 text-center">
+                {[
+                  { dt: 'Diplôme', dd: 'Sept 2025' },
+                  { dt: 'Projets', dd: '8' },
+                  { dt: 'Localisation', dd: 'Rochefort' },
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={stat.dt}
+                    className="rounded-lg border border-slate-800 bg-slate-950/40 p-3"
+                    initial={{ y: 8, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.5,
+                      ease: 'easeOut',
+                      delay: 0.1 * idx,
+                    }}
+                  >
+                    <dt className="text-xs text-slate-400">{stat.dt}</dt>
+                    <dd className="mt-1 font-mono text-lg text-teal-300">{stat.dd}</dd>
+                  </motion.div>
+                ))}
+              </dl>
             </motion.div>
           </div>
         </div>
