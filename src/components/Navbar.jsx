@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Navbar extracted from HTML; class -> className, stroke-* -> camelCase
@@ -20,7 +20,7 @@ export default function Navbar() {
     { href: '#about', label: 'Présentation' },
     { href: '#stack', label: 'Compétences' },
     { href: '#projects', label: 'Projets' },
-    { href: '#cv', label: 'Mon CV' },
+    { href: '/CV-dev.pdf', target: '_blank', rel: 'noopener noreferrer', label: 'Mon CV' },
   ];
 
   return (
@@ -32,12 +32,12 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-1">
-        <nav className="flex h-16 items-center justify-between" aria-label="Primary">
+        <nav className="flex h-16 items-center justify-between">
           {/* Brand */}
           <a
             href="#about"
             onClick={onNavClick}
-            className="group inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 
+            className="group inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 
             focus-visible:ring-teal-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded"
           >
             <span
@@ -59,6 +59,8 @@ export default function Navbar() {
                 <a
                   href={item.href}
                   onClick={onNavClick}
+                  target={item.target} // ← ici ça doit être passé
+                  rel={item.rel}
                   className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md"
                 >
                   {item.label}
@@ -70,7 +72,7 @@ export default function Navbar() {
                 href="#contact"
                 onClick={onNavClick}
                 className="inline-flex items-center gap-2 rounded-md border border-teal-400/40 bg-teal-400/10
-                px-3 py-2 text-sm text-teal-300 hover:text-teal-100 hover:bg-teal-400/15 focus-visible:outline-none 
+                pl-4 pr-3 py-2 text-sm text-teal-300 hover:text-teal-100 hover:bg-teal-400/15 focus-visible:outline-none 
                 focus-visible:ring-2 focus-visible:ring-teal-400/70  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
               >
                 <span className="pb-0.5">Me contacter</span>
@@ -92,7 +94,7 @@ export default function Navbar() {
           <div className="md:hidden relative">
             <button
               type="button"
-              aria-label="Toggle navigation menu"
+              aria-label="Afficher le menu déroulant"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsMenuOpen((v) => !v)}

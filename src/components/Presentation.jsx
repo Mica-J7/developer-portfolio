@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Presentation section with React typewriter replacing the inline <script>
@@ -60,7 +60,7 @@ export default function Presentation() {
   };
 
   return (
-    <section id="about" className="scroll-mt-19 relative overflow-hidden" aria-labelledby="presentation-title">
+    <section id="about" className="scroll-mt-19 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-28">
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -107,13 +107,13 @@ export default function Presentation() {
               <motion.a
                 href="#projects"
                 onClick={onAnchorClick}
-                className="inline-flex items-center justify-center w-38 gap-2 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 
+                className="inline-flex items-center justify-center w-39 gap-2 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 
                 px-5 py-3 text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2 
                 focus-visible:ring-teal-300  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pb-1">Mes Projets</span>
+                <span className="pb-1 pl-1">Mes Projets</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"
@@ -128,7 +128,7 @@ export default function Presentation() {
               <motion.a
                 href="#contact"
                 onClick={onAnchorClick}
-                className="inline-flex items-center justify-center w-38 gap-2 rounded-md border border-slate-700/70 bg-slate-900/60 
+                className="inline-flex items-center justify-center w-39 gap-2 rounded-md border border-slate-700/70 bg-slate-900/60 
                 px-5 py-3 text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70  
                 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
                 whileHover={{ scale: 1.05 }}
@@ -152,7 +152,7 @@ export default function Presentation() {
           <div className="lg:col-span-5">
             {/* Accent card / visual */}
             <motion.div
-              className="relative mx-auto max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-xl"
+              className="relative mx-auto max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-6 pb-6 pt-5 shadow-xl"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -160,11 +160,11 @@ export default function Presentation() {
             >
               <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-teal-400/10 via-cyan-400/10 to-transparent blur-2xl"></div>
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
+                <div className="flex h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
                   MJ
                 </div>
                 <div>
-                  <h2 className="font-mono text-xl text-white">Titre RNCP Développeur Web - OpenClassrooms</h2>
+                  <h2 className="font-mono text-xl text-white pb-2">Titre RNCP Développeur Web - OpenClassrooms</h2>
                   <p className="mt-1 text-sm text-slate-400">Clean code, API REST, responsive UI.</p>
                 </div>
               </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import TechGrid from './TechGrid.jsx';
 import {
@@ -105,7 +104,7 @@ const TECH = [
 
 export default function Skills() {
   return (
-    <section id="stack" className="scroll-mt-18 border-t border-teal-900/80" aria-labelledby="stack-title">
+    <section id="stack" className="scroll-mt-18 border-t border-teal-900/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <motion.h2
           id="stack-title"
