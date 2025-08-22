@@ -1,9 +1,28 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Navbar extracted from HTML; class -> className, stroke-* -> camelCase
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      // si clic à l'extérieur du menu ET pas sur le bouton → fermer
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   // Smooth scroll handler moved from inline JS to React event handler
   const onNavClick = (e) => {
     const href = e.currentTarget.getAttribute('href');
@@ -19,7 +38,6 @@ export default function Navbar() {
   const desktopLinks = [
     { href: '#about', label: 'Présentation' },
     { href: '#stack', label: 'Compétences' },
-    { href: '#projects', label: 'Projets' },
     { href: '/CV-dev.pdf', target: '_blank', rel: 'noopener noreferrer', label: 'Mon CV' },
   ];
 
@@ -35,7 +53,7 @@ export default function Navbar() {
         <nav className="flex h-16 items-center justify-between">
           {/* Brand */}
           <a
-            href="#about"
+            href="#contact"
             onClick={onNavClick}
             className="group inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 
             focus-visible:ring-teal-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded"
@@ -59,14 +77,51 @@ export default function Navbar() {
                 <a
                   href={item.href}
                   onClick={onNavClick}
-                  target={item.target} // ← ici ça doit être passé
+                  target={item.target}
                   rel={item.rel}
-                  className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md"
+                  className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 hover:text-white focus-visible:outline-none 
+                  focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md"
                 >
                   {item.label}
                 </a>
               </li>
             ))}
+
+            <li className="pb-1">
+              <a
+                ref={buttonRef}
+                onClick={() => setOpen((prev) => !prev)}
+                className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 focus-visible:outline-none hover:text-white
+                  focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md cursor-pointer"
+              >
+                Projets
+              </a>
+
+              <AnimatePresence>
+                {open && (
+                  <motion.ul
+                    ref={dropdownRef}
+                    initial={{ opacity: 0.8, clipPath: 'inset(0% 0% 100% 0%)' }}
+                    animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
+                    exit={{ opacity: 0.8, clipPath: 'inset(0% 0% 100% 0%)' }}
+                    transition={{ duration: 0.35, ease: 'easeInOut' }}
+                    className="absolute top-full w-46 px-2 pt-1 pb-2 text-slate-300 group rounded-b-xl border border-slate-800 bg-slate-900/90"
+                  >
+                    <li>
+                      <a href="#projects-perso" className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white">
+                        Projets Personnels
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#projects-formation" className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white">
+                        Projets de Formation
+                      </a>
+                    </li>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </li>
+
             <li className="pl-2 ml-2">
               <a
                 href="#contact"
@@ -94,11 +149,12 @@ export default function Navbar() {
           <div className="md:hidden relative">
             <button
               type="button"
-              aria-label="Afficher le menu déroulant"
+              aria-label="Ouvrir le menu déroulant"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsMenuOpen((v) => !v)}
-              className="inline-flex items-center justify-center rounded-md border border-slate-700/60 bg-slate-900/60 p-2 text-slate-200 hover:text-white hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70"
+              className="inline-flex items-center justify-center rounded-md border border-slate-700/60 bg-slate-900/60 p-2 cursor-pointer
+              text-slate-200 hover:text-white hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70"
             >
               {isMenuOpen ? (
                 <svg
@@ -127,19 +183,59 @@ export default function Navbar() {
             {isMenuOpen && (
               <ul
                 id="mobile-menu"
-                className="absolute right-0 mt-3 w-56 origin-top-right rounded-lg border border-slate-800 bg-slate-900/95 p-2 shadow-xl shadow-black/30"
+                className="absolute right-0 mt-3 w-56 origin-top-right rounded-lg border border-slate-800 bg-slate-900/95 p-2 
+                shadow-xl shadow-black/30"
               >
                 {desktopLinks.map((item) => (
                   <li key={item.href}>
                     <a
                       href={item.href}
                       onClick={onNavClick}
+                      target={item.target}
+                      rel={item.rel}
                       className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70"
                     >
                       {item.label}
                     </a>
                   </li>
                 ))}
+
+                <li className="pb-1">
+                  <a
+                    ref={buttonRef}
+                    onClick={() => setOpen((prev) => !prev)}
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70 cursor-pointer"
+                  >
+                    Projets
+                  </a>
+
+                  <AnimatePresence>
+                    {open && (
+                      <motion.ul
+                        ref={dropdownRef}
+                        initial={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
+                        animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
+                        exit={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className="absolute top-full w-46 px-2 pt-1 pb-2 text-slate-300 group rounded-b-xl border border-slate-800 bg-slate-900/90"
+                      >
+                        <li>
+                          <a href="#projects-perso" className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white">
+                            Projets Personnels
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#projects-formation"
+                            className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
+                          >
+                            Projets de Formation
+                          </a>
+                        </li>
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </li>
               </ul>
             )}
           </div>

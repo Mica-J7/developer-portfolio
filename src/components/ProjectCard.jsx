@@ -18,7 +18,7 @@ export default function ProjectCard({ p, idx }) {
       <div className="relative overflow-hidden">
         <motion.img
           src={p.image}
-          alt={`Image du site ${p.title}`}
+          alt={`${p.title} preview`}
           className="h-44 w-full object-cover"
           loading="lazy"
           whileHover={{ scale: 1.1 }}
@@ -41,7 +41,7 @@ export default function ProjectCard({ p, idx }) {
               href={p.live}
               className="inline-flex items-center gap-0.5 rounded-md border border-teal-400/40 
                       bg-teal-400/10 px-2 py-1.5 text-sm text-teal-300"
-              aria-label="Ouvrir la page du site"
+              aria-label="Ouvrir le site"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.09 }}

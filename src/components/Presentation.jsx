@@ -65,7 +65,7 @@ export default function Presentation() {
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <motion.p
-              className="text-sm text-teal-300/80 font-mono tracking-widest"
+              className="text-lg text-teal-300/80 font-mono tracking-widest"
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}

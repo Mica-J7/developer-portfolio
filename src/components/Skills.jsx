@@ -105,7 +105,7 @@ const TECH = [
 export default function Skills() {
   return (
     <section id="stack" className="scroll-mt-18 border-t border-teal-900/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-20">
         <motion.h2
           id="stack-title"
           className="font-mono text-2xl sm:text-3xl text-white"

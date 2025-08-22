@@ -8,7 +8,7 @@ import Footer from './components/Footer.jsx';
 
 export default function App() {
   return (
-    <div className="bg-emerald-950 text-slate-100 antialiased selection:bg-cyan-400/20 selection:text-cyan-200">
+    <div className="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-400/20 selection:text-cyan-200">
       <Navbar />
       <main id="content">
         <Presentation />

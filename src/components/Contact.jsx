@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SiX } from '@icons-pack/react-simple-icons';
@@ -11,8 +10,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-18 border-t border-teal-900/80" aria-labelledby="contact-title">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <section id="contact" className="scroll-mt-18 border-t border-teal-900/80">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-20">
         <motion.h2
           id="contact-title"
           className="font-mono text-2xl sm:text-3xl text-white"
