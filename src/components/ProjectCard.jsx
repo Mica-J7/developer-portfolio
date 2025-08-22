@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export default function ProjectCard({ p, idx }) {
   return (
     <motion.article
-      key={p.title}
+      key={p.id}
       className="group flex flex-col overflow-hidden rounded-xl border border-slate-800 
              bg-slate-900/60
              hover:border-teal-400
@@ -13,12 +13,12 @@ export default function ProjectCard({ p, idx }) {
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.05 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.08 }}
     >
       <div className="relative overflow-hidden">
         <motion.img
           src={p.image}
-          alt={`${p.title} preview`}
+          alt={`Image du site ${p.title}`}
           className="h-44 w-full object-cover"
           loading="lazy"
           whileHover={{ scale: 1.1 }}
@@ -29,7 +29,7 @@ export default function ProjectCard({ p, idx }) {
         <h3 className="font-mono text-xl text-white">{p.title}</h3>
         <p className="mt-2 text-slate-400 text-sm">{p.description}</p>
         <ul className="mt-3 flex flex-wrap gap-2">
-          {p.tech.map((t) => (
+          {p.techs.map((t) => (
             <li key={t} className="rounded border border-slate-700 px-2 py-1 text-xs text-slate-300">
               {t}
             </li>

@@ -60,7 +60,7 @@ export default function Presentation() {
   };
 
   return (
-    <section id="about" className="scroll-mt-19 relative overflow-hidden">
+    <section id="presentation" className="scroll-mt-19 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-28">
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -86,7 +86,9 @@ export default function Presentation() {
                 className="align-middle ml-1 inline-block text-teal-400"
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-              ></motion.span>
+              >
+                |
+              </motion.span>
             </motion.h1>
             <motion.p
               className="mt-5 max-w-2xl text-slate-300/90 leading-relaxed"
@@ -113,7 +115,7 @@ export default function Presentation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pb-1 pl-1">Mes Projets</span>
+                <span className="pl-1 md:pb-1 text-nowrap">Mes Projets</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"
@@ -134,7 +136,7 @@ export default function Presentation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pb-1">Contact</span>
+                <span className="pl-1 md:pb-1 text-nowrap">Contact</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"
@@ -160,11 +162,13 @@ export default function Presentation() {
             >
               <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-teal-400/10 via-cyan-400/10 to-transparent blur-2xl"></div>
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
+                <div className="flex h-8 md:h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
                   MJ
                 </div>
                 <div>
-                  <h2 className="font-mono text-xl text-white pb-2">Titre RNCP Développeur Web - OpenClassrooms</h2>
+                  <h2 className="font-mono text-lg md:text-xl text-white pb-2">
+                    Titre RNCP Développeur Web - OpenClassrooms
+                  </h2>
                   <p className="mt-1 text-sm text-slate-400">Clean code, API REST, responsive UI.</p>
                 </div>
               </div>
@@ -176,7 +180,7 @@ export default function Presentation() {
                 ].map((stat, idx) => (
                   <motion.div
                     key={stat.dt}
-                    className="rounded-lg border border-slate-800 bg-slate-950/40 p-3"
+                    className="rounded-lg border border-slate-800 bg-slate-950/40 px-3 py-4 md:py-3"
                     initial={{ y: 8, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -187,7 +191,7 @@ export default function Presentation() {
                     }}
                   >
                     <dt className="text-xs text-slate-400">{stat.dt}</dt>
-                    <dd className="mt-1 font-mono text-lg text-teal-300">{stat.dd}</dd>
+                    <dd className="mt-1 font-mono text-xs md:text-lg text-teal-300">{stat.dd}</dd>
                   </motion.div>
                 ))}
               </dl>

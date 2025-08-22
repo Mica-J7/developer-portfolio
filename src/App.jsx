@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar.jsx';
 import Presentation from './components/Presentation.jsx';
-import Skills from './components/Skills.jsx';
+import Techs from './components/Techs.jsx';
 import Projects from './components/Projects.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
@@ -12,7 +12,7 @@ export default function App() {
       <Navbar />
       <main id="content">
         <Presentation />
-        <Skills />
+        <Techs />
         <Projects />
         <Contact />
       </main>

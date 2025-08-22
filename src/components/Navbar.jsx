@@ -9,7 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      // si clic à l'extérieur du menu ET pas sur le bouton → fermer
+      // click outside the menu AND not on the button => close
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(e.target) &&
@@ -36,9 +36,8 @@ export default function Navbar() {
   };
 
   const desktopLinks = [
-    { href: '#about', label: 'Présentation' },
-    { href: '#stack', label: 'Compétences' },
-    { href: '/CV-dev.pdf', target: '_blank', rel: 'noopener noreferrer', label: 'Mon CV' },
+    { href: '#presentation', label: 'Présentation' },
+    { href: '#techs', label: 'Compétences' },
   ];
 
   return (
@@ -122,6 +121,18 @@ export default function Navbar() {
               </AnimatePresence>
             </li>
 
+            <li className="pb-1">
+              <a
+                href="/CV-dev.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 focus-visible:outline-none hover:text-white
+                  focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md cursor-pointer"
+              >
+                Mon CV
+              </a>
+            </li>
+
             <li className="pl-2 ml-2">
               <a
                 href="#contact"
@@ -200,7 +211,28 @@ export default function Navbar() {
                   </li>
                 ))}
 
-                <li className="pb-1">
+                <li>
+                  <a
+                    href="#contact"
+                    onClick={onNavClick}
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70"
+                  >
+                    Contact
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/CV-dev.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70"
+                  >
+                    Mon CV
+                  </a>
+                </li>
+
+                <li>
                   <a
                     ref={buttonRef}
                     onClick={() => setOpen((prev) => !prev)}
