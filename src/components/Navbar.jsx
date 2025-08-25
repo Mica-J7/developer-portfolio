@@ -107,12 +107,20 @@ export default function Navbar() {
                     className="absolute top-full w-46 px-2 pt-1 pb-2 text-slate-300 group rounded-b-xl border border-slate-800 bg-slate-900/90"
                   >
                     <li>
-                      <a href="#projects-perso" className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white">
+                      <a
+                        href="#projects-perso"
+                        onClick={onNavClick}
+                        className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
+                      >
                         Projets Personnels
                       </a>
                     </li>
                     <li>
-                      <a href="#projects-formation" className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white">
+                      <a
+                        href="#projects-formation"
+                        onClick={onNavClick}
+                        className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
+                      >
                         Projets de Formation
                       </a>
                     </li>
@@ -252,13 +260,18 @@ export default function Navbar() {
                         className="absolute top-full w-46 px-2 pt-1 pb-2 text-slate-300 group rounded-b-xl border border-slate-800 bg-slate-900/90"
                       >
                         <li>
-                          <a href="#projects-perso" className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white">
+                          <a
+                            href="#projects-perso"
+                            onClick={onNavClick}
+                            className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
+                          >
                             Projets Personnels
                           </a>
                         </li>
                         <li>
                           <a
                             href="#projects-formation"
+                            onClick={onNavClick}
                             className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
                           >
                             Projets de Formation

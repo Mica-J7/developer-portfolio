@@ -5,7 +5,7 @@ import TechCard from './TechCard.jsx';
 export default function Skills() {
   return (
     <section id="techs" className="scroll-mt-18 border-t border-teal-900/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
           id="techs-title"
           className="font-mono text-2xl sm:text-3xl text-white"

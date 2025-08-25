@@ -17,7 +17,7 @@ export default function Footer() {
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-14 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-slate-400">2025 - Portfolio de Mica</p>
         <motion.a
           href="#top"

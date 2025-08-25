@@ -4,11 +4,11 @@ import ProjectCard from './ProjectCard.jsx';
 
 export default function Projects() {
   return (
-    <section id="projects" className="scroll-mt-18 border-t border-teal-900/80 pt-16 pb-20">
+    <section id="projects" className="scroll-mt-18 border-t border-teal-900/80 pt-12 pb-16 md:pt-16 md:pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.h2
           id="projects-perso"
-          className="font-mono text-2xl sm:text-3xl text-white scroll-mt-34"
+          className="font-mono text-2xl sm:text-3xl text-white scroll-mt-30 md:scroll-mt-34"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -17,7 +17,7 @@ export default function Projects() {
           Projet Personnel :
         </motion.h2>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
           {projects.projects
             .filter((p) => p.type === 'perso')
             .map((p, idx) => (
@@ -25,10 +25,10 @@ export default function Projects() {
             ))}
         </div>
       </div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 md:pt-16">
         <motion.h2
           id="projects-formation"
-          className="font-mono text-2xl sm:text-3xl text-white scroll-mt-34"
+          className="font-mono text-2xl sm:text-3xl text-white scroll-mt-30 md:scroll-mt-34"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -37,7 +37,7 @@ export default function Projects() {
           Projets de formation :
         </motion.h2>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
           {projects.projects
             .filter((p) => p.type === 'formation')
             .map((p, idx) => (
