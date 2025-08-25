@@ -135,6 +135,7 @@ export default function Contact() {
                   name="name"
                   type="text"
                   required
+                  autoComplete="off"
                   className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
                   placeholder="Nom"
                 />
@@ -145,6 +146,7 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
+                  autoComplete="off"
                   className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
                   placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
                   placeholder="Email"

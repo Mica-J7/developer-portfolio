@@ -1,0 +1,4 @@
+# robots.txt for Netlify / Portfolio
+User-agent: *
+Allow: /
+Sitemap: https://jongeau-m.netlify.app/sitemap.xml
