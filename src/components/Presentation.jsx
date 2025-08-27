@@ -74,7 +74,7 @@ export default function Presentation() {
             </motion.p>
             <motion.h1
               id="presentation-title"
-              className="mt-3 font-mono text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight"
+              className="mt-3 font-mono text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-nowrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
@@ -151,7 +151,7 @@ export default function Presentation() {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-5 justify-self-end">
+          <div className="lg:col-span-5 justify-self-center lg:justify-self-end">
             {/* Accent card / visual */}
             <motion.div
               className="relative max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-6 pb-6 pt-5 shadow-xl"
@@ -191,7 +191,7 @@ export default function Presentation() {
                     }}
                   >
                     <dt className="text-xs text-slate-400">{stat.dt}</dt>
-                    <dd className="mt-1 font-mono text-xs md:text-lg text-teal-300">{stat.dd}</dd>
+                    <dd className="mt-1 font-mono text-xs md:text-base xl:text-lg text-teal-300">{stat.dd}</dd>
                   </motion.div>
                 ))}
               </dl>

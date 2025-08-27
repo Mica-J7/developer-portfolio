@@ -5,24 +5,34 @@ import { SiX } from '@icons-pack/react-simple-icons';
 export default function Contact() {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
 
     // Creation of FormData object for sending to Netlify
-    const formData = new FormData(form);
+    const data = new FormData(form);
 
     fetch('/', {
       method: 'POST',
-      body: formData,
+      body: data,
     })
-      .then(() => setSubmitted(true))
+      .then(() => {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' }); // reset inputs
+        setMessage(''); // reset char-counter
+      })
       .catch((err) => console.error(err));
   };
 
-  const handleChangeForm = (e) => {
-    setMessage(e.target.value);
+  const handleChangeMessage = (e) => {
+    setMessage(e.target.value); // for char-counter
+    setFormData({ ...formData, message: e.target.value }); // keep sync with form
   };
 
   return (
@@ -155,6 +165,8 @@ export default function Contact() {
                   id="name"
                   name="name"
                   type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                   autoComplete="off"
                   className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
@@ -166,6 +178,8 @@ export default function Contact() {
                   id="email"
                   name="email"
                   type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
                   autoComplete="off"
                   className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
@@ -180,8 +194,8 @@ export default function Contact() {
                 name="message"
                 rows={5}
                 required
-                value={message}
-                onChange={handleChangeForm}
+                value={formData.message}
+                onChange={handleChangeMessage}
                 maxLength={500}
                 className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
                 placeholder-slate-500 resize-y max-h-80 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
@@ -193,22 +207,12 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 disabled={submitted}
-                className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-medium shadow-glow 
+                className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-semibold  shadow-glow 
                 ${submitted ? 'opacity-50' : 'hover:opacity-95 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-teal-300 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%) transition-transform duration-50'}`}
                 whileHover={submitted ? {} : { scale: 1.08 }}
                 whileTap={submitted ? {} : { scale: 0.92 }}
               >
                 <span className="md:pb-0.5">{submitted ? 'Message envoyé !' : 'Envoyer'}</span>
-                <svg
-                  aria-hidden="true"
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4 8 8 4-8 4V8zm8 4 8-4v8l-8-4z" />
-                </svg>
               </motion.button>
             </div>
           </motion.form>
