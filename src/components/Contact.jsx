@@ -4,6 +4,22 @@ import { SiX } from '@icons-pack/react-simple-icons';
 
 export default function Contact() {
   const [message, setMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    // Creation of FormData object for sending to Netlify
+    const formData = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(() => setSubmitted(true))
+      .catch((err) => console.error(err));
+  };
 
   const handleChangeForm = (e) => {
     setMessage(e.target.value);
@@ -120,14 +136,19 @@ export default function Contact() {
           </motion.div>
 
           <motion.form
-            action="#"
-            method="post"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
             className="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/60 p-6"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
+            {/* Hidden input for Netlify recognition */}
+            <input type="hidden" name="form-name" value="contact" />
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <input
@@ -171,14 +192,13 @@ export default function Contact() {
             <div className="flex justify-center mt-3">
               <motion.button
                 type="submit"
-                className="inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 
-                px-5 py-2.5 text-slate-900 font-medium shadow-glow hover:opacity-95 focus-visible:outline-none cursor-pointer
-                focus-visible:ring-2 focus-visible:ring-teal-300 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]
-                transition-transform duration-50"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.92 }}
+                disabled={submitted}
+                className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-medium shadow-glow 
+                ${submitted ? 'opacity-50' : 'hover:opacity-95 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-teal-300 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%) transition-transform duration-50'}`}
+                whileHover={submitted ? {} : { scale: 1.08 }}
+                whileTap={submitted ? {} : { scale: 0.92 }}
               >
-                <span className="md:pb-0.5">Envoyer</span>
+                <span className="md:pb-0.5">{submitted ? 'Message envoyé !' : 'Envoyer'}</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"

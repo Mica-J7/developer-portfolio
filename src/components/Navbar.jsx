@@ -2,14 +2,33 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false); // dropdown "Projets"
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // menu hamburger
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
+  const menuRef = useRef(null); // ref pour le menu principal
+  const hamburgerRef = useRef(null); // ref pour le bouton hamburger
+
+  // Fermeture au clic en dehors pour le menu hamburger
+  useEffect(() => {
+    const handleClickOutsideMenu = (e) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(e.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutsideMenu);
+    return () => document.removeEventListener('mousedown', handleClickOutsideMenu);
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      // click outside the menu AND not on the button => close
+      // click outside the menu and on the button => close
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(e.target) &&
@@ -23,7 +42,7 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Smooth scroll handler moved from inline JS to React event handler
+  // Smooth scroll handler
   const onNavClick = (e) => {
     const href = e.currentTarget.getAttribute('href');
     if (!href || !href.startsWith('#')) return;
@@ -31,7 +50,6 @@ export default function Navbar() {
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsMenuOpen(false);
     }
   };
 
@@ -87,14 +105,14 @@ export default function Navbar() {
             ))}
 
             <li className="pb-1">
-              <a
+              <button
                 ref={buttonRef}
                 onClick={() => setOpen((prev) => !prev)}
                 className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 focus-visible:outline-none hover:text-white
                   focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md cursor-pointer"
               >
                 Projets
-              </a>
+              </button>
 
               <AnimatePresence>
                 {open && (
@@ -171,7 +189,8 @@ export default function Navbar() {
               aria-label="Ouvrir le menu déroulant"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
-              onClick={() => setIsMenuOpen((v) => !v)}
+              ref={hamburgerRef}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center rounded-md border border-slate-700/60 bg-slate-900/60 p-2 cursor-pointer
               text-slate-200 hover:text-white hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70"
             >
@@ -202,6 +221,7 @@ export default function Navbar() {
             {isMenuOpen && (
               <ul
                 id="mobile-menu"
+                ref={menuRef}
                 className="absolute right-0 mt-3 w-56 origin-top-right rounded-lg border border-slate-800 bg-slate-900/95 p-2 
                 shadow-xl shadow-black/30"
               >
@@ -220,13 +240,45 @@ export default function Navbar() {
                 ))}
 
                 <li>
-                  <a
-                    href="#contact"
-                    onClick={onNavClick}
-                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70"
+                  <button
+                    ref={buttonRef}
+                    onClick={() => setOpen((prev) => !prev)}
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70 cursor-pointer"
                   >
-                    Contact
-                  </a>
+                    Projets
+                  </button>
+
+                  <AnimatePresence>
+                    {open && (
+                      <motion.ul
+                        ref={dropdownRef}
+                        initial={{ opacity: 0, clipPath: 'inset(0% 0% 0% 100%)' }}
+                        animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
+                        exit={{ opacity: 0, clipPath: 'inset(0% 0% 0% 100%)' }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className="absolute top-20 right-full w-24 px-2 pt-1 pb-2 text-slate-300 group rounded-l-xl border border-slate-800 bg-slate-900/90"
+                      >
+                        <li>
+                          <a
+                            href="#projects-perso"
+                            onClick={onNavClick}
+                            className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
+                          >
+                            Personnels
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#projects-formation"
+                            onClick={onNavClick}
+                            className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
+                          >
+                            Formation
+                          </a>
+                        </li>
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
                 </li>
 
                 <li>
@@ -242,44 +294,12 @@ export default function Navbar() {
 
                 <li>
                   <a
-                    ref={buttonRef}
-                    onClick={() => setOpen((prev) => !prev)}
-                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70 cursor-pointer"
+                    href="#contact"
+                    onClick={onNavClick}
+                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70"
                   >
-                    Projets
+                    Contact
                   </a>
-
-                  <AnimatePresence>
-                    {open && (
-                      <motion.ul
-                        ref={dropdownRef}
-                        initial={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
-                        animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
-                        exit={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
-                        transition={{ duration: 0.35, ease: 'easeInOut' }}
-                        className="absolute top-full w-46 px-2 pt-1 pb-2 text-slate-300 group rounded-b-xl border border-slate-800 bg-slate-900/90"
-                      >
-                        <li>
-                          <a
-                            href="#projects-perso"
-                            onClick={onNavClick}
-                            className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
-                          >
-                            Projets Personnels
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#projects-formation"
-                            onClick={onNavClick}
-                            className="scroll-mt-34 block px-2 py-1 text-sm hover:text-white"
-                          >
-                            Projets de Formation
-                          </a>
-                        </li>
-                      </motion.ul>
-                    )}
-                  </AnimatePresence>
                 </li>
               </ul>
             )}

@@ -83,7 +83,7 @@ export default function Presentation() {
               {/* Framer Motion caret replacing CSS animate-caret */}
               <motion.span
                 aria-hidden="true"
-                className="align-middle ml-1 inline-block text-teal-400"
+                className="align-middle inline-block text-teal-400"
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
               >
@@ -151,10 +151,10 @@ export default function Presentation() {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 justify-self-end">
             {/* Accent card / visual */}
             <motion.div
-              className="relative mx-auto max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-6 pb-6 pt-5 shadow-xl"
+              className="relative max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-6 pb-6 pt-5 shadow-xl"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: '-100px' }}
