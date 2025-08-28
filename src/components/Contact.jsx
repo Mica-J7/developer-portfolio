@@ -145,77 +145,72 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          <motion.form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            onSubmit={handleSubmit}
+          <motion.div
             className="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/60 p-6"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            {/* Hidden input for Netlify recognition */}
-            <input type="hidden" name="form-name" value="contact" />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  autoComplete="off"
-                  className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
-                  placeholder="Nom"
-                />
-              </div>
-              <div>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  autoComplete="off"
-                  className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
+            <form name="contact" netlify onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                    autoComplete="off"
+                    className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+                    placeholder="Nom"
+                  />
+                </div>
+                <div>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    autoComplete="off"
+                    className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
                   placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
-                  placeholder="Email"
-                />
+                    placeholder="Email"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="mt-4">
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                required
-                value={formData.message}
-                onChange={handleChangeMessage}
-                maxLength={500}
-                className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
+              <div className="mt-4">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  value={formData.message}
+                  onChange={handleChangeMessage}
+                  maxLength={500}
+                  className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
                 placeholder-slate-500 resize-y max-h-80 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
-                placeholder="Message (500 caractères max)"
-              />
-              <div className="flex justify-center mt-1 text-slate-300">{message.length} / 500</div>
-            </div>
-            <div className="flex justify-center mt-3">
-              <motion.button
-                type="submit"
-                disabled={submitted}
-                className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-semibold  shadow-glow 
+                  placeholder="Message (500 caractères max)"
+                />
+                <div className="flex justify-center mt-1 text-slate-300">{message.length} / 500</div>
+              </div>
+              <div className="flex justify-center mt-3">
+                <motion.button
+                  type="submit"
+                  disabled={submitted}
+                  className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-semibold  shadow-glow 
                 ${submitted ? 'opacity-50' : 'hover:opacity-95 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-teal-300 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%) transition-transform duration-50'}`}
-                whileHover={submitted ? {} : { scale: 1.08 }}
-                whileTap={submitted ? {} : { scale: 0.92 }}
-              >
-                <span className="md:pb-0.5">{submitted ? 'Message envoyé !' : 'Envoyer'}</span>
-              </motion.button>
-            </div>
-          </motion.form>
+                  whileHover={submitted ? {} : { scale: 1.08 }}
+                  whileTap={submitted ? {} : { scale: 0.92 }}
+                >
+                  <span className="md:pb-0.5">{submitted ? 'Message envoyé !' : 'Envoyer'}</span>
+                </motion.button>
+              </div>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>

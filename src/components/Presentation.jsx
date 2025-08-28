@@ -160,7 +160,6 @@ export default function Presentation() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-teal-400/10 via-cyan-400/10 to-transparent blur-2xl"></div>
               <div className="flex items-start gap-4">
                 <div className="flex h-8 md:h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
                   MJ
