@@ -11,16 +11,25 @@ export default function Contact() {
     message: '',
   });
 
+  // Function to encode data in URL-encoded
+  const encode = (data) =>
+    Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
 
-    // Creation of FormData object for sending to Netlify
-    const data = new FormData(form);
+    // Add form-name to send to Netlify
+    const dataToSend = {
+      'form-name': 'contact', // have to match with form name
+      ...formData,
+    };
 
     fetch('/', {
       method: 'POST',
-      body: data,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(dataToSend),
     })
       .then(() => {
         setSubmitted(true);
@@ -152,7 +161,8 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <form name="contact" netlify onSubmit={handleSubmit}>
+            <form name="contact" onSubmit={handleSubmit} data-netlify="true">
+              <input type="hidden" name="form-name" value="contact" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <input

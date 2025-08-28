@@ -152,7 +152,7 @@ export default function Presentation() {
           </div>
 
           <div className="lg:col-span-5 justify-self-center lg:justify-self-end">
-            {/* Accent card / visual */}
+            {/* Visiting card / visual */}
             <motion.div
               className="relative max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-6 pb-6 pt-5 shadow-xl"
               initial={{ opacity: 0 }}
