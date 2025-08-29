@@ -163,7 +163,12 @@ export default function Contact() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <form name="contact" onSubmit={handleSubmit} data-netlify="true">
+              {/* Hidden inputs for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="name" value={formData.name} />
+              <input type="hidden" name="email" value={formData.email} />
+              <input type="hidden" name="message" value={formData.message} />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <input
