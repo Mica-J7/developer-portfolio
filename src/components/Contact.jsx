@@ -39,9 +39,10 @@ export default function Contact() {
       .catch((err) => console.error(err));
   };
 
-  const handleChangeMessage = (e) => {
-    setMessage(e.target.value); // for char-counter
-    setFormData({ ...formData, message: e.target.value }); // keep sync with form
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (name === 'message') setMessage(value); // counter
   };
 
   return (
@@ -170,7 +171,7 @@ export default function Contact() {
                     name="name"
                     type="text"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={handleChange}
                     required
                     autoComplete="off"
                     className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
@@ -183,7 +184,7 @@ export default function Contact() {
                     name="email"
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={handleChange}
                     required
                     autoComplete="off"
                     className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
@@ -199,7 +200,7 @@ export default function Contact() {
                   rows={5}
                   required
                   value={formData.message}
-                  onChange={handleChangeMessage}
+                  onChange={handleChange}
                   maxLength={500}
                   className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
                 placeholder-slate-500 resize-y max-h-80 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
