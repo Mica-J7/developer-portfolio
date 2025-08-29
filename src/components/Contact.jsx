@@ -11,12 +11,6 @@ export default function Contact() {
     message: '',
   });
 
-  // Function to encode data in URL-encoded
-  const encode = (data) =>
-    Object.keys(data)
-      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -26,10 +20,12 @@ export default function Contact() {
       ...formData,
     };
 
-    fetch('/', {
+    fetch('/?no-cache=1', {
+      // <-- petit plus qui aide sur Netlify + SPA
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(dataToSend),
+      // Utiliser URLSearchParams évite les surprises d'encodage
+      body: new URLSearchParams(dataToSend).toString(),
     })
       .then(() => {
         setSubmitted(true);
