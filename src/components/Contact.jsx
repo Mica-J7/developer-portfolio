@@ -21,10 +21,8 @@ export default function Contact() {
     };
 
     fetch('/?no-cache=1', {
-      // <-- petit plus qui aide sur Netlify + SPA
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      // Utiliser URLSearchParams évite les surprises d'encodage
       body: new URLSearchParams(dataToSend).toString(),
     })
       .then(() => {

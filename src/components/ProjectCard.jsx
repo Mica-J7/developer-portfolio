@@ -35,11 +35,17 @@ export default function ProjectCard({ p, idx }) {
             </li>
           ))}
         </ul>
+        {p.challenges && (
+          <p className="mt-2 text-slate-400 text-sm">
+            <span className="font-semibold text-white">Difficulté : </span>
+            {p.challenges}
+          </p>
+        )}
         <div className="mt-4 flex items-center h-full gap-3">
           {p.live && (
             <motion.a
               href={p.live}
-              className="inline-flex items-center gap-0.5 rounded-md border border-teal-400/40 
+              className="inline-flex items-center gap-0.5 rounded-md border border-teal-400 
                       bg-teal-400/10 px-2 py-1.5 text-sm text-teal-300"
               aria-label="Ouvrir le site"
               target="_blank"
@@ -48,7 +54,7 @@ export default function ProjectCard({ p, idx }) {
               whileTap={{ scale: 0.91 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
-              Site
+              <span className="pb-0.5">Site</span>
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -64,7 +70,7 @@ export default function ProjectCard({ p, idx }) {
           {p.repo && (
             <motion.a
               href={p.repo}
-              className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-300"
+              className="inline-flex items-center gap-2 rounded-md border border-teal-400 bg-slate-900 px-2 py-1.5 text-sm text-slate-300"
               aria-label="Ouvrir le repo GitHub"
               target="_blank"
               rel="noopener noreferrer"

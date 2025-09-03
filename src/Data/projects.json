@@ -25,6 +25,7 @@
       "description": "Site portfolio de l'architecte d'intérieur Sophie Bluel.",
       "image": "/images-projects/sophiebluel.webp",
       "techs": ["HTML", "CSS", "JavaScript"],
+      "challenges": "Découverte de JavaScript et des requêtes API. J'ai fait les cours plusieurs fois ainsi que beaucoup de recherches pour en venir à bout.",
       "repo": "https://github.com/Mica-J7/Projet3",
       "type": "formation"
     },
@@ -44,6 +45,7 @@
       "description": "Kasa est une entreprise de location d’appartements entre particuliers. Récupération de données depuis un fichier JSON.",
       "image": "/images-projects/kasa.webp",
       "techs": ["HTML", "CSS", "Sass", "JavaScript", "React"],
+      "challenges": "Développement du carrousel. J'ai suivi plusieurs tutos pour en comprendre le fonctionnement.",
       "live": "https://mica-j7.github.io/Projet5/",
       "repo": "https://github.com/Mica-J7/Projet5",
       "type": "formation"
@@ -54,6 +56,7 @@
       "description": "Site de référencement et de notation de livres. Création d'une API REST, utilisation Multer + Sharp.",
       "image": "/images-projects/mvg.webp",
       "techs": ["Node.js", "Express", "MongoDB", "Mongoose"],
+      "challenges": "Utilisation de la librairie Sharp. J'ai dû faire plusieurs essais afin de réussir à afficher mes images comme je le souhaitais.",
       "repo": "https://github.com/Mica-J7/Projet6",
       "type": "formation"
     }
