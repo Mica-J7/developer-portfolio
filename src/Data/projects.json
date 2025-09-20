@@ -56,7 +56,7 @@
       "description": "Site de référencement et de notation de livres. Création d'une API REST, utilisation Multer + Sharp.",
       "image": "/images-projects/mvg.webp",
       "techs": ["Node.js", "Express", "MongoDB", "Mongoose"],
-      "challenges": "Utilisation de la librairie Sharp. J'ai dû faire plusieurs essais afin de réussir à afficher mes images comme je le souhaitais.",
+      "challenges": "Utilisation de la librairie Sharp. J'ai dû faire plusieurs essais afin de réussir à afficher les images comme je le souhaitais.",
       "repo": "https://github.com/Mica-J7/Projet6",
       "type": "formation"
     }
