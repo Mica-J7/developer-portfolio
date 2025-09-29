@@ -36,7 +36,7 @@ export default function ProjectCard({ p, idx }) {
           ))}
         </ul>
         {p.challenges && (
-          <p className="mt-2 text-slate-400 text-sm">
+          <p className="mt-3 text-slate-400 text-sm">
             <span className="font-semibold text-white">Difficulté : </span>
             {p.challenges}
           </p>

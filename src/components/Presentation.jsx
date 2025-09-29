@@ -173,7 +173,7 @@ export default function Presentation() {
               </div>
               <dl className="mt-6 grid grid-cols-3 gap-4 text-center">
                 {[
-                  { dt: 'Diplôme', dd: 'Sept 2025' },
+                  { dt: 'Diplôme', dd: '2025' },
                   { dt: 'Projets', dd: '8' },
                   { dt: 'Localisation', dd: 'Rochefort' },
                 ].map((stat, idx) => (
