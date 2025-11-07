@@ -1,1 +1,5 @@
+# Redirect Netlify subdomain to primary domain
+https://jongeau-m.netlify.app/*  https://jongeau-m.fr/:splat  301!
+
+# SPA fallback for React
 /* /index.html 200
