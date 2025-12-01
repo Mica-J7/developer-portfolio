@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jongeau-m.fr/</loc>
-  </url>
-  <url>
-    <loc>https://jongeau-m.fr/#presentation</loc>
-  </url>
-  <url>
-    <loc>https://jongeau-m.fr/#techs</loc>
-  </url>
-  <url>
-    <loc>https://jongeau-m.fr/#projects</loc>
-  </url>
-  <url>
-    <loc>https://jongeau-m.fr/#contact</loc>
-  </url>
+  <url><loc>https://jongeau-m.fr/</loc></url>
 </urlset>
