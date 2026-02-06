@@ -109,7 +109,7 @@ export default function Presentation() {
               <motion.a
                 href="#projects"
                 onClick={onAnchorClick}
-                className="inline-flex items-center justify-center w-39 gap-2 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 
+                className="inline-flex items-center justify-center w-39 gap-2 rounded-md bg-linear-to-r from-teal-400 to-cyan-400 
                 px-5 py-3 text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2 
                 focus-visible:ring-teal-300  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
                 whileHover={{ scale: 1.05 }}
@@ -161,7 +161,7 @@ export default function Presentation() {
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
               <div className="flex items-start gap-4">
-                <div className="flex h-8 md:h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
+                <div className="flex h-8 md:h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-linear-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
                   MJ
                 </div>
                 <div>

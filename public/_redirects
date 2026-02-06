@@ -1,3 +1,6 @@
+# Force HTTP to HTTPS
+http://jongeau-m.fr/* https://jongeau-m.fr/:splat 301!
+
 # Redirect Netlify subdomain to primary domain
 https://jongeau-m.netlify.app/*  https://jongeau-m.fr/:splat  301!
 

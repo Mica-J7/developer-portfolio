@@ -61,7 +61,7 @@ export default function Navbar() {
   return (
     <motion.header
       id="top"
-      className="sticky top-0 z-50 border-b border-teal-800/50 bg-slate-950/70 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60"
+      className="sticky top-0 z-50 border-b border-teal-800/50 bg-slate-950/70 backdrop-blur supports-backdrop-filter:bg-slate-950/60"
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -77,7 +77,7 @@ export default function Navbar() {
           >
             <span
               aria-hidden="true"
-              className="inline-flex h-8 w-9 items-center justify-center rounded-md bg-gradient-to-br 
+              className="inline-flex h-8 w-9 items-center justify-center rounded-md bg-linear-to-br 
               from-teal-400 to-cyan-400 text-slate-900 font-bold"
             >
               MJ

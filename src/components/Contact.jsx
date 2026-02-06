@@ -211,7 +211,7 @@ export default function Contact() {
                 <motion.button
                   type="submit"
                   disabled={submitted}
-                  className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-gradient-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-semibold  shadow-glow 
+                  className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-linear-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-semibold  shadow-glow 
                 ${submitted ? 'opacity-50' : 'hover:opacity-95 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-teal-300 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%) transition-transform duration-50'}`}
                   whileHover={submitted ? {} : { scale: 1.08 }}
                   whileTap={submitted ? {} : { scale: 0.92 }}
