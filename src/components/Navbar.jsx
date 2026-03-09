@@ -149,7 +149,7 @@ export default function Navbar() {
 
             <li className="pb-1">
               <a
-                href="/CV-dev.pdf"
+                href="/cv-jongeau.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-1 py-1 mx-3 my-2 text-sm text-slate-300 focus-visible:outline-none hover:text-white
@@ -283,7 +283,7 @@ export default function Navbar() {
 
                 <li>
                   <a
-                    href="/CV-dev.pdf"
+                    href="/cv-jongeau.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70"

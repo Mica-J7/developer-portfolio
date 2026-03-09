@@ -35,12 +35,6 @@ export default function ProjectCard({ p, idx }) {
             </li>
           ))}
         </ul>
-        {p.challenges && (
-          <p className="mt-3 text-slate-400 text-sm">
-            <span className="font-semibold text-white">Difficulté : </span>
-            {p.challenges}
-          </p>
-        )}
         <div className="mt-4 flex items-center h-full gap-3">
           {p.live && (
             <motion.a

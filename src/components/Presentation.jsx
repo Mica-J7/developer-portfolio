@@ -160,16 +160,20 @@ export default function Presentation() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              <div className="flex items-start gap-4">
-                <div className="flex h-8 md:h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-linear-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
-                  MJ
+              <div className="flex flex-col items-start gap-4">
+                <div className="flex gap-5">
+                  <div className="flex h-8 md:h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-linear-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
+                    MJ
+                  </div>
+                  <div>
+                    <h2 className="font-mono text-lg md:text-xl text-white">
+                      Titre RNCP Développeur Web - OpenClassrooms
+                    </h2>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="font-mono text-lg md:text-xl text-white pb-2">
-                    Titre RNCP Développeur Web - OpenClassrooms
-                  </h2>
-                  <p className="mt-1 text-sm text-slate-400">Clean code, API REST, responsive UI.</p>
-                </div>
+                <p className="text-center w-full text-sm text-slate-400">
+                  Clean code, API REST, responsive UI, sites sécurisés.
+                </p>
               </div>
               <dl className="mt-6 grid grid-cols-3 gap-4 text-center">
                 {[
