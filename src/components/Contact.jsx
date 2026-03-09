@@ -150,7 +150,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/60 p-6"
+            className="lg:col-span-2 rounded-2xl border max-w-150 border-slate-800 bg-slate-900/60 p-6"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
