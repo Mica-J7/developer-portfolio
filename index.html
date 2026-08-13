@@ -5,10 +5,10 @@
     <link rel="canonical" href="https://jongeau-m.fr/" />
     <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Michaël Jongeau – Développeur Web React & Node.js</title>
+    <title>Michaël Jongeau – Développeur Web Freelance React & Node.js</title>
     <meta
       name="description"
-      content="Besoin d’un développeur web React/Node.js ? Découvrez mon portfolio : projets front-end/back-end, compétences et contact."
+      content="Développeur web freelance basé à Rochefort : sites vitrines, applications web sur mesure et maintenance en React/Node.js. Devis gratuit sous 24h."
     />
     <meta name="author" content="Michaël Jongeau" />
     <meta name="robots" content="index, follow" />
@@ -21,16 +21,19 @@
 
     <!-- Open Graph (Facebook, LinkedIn, etc.) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Michaël Jongeau - Développeur Web" />
-    <meta property="og:description" content="Découvrez mes projets web et contactez-moi pour collaborer." />
+    <meta property="og:title" content="Michaël Jongeau - Développeur Web Freelance" />
+    <meta
+      property="og:description"
+      content="Sites vitrines, applications web sur mesure et maintenance. Demandez un devis gratuit."
+    />
     <meta property="og:url" content="https://jongeau-m.netlify.app/" />
     <meta property="og:image" content="https://jongeau-m.netlify.app/portfolio.jpg" />
     <meta property="og:locale" content="fr_FR" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Michaël Jongeau - Développeur Web" />
-    <meta name="twitter:description" content="Portfolio de Michael Jongeau, développeur web." />
+    <meta name="twitter:title" content="Michaël Jongeau - Développeur Web Freelance" />
+    <meta name="twitter:description" content="Sites vitrines, applications web sur mesure et maintenance." />
     <meta name="twitter:image" content="https://jongeau-m.netlify.app/portfolio.jpg" />
     <meta name="twitter:creator" content="@Mica_J7" />
   </head>
@@ -39,11 +42,14 @@
     <div id="root"></div>
 
     <!-- Netlify ghost form -->
-    <form name="contact" data-netlify="true" hidden>
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" />
       <input type="email" name="email" />
+      <input type="text" name="projectType" />
+      <input type="text" name="budget" />
       <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
     </form>
 
     <script type="module" src="/src/main.jsx"></script>

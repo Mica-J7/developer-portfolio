@@ -4,7 +4,7 @@ import TechCard from './TechCard.jsx';
 
 export default function Skills() {
   return (
-    <section id="techs" className="scroll-mt-18 border-t border-teal-900/80">
+    <section id="techs" className="scroll-mt-18 bg-slate-900/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
           id="techs-title"
@@ -14,7 +14,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          Mes compétences :
+          Stack technique&nbsp;:
         </motion.h2>
         <motion.p
           className="mt-10 text-slate-400"
@@ -23,7 +23,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
         >
-          • Front-end :
+          • Front-end&nbsp;:
         </motion.p>
 
         <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
@@ -41,7 +41,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
         >
-          • Back-end :
+          • Back-end&nbsp;:
         </motion.p>
 
         <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
@@ -59,7 +59,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
         >
-          • Autres Outils :
+          • Autres Outils&nbsp;:
         </motion.p>
 
         <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">

@@ -4,42 +4,30 @@ import ProjectCard from './ProjectCard.jsx';
 
 export default function Projects() {
   return (
-    <section id="projects" className="scroll-mt-18 border-t border-teal-900/80 pt-12 pb-16 md:pt-16 md:pb-20">
+    <section id="projects" className="scroll-mt-18 pt-12 pb-16 md:pt-16 md:pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.h2
-          id="projects-perso"
-          className="font-mono text-2xl sm:text-3xl text-white scroll-mt-30 md:scroll-mt-34"
+          className="font-mono text-2xl sm:text-3xl text-white"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          Projet Personnel :
+          Réalisations&nbsp;:
         </motion.h2>
+        <motion.p
+          className="mt-4 max-w-2xl text-slate-400"
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+        >
+          Projets personnels développés de bout en bout.
+        </motion.p>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 items-start gap-x-8 gap-y-10">
           {projects.projects
             .filter((p) => p.type === 'perso')
-            .map((p, idx) => (
-              <ProjectCard key={p.id} p={p} idx={idx} />
-            ))}
-        </div>
-      </div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 md:pt-16">
-        <motion.h2
-          id="projects-formation"
-          className="font-mono text-2xl sm:text-3xl text-white scroll-mt-30 md:scroll-mt-34"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          Projets de formation :
-        </motion.h2>
-
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
-          {projects.projects
-            .filter((p) => p.type === 'formation')
             .map((p, idx) => (
               <ProjectCard key={p.id} p={p} idx={idx} />
             ))}

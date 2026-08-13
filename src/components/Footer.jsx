@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const onBackToTop = (e) => {
@@ -18,7 +19,15 @@ export default function Footer() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-14 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-slate-400">2025 - Portfolio de Mica</p>
+        <div className="text-center sm:text-left">
+          <p className="text-slate-400">2026 - Michaël Jongeau, Développeur Web Freelance</p>
+          <p className="mt-2 text-xs text-slate-500">
+            SIRET : 99458742600010 ·{' '}
+            <Link to="/mentions-legales" className="hover:text-slate-300 underline underline-offset-2">
+              Mentions légales
+            </Link>
+          </p>
+        </div>
         <motion.a
           href="#top"
           onClick={onBackToTop}

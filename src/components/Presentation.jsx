@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion.create(Link);
 
 // Presentation section with React typewriter replacing the inline <script>
 export default function Presentation() {
@@ -49,28 +52,40 @@ export default function Presentation() {
     };
   }, []);
 
-  const onAnchorClick = (e) => {
-    const href = e.currentTarget.getAttribute('href');
-    if (!href || !href.startsWith('#')) return;
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
     <section id="presentation" className="scroll-mt-19 relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-24 md:pb-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-400/20 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-40 -left-32 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl"
+      />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-20 md:pb-24 relative">
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
+            <motion.div
+              className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-3 py-1"
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              <motion.span
+                aria-hidden="true"
+                className="h-2 w-2 rounded-full bg-teal-400"
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <span className="text-xs text-teal-300">Disponible pour de nouvelles missions</span>
+            </motion.div>
             <motion.p
-              className="text-lg text-teal-300/80 font-mono tracking-widest"
+              className="mt-4 text-lg text-teal-300/80 font-mono tracking-widest"
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              Développeur Web
+              Développeur Web Freelance
             </motion.p>
             <motion.h1
               id="presentation-title"
@@ -96,9 +111,8 @@ export default function Presentation() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
             >
-              Après plusieurs années passées dans le domaine de la logistique, je me reconvertis aujourd’hui avec
-              passion dans le développement web. Je me forme en continu pour progresser en Front-end, Back-end et sur
-              les différents outils permettant de concevoir des sites performants, esthétiques et sécurisés.
+              Je conçois des sites vitrines et des applications web sur mesure pour indépendants et petites entreprises
+              : du cahier des charges à la mise en ligne, avec un code propre, performant et sécurisé.
             </motion.p>
             <motion.div
               className="flex flex-wrap justify-center lg:justify-start items-center gap-4 mt-8"
@@ -106,16 +120,15 @@ export default function Presentation() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.25 }}
             >
-              <motion.a
-                href="#projects"
-                onClick={onAnchorClick}
-                className="inline-flex items-center justify-center w-39 gap-2 rounded-md bg-linear-to-r from-teal-400 to-cyan-400 
-                px-5 py-3 text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2 
+              <MotionLink
+                to="/tarifs"
+                className="inline-flex items-center justify-center w-auto gap-2 rounded-md bg-linear-to-r from-teal-400 to-cyan-400
+                px-5 py-3 text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2
                 focus-visible:ring-teal-300  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pl-1 md:pb-1 text-nowrap">Mes Projets</span>
+                <span className="pl-1 md:pb-1 text-nowrap">Voir mes prestations</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"
@@ -126,17 +139,16 @@ export default function Presentation() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
                 </svg>
-              </motion.a>
-              <motion.a
-                href="#contact"
-                onClick={onAnchorClick}
-                className="inline-flex items-center justify-center w-39 gap-2 rounded-md border border-slate-700/70 bg-slate-900/60 
-                px-5 py-3 text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70  
+              </MotionLink>
+              <MotionLink
+                to="/contact"
+                className="inline-flex items-center justify-center w-auto gap-2 rounded-md border border-slate-700/70 bg-slate-900/60
+                px-5 py-3 text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70
                 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pl-1 md:pb-1 text-nowrap">Contact</span>
+                <span className="pl-1 md:pb-1 text-nowrap">Demander un devis</span>
                 <svg
                   aria-hidden="true"
                   className="h-5 w-5"
@@ -147,7 +159,7 @@ export default function Presentation() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8v13H3V3h13m5 0l-8 8" />
                 </svg>
-              </motion.a>
+              </MotionLink>
             </motion.div>
           </div>
 
@@ -166,9 +178,8 @@ export default function Presentation() {
                     MJ
                   </div>
                   <div>
-                    <h2 className="font-mono text-lg md:text-xl text-white">
-                      Titre RNCP Développeur Web - OpenClassrooms
-                    </h2>
+                    <h2 className="font-mono text-lg md:text-xl text-white">Développeur Web Full-Stack</h2>
+                    <p className="mt-1 text-xs text-slate-400">Titre RNCP Développeur Web — OpenClassrooms</p>
                   </div>
                 </div>
                 <p className="text-center w-full text-sm text-slate-400">
@@ -177,8 +188,8 @@ export default function Presentation() {
               </div>
               <dl className="mt-6 grid grid-cols-3 gap-4 text-center">
                 {[
-                  { dt: 'Diplôme', dd: '2025' },
-                  { dt: 'Projets', dd: '8' },
+                  { dt: 'Réponse', dd: '24h' },
+                  { dt: 'Devis', dd: 'Gratuit' },
                   { dt: 'Localisation', dd: 'Rochefort' },
                 ].map((stat, idx) => (
                   <motion.div

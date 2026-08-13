@@ -2,60 +2,47 @@
   "projects": [
     {
       "id": 1,
-      "title": "My Session",
-      "description": "Site permettant d'enregistrer ses séances de musculation et de suivre sa progression. JWT auth, API REST, responsive design.",
+      "title": "My Session (projet toujours en cours)",
+      "description": "Site permettant d'enregistrer ses séances de musculation et de suivre sa progression, avec bibliothèque d'exercices et statistiques détaillées.",
+      "features": [
+        "Bibliothèque d'exercices avec possibilité de créer ses propres exercices",
+        "Suivi de statistiques par séance et par exercice, avec graphiques",
+        "Gestion des temps de repos entre les séries et entre les exercices",
+        "Archive de toutes les séances",
+        "Création de compte et gestion du profil"
+      ],
+      "technical": [
+        "Authentification sécurisée (JWT + cookies d'auth)",
+        "Back-office complet",
+        "API REST développée avec Django REST Framework",
+        "Design responsive (mobile, tablette, ordinateur)"
+      ],
       "image": "/images-projects/mysession.webp",
       "techs": ["React", "TypeScript", "Tailwind", "Django", "DRF", "PostgreSQL"],
       "live": "https://my-session.app",
       "type": "perso"
     },
     {
-      "id": 2,
-      "title": "Booki",
-      "description": "Site permettant aux utilisateurs de trouver des hébergements et des activités dans la ville de leur choix.",
-      "image": "/images-projects/booki.webp",
-      "techs": ["HTML", "CSS", "Figma"],
-      "live": "https://mica-j7.github.io/Projet2/",
-      "repo": "https://github.com/Mica-J7/Projet2",
-      "type": "formation"
-    },
-    {
-      "id": 3,
-      "title": "Sophie Bluel - Architecte d'intérieur",
-      "description": "Site portfolio de l'architecte d'intérieur Sophie Bluel.",
-      "image": "/images-projects/sophiebluel.webp",
-      "techs": ["HTML", "CSS", "JavaScript"],
-      "repo": "https://github.com/Mica-J7/Projet3",
-      "type": "formation"
-    },
-    {
-      "id": 4,
-      "title": "Nina Carducci - Photographe",
-      "description": "Site portfolio d'une photographe indépendante. Amélioration performances, SEO, accessibilité, debug.",
-      "image": "/images-projects/nina.webp",
-      "techs": ["JavaScript", "jQuery"],
-      "live": "https://mica-j7.github.io/Projet4/",
-      "repo": "https://github.com/Mica-J7/Projet4",
-      "type": "formation"
-    },
-    {
-      "id": 5,
-      "title": "Kasa",
-      "description": "Kasa est une entreprise de location d’appartements entre particuliers. Récupération de données depuis un fichier JSON.",
-      "image": "/images-projects/kasa.webp",
-      "techs": ["HTML", "CSS", "Sass", "JavaScript", "React"],
-      "live": "https://mica-j7.github.io/Projet5/",
-      "repo": "https://github.com/Mica-J7/Projet5",
-      "type": "formation"
-    },
-    {
-      "id": 6,
-      "title": "Mon Vieux Grimoire",
-      "description": "Site de référencement et de notation de livres. Création d'une API REST, utilisation Multer + Sharp.",
-      "image": "/images-projects/mvg.webp",
-      "techs": ["Node.js", "Express", "MongoDB", "Mongoose"],
-      "repo": "https://github.com/Mica-J7/Projet6",
-      "type": "formation"
+      "id": 7,
+      "title": "Elowcraft – Chat Highlights",
+      "description": "Outil qui détecte automatiquement les moments forts d'une VOD Twitch en analysant les pics d'activité dans le chat replay, puis télécharge les clips correspondants.",
+      "features": [
+        "Récupération automatique du chat replay d'une VOD (URL ou ID)",
+        "Détection automatique des moments forts à partir des pics d'activité du chat",
+        "Pour chaque moment : émotes les plus utilisées, messages représentatifs et lien Twitch horodaté",
+        "Téléchargement des clips vidéo correspondants",
+        "Export d'un rapport texte listant tous les moments détectés",
+        "Gestion des VOD téléchargées (taille détaillée, suppression ciblée du chat/des clips)"
+      ],
+      "technical": [
+        "Stack : Python, Streamlit (UI web), yt-dlp (extraction vidéo), TwitchDownloaderCLI (récupération du chat)",
+        "Deux interfaces : application Streamlit et script en ligne de commande partageant la même logique",
+        "Architecture : logique métier isolée dans un module Python réutilisable, séparée de l'affichage",
+        "Détection des pics d'activité du chat par comparaison à une moyenne récente, puis fusion des pics proches"
+      ],
+      "image": "/images-projects/elowcraft.webp",
+      "techs": ["Python", "Streamlit", "Pandas", "NumPy", "yt-dlp", "TwitchDownloaderCLI", "Typer"],
+      "type": "perso"
     }
   ]
 }

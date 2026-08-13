@@ -5,14 +5,39 @@ import { SiX } from '@icons-pack/react-simple-icons';
 export default function Contact() {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({ name: '', email: '', message: '' });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    projectType: '',
+    budget: '',
     message: '',
+    'bot-field': '',
   });
+
+  const validate = (data) => {
+    const newErrors = { name: '', email: '', message: '' };
+    if (!data.name.trim()) newErrors.name = 'Merci de renseigner votre nom.';
+    if (!data.email.trim()) {
+      newErrors.email = 'Merci de renseigner votre email.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) {
+      newErrors.email = "Format d'email invalide.";
+    }
+    if (data.message.trim().length < 10) {
+      newErrors.message = 'Votre message doit contenir au moins 10 caractères.';
+    }
+    return newErrors;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Honeypot: a real visitor never fills this field, only bots do. Drop silently.
+    if (formData['bot-field']) return;
+
+    const newErrors = validate(formData);
+    setErrors(newErrors);
+    if (newErrors.name || newErrors.email || newErrors.message) return;
 
     // Add form-name to send to Netlify
     const dataToSend = {
@@ -27,8 +52,9 @@ export default function Contact() {
     })
       .then(() => {
         setSubmitted(true);
-        setFormData({ name: '', email: '', message: '' }); // reset inputs
+        setFormData({ name: '', email: '', projectType: '', budget: '', message: '', 'bot-field': '' }); // reset inputs
         setMessage(''); // reset char-counter
+        setErrors({ name: '', email: '', message: '' });
       })
       .catch((err) => console.error(err));
   };
@@ -37,10 +63,11 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     if (name === 'message') setMessage(value); // counter
+    if (errors[name]) setErrors({ ...errors, [name]: '' }); // clear error as the user corrects it
   };
 
   return (
-    <section id="contact" className="scroll-mt-18 border-t border-teal-900/80">
+    <section id="contact" className="scroll-mt-18">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
           id="contact-title"
@@ -50,7 +77,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          Me Contacter :
+          Discutons de votre projet&nbsp;:
         </motion.h2>
         <motion.p
           className="my-8 text-slate-400"
@@ -59,9 +86,9 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
         >
-          N'hésitez pas à me contacter sur mes réseaux ou via formulaire si vous souhaitez
+          Décrivez-moi votre besoin via le formulaire ci-dessous ou contactez-moi directement,
           <br />
-          discuter d'un projet ou de toute autre chose.
+          je réponds sous 24h.
         </motion.p>
 
         <div className="grid gap-10 lg:grid-cols-3">
@@ -156,12 +183,28 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <form name="contact" onSubmit={handleSubmit} data-netlify="true">
+            <form name="contact" onSubmit={handleSubmit} data-netlify="true" data-netlify-honeypot="bot-field" noValidate>
               {/* Hidden inputs for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="name" value={formData.name} />
               <input type="hidden" name="email" value={formData.email} />
+              <input type="hidden" name="projectType" value={formData.projectType} />
+              <input type="hidden" name="budget" value={formData.budget} />
               <input type="hidden" name="message" value={formData.message} />
+
+              {/* Honeypot: visually hidden from real visitors, bots tend to fill every field they find */}
+              <div className="sr-only">
+                <label htmlFor="bot-field">Ne pas remplir si vous êtes humain</label>
+                <input
+                  id="bot-field"
+                  name="bot-field"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData['bot-field']}
+                  onChange={handleChange}
+                />
+              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -171,11 +214,21 @@ export default function Contact() {
                     type="text"
                     value={formData.name}
                     onChange={handleChange}
-                    required
                     autoComplete="off"
-                    className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+                    aria-invalid={Boolean(errors.name)}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
+                    className={`mt-1 w-full rounded-md border bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 ${
+                      errors.name
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500/40'
+                        : 'border-slate-700 focus:border-teal-500 focus:ring-teal-500/40'
+                    }`}
                     placeholder="Nom"
                   />
+                  {errors.name && (
+                    <p id="name-error" className="mt-1 text-xs text-red-400">
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <input
@@ -184,12 +237,58 @@ export default function Contact() {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
                     autoComplete="off"
-                    className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
-                  placeholder-slate-500 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+                    aria-invalid={Boolean(errors.email)}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
+                    className={`mt-1 w-full rounded-md border bg-slate-950 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 ${
+                      errors.email
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500/40'
+                        : 'border-slate-700 focus:border-teal-500 focus:ring-teal-500/40'
+                    }`}
                     placeholder="Email"
                   />
+                  {errors.email && (
+                    <p id="email-error" className="mt-1 text-xs text-red-400">
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100
+                  focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+                  >
+                    <option value="">Type de projet (optionnel)</option>
+                    <option value="Site vitrine">Site vitrine</option>
+                    <option value="Site e-commerce">Site e-commerce</option>
+                    <option value="Application web sur mesure">Application web sur mesure</option>
+                    <option value="Maintenance / évolution">Maintenance / évolution</option>
+                    <option value="Audit SEO">Audit SEO</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </div>
+                <div>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100
+                  focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+                  >
+                    <option value="">Budget indicatif (optionnel)</option>
+                    <option value="Moins de 1000€">Moins de 1000€</option>
+                    <option value="1000€ - 3000€">1000€ - 3000€</option>
+                    <option value="3000€ - 6000€">3000€ - 6000€</option>
+                    <option value="Plus de 6000€">Plus de 6000€</option>
+                    <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+                  </select>
                 </div>
               </div>
               <div className="mt-4">
@@ -197,14 +296,24 @@ export default function Contact() {
                   id="message"
                   name="message"
                   rows={5}
-                  required
                   value={formData.message}
                   onChange={handleChange}
                   maxLength={500}
-                  className="mt-1 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100 
-                placeholder-slate-500 resize-y max-h-80 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
-                  placeholder="Message (500 caractères max)"
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
+                  className={`mt-1 w-full rounded-md border bg-slate-950 px-3 py-2 text-slate-100
+                placeholder-slate-500 resize-y max-h-80 focus:outline-none focus:ring-2 ${
+                  errors.message
+                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500/40'
+                    : 'border-slate-700 focus:border-teal-500 focus:ring-teal-500/40'
+                }`}
+                  placeholder="Message (10 caractères minimum, 500 max)"
                 />
+                {errors.message && (
+                  <p id="message-error" className="mt-1 text-xs text-red-400 text-center">
+                    {errors.message}
+                  </p>
+                )}
                 <div className="flex justify-center mt-1 text-slate-300">{message.length} / 500</div>
               </div>
               <div className="flex justify-center mt-3">

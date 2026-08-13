@@ -1,34 +1,71 @@
 import { motion } from 'framer-motion';
 
+function BulletList({ label, items }) {
+  if (!items) return null;
+  return (
+    <div className="mt-4">
+      <p className="text-xs font-mono uppercase tracking-wide text-teal-400/80">{label}</p>
+      <ul className="mt-2 space-y-2">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
+            <svg
+              aria-hidden="true"
+              className="mt-0.5 h-4 w-4 shrink-0 text-teal-400"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function ProjectCard({ p, idx }) {
+  // Split a trailing "(note)" out of the title so it can be styled smaller, e.g. "My Session (projet toujours en cours)"
+  const titleMatch = p.title.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
+  const mainTitle = titleMatch ? titleMatch[1] : p.title;
+  const titleNote = titleMatch ? titleMatch[2] : null;
+
   return (
     <motion.article
       key={p.id}
-      className="group flex flex-col overflow-hidden rounded-xl border border-slate-800 
-             bg-slate-900/60
+      className="group flex flex-col overflow-hidden rounded-xl border border-slate-800
+             bg-linear-to-b from-slate-900/80 to-slate-900/30
              hover:border-teal-400
-             hover:shadow-[0_0_10px_rgb(45_212_191/90%),0_0_25px_rgb(45_212_191/50%),0_0_50px_rgb(45_212_191/30%)]
-             hover:scale-105
-             transition-transform duration-800"
+             hover:shadow-[0_0_8px_rgb(45_212_191/50%),0_0_18px_rgb(45_212_191/25%)]
+             transition-colors duration-300"
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.08 }}
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden p-4 pb-0">
         <motion.img
           src={p.image}
           alt={`Image du site ${p.title}`}
-          className="h-44 w-full object-cover"
+          className="h-64 w-full rounded-lg object-cover"
           loading="lazy"
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         />
       </div>
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-mono text-xl text-white">{p.title}</h3>
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="font-mono text-2xl text-white">
+          {mainTitle}
+          {titleNote && <span className="ml-2 text-sm font-normal text-slate-400">({titleNote})</span>}
+        </h3>
         <p className="mt-2 text-slate-400 text-sm">{p.description}</p>
-        <ul className="mt-3 flex flex-wrap gap-2">
+
+        <BulletList label="Fonctionnalités" items={p.features} />
+        <BulletList label="Aspects techniques" items={p.technical} />
+
+        <ul className="mt-4 flex flex-wrap gap-2">
           {p.techs.map((t) => (
             <li key={t} className="rounded border border-slate-700 px-2 py-1 text-xs text-slate-300">
               {t}
@@ -48,7 +85,7 @@ export default function ProjectCard({ p, idx }) {
               whileTap={{ scale: 0.91 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
-              <span className="pb-0.5">Site</span>
+              <span className="pb-0.5">Voir le site</span>
               <svg
                 className="h-5 w-5"
                 fill="none"
