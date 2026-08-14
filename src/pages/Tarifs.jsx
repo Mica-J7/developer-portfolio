@@ -34,14 +34,14 @@ export default function Tarifs() {
     <>
       <Process />
 
-      <section className="scroll-mt-18 bg-slate-900/40">
+      <section className="scroll-mt-18 bg-slate-900/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-4 md:pt-16">
           <motion.h1
             className="font-mono text-2xl sm:text-3xl text-white"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             Tarifs&nbsp;:
           </motion.h1>
@@ -50,7 +50,7 @@ export default function Tarifs() {
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
           >
             Chaque projet est différent&nbsp;: les tarifs ci-dessous sont donnés à titre indicatif, un devis détaillé
             et gratuit est établi après un premier échange sur votre besoin.
@@ -67,7 +67,7 @@ export default function Tarifs() {
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
               >
                 {group.title}
               </motion.h2>

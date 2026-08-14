@@ -7,14 +7,14 @@ export default function CtaBanner({
   tone = 'base',
 }) {
   return (
-    <section className={tone === 'alt' ? 'bg-slate-900/40' : undefined}>
+    <section className={tone === 'alt' ? 'bg-slate-900/70' : undefined}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-16 text-center">
         <motion.h2
           className="font-mono text-2xl sm:text-3xl text-white"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
         >
           {title}
         </motion.h2>
@@ -23,7 +23,7 @@ export default function CtaBanner({
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
           {description}
         </motion.p>
@@ -32,7 +32,7 @@ export default function CtaBanner({
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.08 }}
         >
           <Link
             to="/contact"

@@ -12,7 +12,8 @@ import LegalNotice from './pages/LegalNotice.jsx';
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    // "instant" (not "auto") is required to override the site-wide scroll-smooth CSS on <html>
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [pathname]);
   return null;
 }

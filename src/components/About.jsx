@@ -25,7 +25,7 @@ const points = [
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-18 bg-slate-900/40">
+    <section id="about" className="scroll-mt-18 bg-slate-900/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
           {points.map((point, idx) => (
@@ -34,7 +34,7 @@ export default function About() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.08 }}
+              transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
             >
               <h3 className={`font-mono text-sm text-center ${point.titleClass}`}>{point.title}</h3>
               <p className="mt-2 text-sm text-slate-400 leading-relaxed text-center">{point.description}</p>

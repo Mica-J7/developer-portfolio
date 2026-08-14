@@ -5,6 +5,7 @@ import { SiX } from '@icons-pack/react-simple-icons';
 export default function Contact() {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
   const [formData, setFormData] = useState({
     name: '',
@@ -45,6 +46,8 @@ export default function Contact() {
       ...formData,
     };
 
+    setIsSubmitting(true);
+
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -56,7 +59,8 @@ export default function Contact() {
         setMessage(''); // reset char-counter
         setErrors({ name: '', email: '', message: '' });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setIsSubmitting(false));
   };
 
   const handleChange = (e) => {
@@ -75,7 +79,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
         >
           Discutons de votre projet&nbsp;:
         </motion.h2>
@@ -84,7 +88,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
           Décrivez-moi votre besoin via le formulaire ci-dessous ou contactez-moi directement,
           <br />
@@ -97,7 +101,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
             className="space-y-1 md:space-y-3 my-auto"
           >
             <div className="flex items-start md:flex-col md:space-y-3 gap-4 md:gap-0">
@@ -181,7 +185,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             <form name="contact" onSubmit={handleSubmit} data-netlify="true" data-netlify-honeypot="bot-field" noValidate>
               {/* Hidden inputs for Netlify */}
@@ -319,13 +323,30 @@ export default function Contact() {
               <div className="flex justify-center mt-3">
                 <motion.button
                   type="submit"
-                  disabled={submitted}
-                  className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-linear-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-semibold  shadow-glow 
-                ${submitted ? 'opacity-50' : 'hover:opacity-95 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-teal-300 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%) transition-transform duration-50'}`}
-                  whileHover={submitted ? {} : { scale: 1.08 }}
-                  whileTap={submitted ? {} : { scale: 0.92 }}
+                  disabled={submitted || isSubmitting}
+                  className={`inline-flex justify-center text-sm md:text-base items-center gap-2 w-1/3 rounded-md bg-linear-to-r from-teal-400 to-cyan-400 px-5 py-2.5 text-slate-900 font-semibold  shadow-glow
+                ${submitted || isSubmitting ? 'opacity-50' : 'hover:opacity-95 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-teal-300 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%) transition-transform duration-50'}`}
+                  whileHover={submitted || isSubmitting ? {} : { scale: 1.08 }}
+                  whileTap={submitted || isSubmitting ? {} : { scale: 0.92 }}
                 >
-                  <span className="md:pb-0.5">{submitted ? 'Message envoyé !' : 'Envoyer'}</span>
+                  {isSubmitting && (
+                    <svg
+                      aria-hidden="true"
+                      className="h-4 w-4 animate-spin text-slate-900"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4z"
+                      />
+                    </svg>
+                  )}
+                  <span className="md:pb-0.5">
+                    {submitted ? 'Message envoyé !' : isSubmitting ? 'Envoi...' : 'Envoyer'}
+                  </span>
                 </motion.button>
               </div>
             </form>

@@ -4,7 +4,7 @@ import TechCard from './TechCard.jsx';
 
 export default function Skills() {
   return (
-    <section id="techs" className="scroll-mt-18 bg-slate-900/40">
+    <section id="techs" className="scroll-mt-18 bg-slate-900/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
           id="techs-title"
@@ -12,7 +12,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
         >
           Stack technique&nbsp;:
         </motion.h2>
@@ -21,7 +21,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
           • Front-end&nbsp;:
         </motion.p>
@@ -39,7 +39,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
           • Back-end&nbsp;:
         </motion.p>
@@ -57,7 +57,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
           • Autres Outils&nbsp;:
         </motion.p>

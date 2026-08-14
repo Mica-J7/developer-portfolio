@@ -32,7 +32,7 @@ export default function Process() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
         >
           Déroulement d'un projet&nbsp;:
         </motion.h2>
@@ -41,11 +41,11 @@ export default function Process() {
           {steps.map((s, idx) => (
             <motion.div
               key={s.step}
-              className="rounded-xl border border-slate-800 bg-linear-to-b from-slate-900/80 to-slate-900/30 p-5"
+              className="rounded-xl border border-slate-800 bg-linear-to-b from-slate-800/80 to-slate-950/40 p-5"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.08 }}
+              transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
             >
               <div className="flex items-center gap-2">
                 <span className="font-mono text-xl text-amber-400">{s.step}</span>

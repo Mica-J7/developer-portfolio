@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function BulletList({ label, items }) {
   if (!items) return null;
@@ -32,27 +34,47 @@ export default function ProjectCard({ p, idx }) {
   const mainTitle = titleMatch ? titleMatch[1] : p.title;
   const titleNote = titleMatch ? titleMatch[2] : null;
 
+  const hasDetails = Boolean(p.features || p.technical);
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
+  const imageLayoutId = `project-image-${p.id}`;
+
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setZoomed(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [zoomed]);
+
   return (
     <motion.article
       key={p.id}
       className="group flex flex-col overflow-hidden rounded-xl border border-slate-800
-             bg-linear-to-b from-slate-900/80 to-slate-900/30
+             bg-linear-to-b from-slate-800/80 to-slate-950/40
              hover:border-teal-400
              hover:shadow-[0_0_8px_rgb(45_212_191/50%),0_0_18px_rgb(45_212_191/25%)]
              transition-colors duration-300"
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.08 }}
+      transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.04 }}
     >
       <div className="relative overflow-hidden p-4 pb-0">
         <motion.img
+          layoutId={imageLayoutId}
           src={p.image}
           alt={`Image du site ${p.title}`}
-          className="h-64 w-full rounded-lg object-cover"
+          className="aspect-1200/630 w-full cursor-zoom-in rounded-lg object-cover"
           loading="lazy"
+          onClick={() => setZoomed(true)}
           whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
         />
       </div>
       <div className="flex flex-1 flex-col p-6">
@@ -62,8 +84,45 @@ export default function ProjectCard({ p, idx }) {
         </h3>
         <p className="mt-2 text-slate-400 text-sm">{p.description}</p>
 
-        <BulletList label="Fonctionnalités" items={p.features} />
-        <BulletList label="Aspects techniques" items={p.technical} />
+        {hasDetails && (
+          <>
+            <button
+              type="button"
+              onClick={() => setDetailsOpen((prev) => !prev)}
+              aria-expanded={detailsOpen}
+              className="mt-4 flex items-center gap-1.5 text-xs font-mono uppercase tracking-wide text-teal-400 hover:text-teal-300 cursor-pointer"
+            >
+              <span>{detailsOpen ? 'Masquer le détail' : 'Voir le détail'}</span>
+              <motion.svg
+                aria-hidden="true"
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                animate={{ rotate: detailsOpen ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+              </motion.svg>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {detailsOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <BulletList label="Fonctionnalités" items={p.features} />
+                  <BulletList label="Aspects techniques" items={p.technical} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </>
+        )}
 
         <ul className="mt-4 flex flex-wrap gap-2">
           {p.techs.map((t) => (
@@ -76,7 +135,7 @@ export default function ProjectCard({ p, idx }) {
           {p.live && (
             <motion.a
               href={p.live}
-              className="inline-flex items-center gap-0.5 rounded-md border border-teal-400 
+              className="inline-flex items-center gap-0.5 rounded-md border border-teal-400
                       bg-teal-400/10 px-2 py-1.5 text-sm text-teal-300"
               aria-label="Ouvrir le site"
               target="_blank"
@@ -117,6 +176,32 @@ export default function ProjectCard({ p, idx }) {
           )}
         </div>
       </div>
+
+      {createPortal(
+        <AnimatePresence>
+          {zoomed && (
+            <motion.div
+              className="fixed inset-0 z-50 cursor-zoom-out overflow-auto bg-slate-950/90 p-6 backdrop-blur-sm
+              pointer-fine:flex pointer-fine:items-center pointer-fine:justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setZoomed(false)}
+            >
+              {/* Desktop: image scales down to fit the screen. Touch: rendered at natural size inside
+                  a scrollable area, since a screen-constrained "zoom" would be pointless on a small viewport. */}
+              <motion.img
+                layoutId={imageLayoutId}
+                src={p.image}
+                alt={`Image du site ${p.title}`}
+                className="mx-auto max-w-none rounded-lg object-contain shadow-2xl pointer-fine:max-h-full pointer-fine:max-w-full"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </motion.article>
   );
 }

@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <header
       id="top"
-      className="sticky top-0 z-50 border-b border-teal-800/50 bg-slate-950/70 backdrop-blur supports-backdrop-filter:bg-slate-950/60"
+      className="sticky top-0 z-50 border-b border-teal-800/50 bg-slate-950/95 pointer-fine:bg-slate-950/70 pointer-fine:backdrop-blur pointer-fine:supports-backdrop-filter:bg-slate-950/60"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-1">
         <nav className="flex h-16 items-center justify-between">

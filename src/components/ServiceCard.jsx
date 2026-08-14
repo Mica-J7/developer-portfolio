@@ -27,12 +27,12 @@ export default function ServiceCard({ service, idx, accent = 'teal' }) {
 
   return (
     <motion.article
-      className={`flex flex-col rounded-xl border border-slate-800 bg-linear-to-b from-slate-900/80 to-slate-900/30 p-6
+      className={`flex flex-col rounded-xl border border-slate-800 bg-linear-to-b from-slate-800/80 to-slate-950/40 p-6
              transition-colors duration-300 ${colors.hover}`}
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.08 }}
+      transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.04 }}
     >
       <h3 className="font-mono text-xl text-white">{service.title}</h3>
       <p className="mt-3 text-slate-400 text-sm leading-relaxed">{service.description}</p>

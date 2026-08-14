@@ -11,18 +11,18 @@ export default function Projects() {
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
         >
-          Réalisations&nbsp;:
+          Mes réalisations&nbsp;:
         </motion.h2>
         <motion.p
           className="mt-4 max-w-2xl text-slate-400"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
-          Projets personnels développés de bout en bout.
+          Mes projets développés de bout en bout.
         </motion.p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 items-start gap-x-8 gap-y-10">

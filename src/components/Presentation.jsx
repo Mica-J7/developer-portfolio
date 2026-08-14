@@ -56,11 +56,11 @@ export default function Presentation() {
     <section id="presentation" className="scroll-mt-19 relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-400/20 blur-3xl"
+        className="pointer-events-none absolute -top-32 -right-32 hidden h-96 w-96 rounded-full bg-teal-400/20 blur-3xl pointer-fine:block"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-40 -left-32 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl"
+        className="pointer-events-none absolute top-40 -left-32 hidden h-80 w-80 rounded-full bg-amber-400/10 blur-3xl pointer-fine:block"
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-20 md:pb-24 relative">
         <div className="grid items-center gap-10 lg:grid-cols-12">
@@ -69,7 +69,7 @@ export default function Presentation() {
               className="inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-3 py-1"
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
             >
               <motion.span
                 aria-hidden="true"
@@ -83,7 +83,7 @@ export default function Presentation() {
               className="mt-4 text-lg text-teal-300/80 font-mono tracking-widest"
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
             >
               Développeur Web Freelance
             </motion.p>
@@ -92,7 +92,7 @@ export default function Presentation() {
               className="mt-3 font-mono text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-nowrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
             >
               <span className="align-middle">{typedText}</span>
               {/* Framer Motion caret replacing CSS animate-caret */}
@@ -109,7 +109,7 @@ export default function Presentation() {
               className="mt-5 max-w-2xl text-slate-300/90 leading-relaxed"
               initial={{ y: 12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.08 }}
             >
               Je conçois des sites vitrines et des applications web sur mesure pour indépendants et petites entreprises
               : du cahier des charges à la mise en ligne, avec un code propre, performant et sécurisé.
@@ -118,7 +118,7 @@ export default function Presentation() {
               className="flex flex-wrap justify-center lg:justify-start items-center gap-4 mt-8"
               initial={{ y: 12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.25 }}
+              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.12 }}
             >
               <MotionLink
                 to="/tarifs"
@@ -169,17 +169,17 @@ export default function Presentation() {
               className="relative max-w-md rounded-2xl border border-slate-800 bg-slate-900/60 pl-6 pr-6 pb-6 pt-5 shadow-xl"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
             >
               <div className="flex flex-col items-start gap-4">
-                <div className="flex gap-5">
-                  <div className="flex h-8 md:h-10 w-14 mt-1.5 items-center justify-center rounded-lg bg-linear-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
+                <div className="flex items-start gap-5">
+                  <div className="inline-flex h-8 w-9 shrink-0 items-center justify-center rounded-md bg-linear-to-br from-teal-400 to-cyan-400 text-slate-900 font-bold">
                     MJ
                   </div>
                   <div>
                     <h2 className="font-mono text-lg md:text-xl text-white">Développeur Web Full-Stack</h2>
-                    <p className="mt-1 text-xs text-slate-400">Titre RNCP Développeur Web — OpenClassrooms</p>
+                    <p className="mt-1 text-xs text-slate-400">Titre RNCP Développeur Web - OpenClassrooms</p>
                   </div>
                 </div>
                 <p className="text-center w-full text-sm text-slate-400">
@@ -199,9 +199,9 @@ export default function Presentation() {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{
-                      duration: 0.5,
+                      duration: 0.35,
                       ease: 'easeOut',
-                      delay: 0.1 * idx,
+                      delay: 0.05 * idx,
                     }}
                   >
                     <dt className="text-xs text-slate-400">{stat.dt}</dt>

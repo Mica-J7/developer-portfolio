@@ -16,7 +16,7 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-14 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
