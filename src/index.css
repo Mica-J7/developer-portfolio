@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Dark background from the very first paint, before React mounts, to avoid a white flash on load */
+html,
+body {
+  background-color: #020617;
+}
+
 @theme {
   --shadow-glow: 0 0 20px -6px rgb(45 212 191 / 0.55), 0 0 40px -18px rgb(34 211 238 / 0.45);
 }
