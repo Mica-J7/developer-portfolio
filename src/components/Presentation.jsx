@@ -123,15 +123,15 @@ export default function Presentation() {
               <MotionLink
                 to="/tarifs"
                 className="inline-flex items-center justify-center w-auto gap-2 rounded-md bg-linear-to-r from-teal-400 to-cyan-400
-                px-5 py-3 text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2
+                px-4 py-2.5 text-sm text-slate-900 font-medium shadow-glow focus-visible:outline-none focus-visible:ring-2
                 focus-visible:ring-teal-300  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pl-1 md:pb-1 text-nowrap">Voir mes prestations</span>
+                <span className="text-nowrap">Voir mes prestations</span>
                 <svg
                   aria-hidden="true"
-                  className="h-5 w-5"
+                  className="h-4 w-4"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -143,15 +143,15 @@ export default function Presentation() {
               <MotionLink
                 to="/contact"
                 className="inline-flex items-center justify-center w-auto gap-2 rounded-md border border-slate-700/70 bg-slate-900/60
-                px-5 py-3 text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70
+                px-4 py-2.5 text-sm text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70
                 hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pl-1 md:pb-1 text-nowrap">Demander un devis</span>
+                <span className="text-nowrap">Demander un devis</span>
                 <svg
                   aria-hidden="true"
-                  className="h-5 w-5"
+                  className="h-4 w-4"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"

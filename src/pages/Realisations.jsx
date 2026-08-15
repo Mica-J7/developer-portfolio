@@ -6,7 +6,7 @@ export default function Realisations() {
     <>
       <Projects />
       <CtaBanner
-        title="Votre projet pourrait être le prochain"
+        title="Votre projet pourrait être le prochain !"
         description="Parlons de ce que vous voulez construire."
         tone="alt"
       />

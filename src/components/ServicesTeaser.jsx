@@ -76,7 +76,7 @@ export default function ServicesTeaser() {
         </div>
 
         <motion.div
-          className="mt-8"
+          className="mt-8 ml-4"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -87,7 +87,14 @@ export default function ServicesTeaser() {
             className="inline-flex items-center gap-2 text-sm text-teal-300 hover:text-teal-100 underline underline-offset-4 decoration-teal-700 hover:decoration-teal-300"
           >
             Voir tous mes tarifs
-            <svg aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg
+              aria-hidden="true"
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
             </svg>
           </Link>

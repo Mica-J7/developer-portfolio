@@ -187,7 +187,13 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            <form name="contact" onSubmit={handleSubmit} data-netlify="true" data-netlify-honeypot="bot-field" noValidate>
+            <form
+              name="contact"
+              onSubmit={handleSubmit}
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              noValidate
+            >
               {/* Hidden inputs for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="name" value={formData.name} />
@@ -311,7 +317,7 @@ export default function Contact() {
                     ? 'border-red-500 focus:border-red-500 focus:ring-red-500/40'
                     : 'border-slate-700 focus:border-teal-500 focus:ring-teal-500/40'
                 }`}
-                  placeholder="Message (10 caractères minimum, 500 max)"
+                  placeholder="Message (500 caractères max)"
                 />
                 {errors.message && (
                   <p id="message-error" className="mt-1 text-xs text-red-400 text-center">
