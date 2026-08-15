@@ -48,7 +48,7 @@ export default function Process() {
               transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
             >
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xl text-amber-400">{s.step}</span>
+                <span className="font-mono text-xl text-teal-400">{s.step}</span>
                 <h3 className="font-mono text-lg text-white">{s.title}</h3>
               </div>
               <p className="mt-2 text-sm text-slate-400 leading-relaxed">{s.description}</p>
