@@ -1,11 +1,37 @@
 @import "tailwindcss";
 
-/* Dark background from the very first paint, before React mounts, to avoid a white flash on load */
+/* Light background from the very first paint, before React mounts, to avoid a flash on load */
 html,
 body {
-  background-color: #020617;
+  background-color: #fafaf9;
 }
 
 @theme {
-  --shadow-glow: 0 0 20px -6px rgb(45 212 191 / 0.55), 0 0 40px -18px rgb(34 211 238 / 0.45);
+  /* Soft elevation shadow for primary CTAs — replaces the old neon glow */
+  --shadow-soft: 0 8px 20px -6px rgb(85 118 74 / 0.35), 0 2px 8px -2px rgb(28 25 23 / 0.08);
+
+  /* Brand wordmark typeface (see public/brand/README.md) */
+  --font-archivo: 'Archivo', sans-serif;
+
+  /* Warm accent palette: terracotta (primary), sage (secondary), gold (tertiary) */
+  --color-terracotta-50: #fbf1ec;
+  --color-terracotta-100: #f5ddd0;
+  --color-terracotta-400: #d98459;
+  --color-terracotta-500: #c2542d;
+  --color-terracotta-600: #a6431f;
+  --color-terracotta-700: #8a3618;
+
+  --color-sage-50: #eef3ea;
+  --color-sage-100: #d7e3cb;
+  --color-sage-400: #7c9c68;
+  --color-sage-500: #55764a;
+  --color-sage-600: #435e3a;
+  --color-sage-700: #354a2e;
+
+  --color-gold-50: #fbf3e3;
+  --color-gold-100: #f3e0b8;
+  --color-gold-400: #ddb55e;
+  --color-gold-500: #c79a3d;
+  --color-gold-600: #a87d2c;
+  --color-gold-700: #8a6423;
 }

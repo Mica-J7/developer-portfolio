@@ -1,25 +1,19 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Check, ChevronDown, ExternalLink } from 'lucide-react';
+
+const MotionChevronDown = motion.create(ChevronDown);
 
 function BulletList({ label, items }) {
   if (!items) return null;
   return (
     <div className="mt-4">
-      <p className="text-xs font-mono uppercase tracking-wide text-teal-400/80">{label}</p>
+      <p className="text-xs font-mono font-semibold uppercase tracking-wide text-sage-600">{label}</p>
       <ul className="mt-2 space-y-2">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
-            <svg
-              aria-hidden="true"
-              className="mt-0.5 h-4 w-4 shrink-0 text-teal-400"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
+          <li key={item} className="flex items-start gap-2 text-sm text-stone-600">
+            <Check aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-stone-500" />
             <span>{item}</span>
           </li>
         ))}
@@ -55,34 +49,36 @@ export default function ProjectCard({ p, idx }) {
   return (
     <motion.article
       key={p.id}
-      className="group flex flex-col overflow-hidden rounded-xl border border-slate-800
-             bg-linear-to-b from-slate-800/80 to-slate-950/40
-             hover:border-teal-400
-             hover:shadow-[0_0_8px_rgb(45_212_191/50%),0_0_18px_rgb(45_212_191/25%)]
-             transition-colors duration-300"
+      className="group flex flex-col overflow-hidden rounded-xl border border-stone-200
+             bg-white shadow-md
+             hover:border-sage-400
+             hover:shadow-lg
+             transition-[border-color,box-shadow] duration-300"
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.04 }}
     >
-      <div className="relative overflow-hidden p-4 pb-0">
-        <motion.img
-          layoutId={imageLayoutId}
-          src={p.image}
-          alt={`Image du site ${p.title}`}
-          className="aspect-1200/630 w-full cursor-zoom-in rounded-lg object-cover"
-          loading="lazy"
-          onClick={() => setZoomed(true)}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.35, ease: 'easeOut' }}
-        />
+      <div className="relative p-4 pb-0">
+        <div className="overflow-hidden rounded-lg">
+          <motion.img
+            layoutId={imageLayoutId}
+            src={p.image}
+            alt={`Image du site ${p.title}`}
+            className="aspect-1200/630 w-full cursor-zoom-in object-cover"
+            loading="lazy"
+            onClick={() => setZoomed(true)}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+          />
+        </div>
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-mono text-2xl text-white">
+      <div className="flex h-full flex-1 flex-col p-6">
+        <h3 className="text-2xl font-bold text-stone-900">
           {mainTitle}
-          {titleNote && <span className="ml-2 text-sm font-normal text-slate-400">({titleNote})</span>}
+          {titleNote && <span className="ml-2 text-sm font-normal text-stone-500">({titleNote})</span>}
         </h3>
-        <p className="mt-2 text-slate-400 text-sm">{p.description}</p>
+        <p className="mt-2 text-stone-600 text-base">{p.description}</p>
 
         {hasDetails && (
           <>
@@ -90,21 +86,15 @@ export default function ProjectCard({ p, idx }) {
               type="button"
               onClick={() => setDetailsOpen((prev) => !prev)}
               aria-expanded={detailsOpen}
-              className="mt-4 flex items-center gap-1.5 text-xs font-mono uppercase tracking-wide text-teal-400 hover:text-teal-300 cursor-pointer"
+              className="mt-4 inline-flex w-44 items-center justify-center gap-1.5 self-start rounded-md border border-sage-300 bg-sage-50 px-3 py-1.5 text-sm font-semibold text-sage-700 hover:bg-sage-100 hover:border-sage-400 transition-colors cursor-pointer"
             >
               <span>{detailsOpen ? 'Masquer le détail' : 'Voir le détail'}</span>
-              <motion.svg
+              <MotionChevronDown
                 aria-hidden="true"
-                className="h-3.5 w-3.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
+                className="h-4 w-4"
                 animate={{ rotate: detailsOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-              </motion.svg>
+              />
             </button>
 
             <AnimatePresence initial={false}>
@@ -126,17 +116,17 @@ export default function ProjectCard({ p, idx }) {
 
         <ul className="mt-4 flex flex-wrap gap-2">
           {p.techs.map((t) => (
-            <li key={t} className="rounded border border-slate-700 px-2 py-1 text-xs text-slate-300">
+            <li key={t} className="rounded border border-stone-300 px-2 py-1 text-xs text-stone-600">
               {t}
             </li>
           ))}
         </ul>
-        <div className="mt-4 flex items-center h-full gap-3">
+        <div className="mt-auto pt-4 flex items-center gap-3">
           {p.live && (
             <motion.a
               href={p.live}
-              className="inline-flex items-center gap-0.5 rounded-md border border-teal-400
-                      bg-teal-400/10 px-2 py-1.5 text-sm text-teal-300"
+              className="inline-flex items-center gap-0.5 rounded-md border border-sage-400
+                      bg-sage-50 px-2 py-1.5 text-sm font-semibold text-sage-700"
               aria-label="Ouvrir le site"
               target="_blank"
               rel="noopener noreferrer"
@@ -145,22 +135,13 @@ export default function ProjectCard({ p, idx }) {
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
               <span className="pb-0.5">Voir le site</span>
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                viewBox="0 -4 24 22"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 3h7v7 M10 14 21 3" />
-              </svg>
+              <ExternalLink className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
             </motion.a>
           )}
           {p.repo && (
             <motion.a
               href={p.repo}
-              className="inline-flex items-center gap-2 rounded-md border border-teal-400 bg-slate-900 px-2 py-1.5 text-sm text-slate-300"
+              className="inline-flex items-center gap-2 rounded-md border border-stone-300 bg-white px-2 py-1.5 text-sm font-semibold text-stone-700"
               aria-label="Ouvrir le repo GitHub"
               target="_blank"
               rel="noopener noreferrer"
@@ -177,31 +158,32 @@ export default function ProjectCard({ p, idx }) {
         </div>
       </div>
 
-      {createPortal(
-        <AnimatePresence>
-          {zoomed && (
-            <motion.div
-              className="fixed inset-0 z-50 cursor-zoom-out overflow-auto bg-slate-950/90 p-6 backdrop-blur-sm
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <AnimatePresence>
+            {zoomed && (
+              <motion.div
+                className="fixed inset-0 z-50 cursor-zoom-out overflow-auto bg-stone-950/90 p-6
               pointer-fine:flex pointer-fine:items-center pointer-fine:justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setZoomed(false)}
-            >
-              {/* Desktop: image scales down to fit the screen. Touch: rendered at natural size inside
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => setZoomed(false)}
+              >
+                {/* Desktop: image scales down to fit the screen. Touch: rendered at natural size inside
                   a scrollable area, since a screen-constrained "zoom" would be pointless on a small viewport. */}
-              <motion.img
-                layoutId={imageLayoutId}
-                src={p.image}
-                alt={`Image du site ${p.title}`}
-                className="mx-auto max-w-none rounded-lg object-contain shadow-2xl pointer-fine:max-h-full pointer-fine:max-w-full"
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body,
-      )}
+                <motion.img
+                  layoutId={imageLayoutId}
+                  src={p.image}
+                  alt={`Image du site ${p.title}`}
+                  className="mx-auto max-w-none rounded-lg object-contain shadow-2xl pointer-fine:max-h-full pointer-fine:max-w-full"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
     </motion.article>
   );
 }

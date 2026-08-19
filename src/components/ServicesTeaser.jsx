@@ -1,82 +1,94 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
+import { ArrowRight, Search, ShoppingCart, Wrench, ShieldCheck, LayoutTemplate, Euro } from 'lucide-react';
 
-const categories = [
+const benefits = [
   {
-    title: 'Sites sur mesure',
-    description: 'Page unique, site vitrine, e-commerce ou application métier développée sur mesure.',
-    icon: (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="4.5" width="18" height="15" rx="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.5h18" />
-        <circle cx="6" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
-        <circle cx="8.4" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
-      </svg>
-    ),
+    title: 'Un site qui vous ressemble',
+    description: 'Un design adapté à votre activité et votre identité visuelle.',
+    icon: <LayoutTemplate aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
   },
   {
-    title: 'Accompagnement mensuel',
-    description: 'Maintenance, hébergement et suivi technique pour garder votre site sécurisé et disponible.',
-    icon: (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 3.5 5 6.5v5c0 4.5 3 8.2 7 9 4-.8 7-4.5 7-9v-5l-7-3Z"
-        />
-        <path strokeLinecap="round" strokeLinejoin="round" d="m9 12 2 2 4-4.5" />
-      </svg>
-    ),
+    title: 'Être visible sur Google',
+    description: 'Un audit et des optimisations SEO pour que vos clients vous trouvent dans leurs recherches Google.',
+    icon: <Search aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
   },
   {
-    title: 'Audit & SEO',
-    description: 'Audit complet de votre site et de votre visibilité, avec des recommandations priorisées.',
-    icon: (
-      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="10.5" cy="10.5" r="6.5" strokeLinecap="round" strokeLinejoin="round" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 19.5-4.3-4.3" />
-      </svg>
-    ),
+    title: 'Vente en ligne',
+    description: 'Une boutique e-commerce qui tourne 24h/24.',
+    icon: <ShoppingCart aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+  },
+  {
+    title: 'Un outil métier sur mesure',
+    description: 'Gestion, publication, administration : un outil développé sur mesure pour votre activité.',
+    icon: <Wrench aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+  },
+  {
+    title: 'Gestion technique',
+    description: "Hébergement, mises à jour, sécurité : je gère tout pour vous, vous n'avez rien à faire.",
+    icon: <ShieldCheck aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+  },
+  {
+    title: 'Des tarifs transparents',
+    description: 'Des prix clairs annoncés et détaillés à l’avance.',
+    icon: <Euro aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
   },
 ];
 
 export default function ServicesTeaser() {
   return (
-    <section id="services" className="scroll-mt-18">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20">
+    <section id="services" className="scroll-mt-18 bg-sage-100">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
-          className="font-mono text-2xl sm:text-3xl text-white"
+          className="text-3xl sm:text-4xl font-bold text-stone-900 text-center"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
         >
-          Mes prestations&nbsp;:
+          Je vous aide à développer votre activité en ligne
         </motion.h2>
+        <motion.p
+          className="mt-3 text-stone-600 text-center"
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
+        >
+          Des solutions concrètes pour développer votre activité et votre visibilité en ligne.
+        </motion.p>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {categories.map((cat, idx) => (
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((item, idx) => (
             <motion.div
-              key={cat.title}
-              className="rounded-xl border border-slate-800 bg-linear-to-b from-slate-800/80 to-slate-950/40 p-5"
+              key={item.title}
+              className="flex h-full flex-col rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-md"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
             >
-              <div className="flex items-center gap-3">
-                <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-teal-400/20 bg-teal-400/10 text-teal-300">
-                  <div className="h-5 w-5">{cat.icon}</div>
-                </div>
-                <h3 className="font-mono text-lg text-white">{cat.title}</h3>
+              <div className="flex flex-col items-center gap-4 text-center">
+                <div className="shrink-0 text-sage-600">{item.icon}</div>
+                <h3 className="text-xl font-bold text-stone-900">{item.title}</h3>
               </div>
-              <p className="mt-2 text-sm text-slate-400 leading-relaxed">{cat.description}</p>
+              <p className="mt-2 text-base text-stone-500 leading-relaxed text-center">{item.description}</p>
+              <Link
+                to="/tarifs"
+                className="group/link mt-auto pt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-sage-600 hover:text-sage-700"
+              >
+                Voir les tarifs
+                <ArrowRight
+                  aria-hidden="true"
+                  className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1.5"
+                />
+              </Link>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="mt-8 ml-4"
+          className="mt-10 flex justify-center"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -84,19 +96,10 @@ export default function ServicesTeaser() {
         >
           <Link
             to="/tarifs"
-            className="inline-flex items-center gap-2 text-sm text-teal-300 hover:text-teal-100 underline underline-offset-4 decoration-teal-700 hover:decoration-teal-300"
+            className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-300 bg-white
+             px-4 py-2.5 text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:border-stone-400 transition-colors"
           >
-            Voir tous mes tarifs
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
-            </svg>
+            Voir tous les services en détail
           </Link>
         </motion.div>
       </div>

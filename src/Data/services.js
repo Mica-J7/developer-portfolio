@@ -19,7 +19,7 @@ export const services = [
   {
     id: 2,
     title: 'Site vitrine',
-    description: 'Un site vitrine complet (5 à 10 pages) pour présenter votre activité et convertir vos visiteurs.',
+    description: 'Un site vitrine complet pour présenter votre activité et convertir vos visiteurs.',
     includes: [
       'Site vitrine sur mesure (5 à 10 pages)',
       'Design adapté à votre identité visuelle',

@@ -1,14 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
+import { ArrowRight, Menu, X } from 'lucide-react';
 
 const navLinkClass = ({ isActive }) =>
-  `px-1 py-1 mx-3 my-2 text-sm border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70 rounded-md ${
-    isActive ? 'text-teal-300 font-medium border-teal-400' : 'text-slate-300 border-transparent hover:text-white'
+  `px-1 py-1 mx-5 my-2 text-base font-semibold border-b-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400/70 rounded-md ${
+    isActive ? 'text-sage-600 border-sage-600' : 'text-stone-600 border-transparent hover:text-stone-900'
   }`;
 
 const mobileNavLinkClass = ({ isActive }) =>
-  `block rounded-md px-3 py-2 text-sm ${
-    isActive ? 'text-teal-300 font-medium bg-teal-400/10' : 'text-slate-200 hover:bg-slate-800/70'
+  `block rounded-md px-3 py-2 text-base ${
+    isActive ? 'text-sage-600 font-semibold bg-sage-50' : 'text-stone-700 hover:bg-stone-100'
   }`;
 
 export default function Navbar() {
@@ -42,25 +43,44 @@ export default function Navbar() {
   return (
     <header
       id="top"
-      className="sticky top-0 z-50 border-b border-teal-800/50 bg-slate-950/95 pointer-fine:bg-slate-950/70 pointer-fine:backdrop-blur pointer-fine:supports-backdrop-filter:bg-slate-950/60"
+      className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50 shadow-sm"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-1">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-1">
         <nav className="flex h-16 items-center justify-between">
           {/* Brand */}
           <NavLink
             to="/"
-            className="group inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2
-            focus-visible:ring-teal-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded"
+            className="group relative inline-flex flex-col items-center px-4 py-2 focus:outline-none focus-visible:ring-2
+            focus-visible:ring-sage-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 rounded"
           >
+            <span className="sr-only">Michaël Jongeau — Accueil</span>
             <span
               aria-hidden="true"
-              className="inline-flex h-8 w-9 items-center justify-center rounded-md bg-linear-to-br
-              from-teal-400 to-cyan-400 text-slate-900 font-bold"
+              className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-sage-600 transition-colors group-hover:border-sage-700"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-sage-600 transition-colors group-hover:border-sage-700"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-sage-600 transition-colors group-hover:border-sage-700"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-sage-600 transition-colors group-hover:border-sage-700"
+            />
+            <span
+              aria-hidden="true"
+              className="font-archivo text-xl font-extrabold leading-none tracking-tight text-sage-600 transition-colors group-hover:text-sage-700"
             >
               MJ
             </span>
-            <span className="font-mono text-sm tracking-wide text-slate-200 group-hover:text-white transition-colors">
-              Michaël Jongeau
+            <span
+              aria-hidden="true"
+              className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-sage-600 transition-colors group-hover:text-sage-700"
+            >
+              Dév. Freelance
             </span>
           </NavLink>
 
@@ -74,24 +94,15 @@ export default function Navbar() {
               </li>
             ))}
 
-            <li className="pl-2 ml-2">
+            <li className="ml-5">
               <NavLink
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-md border border-teal-400/40 bg-teal-400/10
-                pl-4 pr-3 py-2 text-sm text-teal-300 hover:text-teal-100 hover:bg-teal-400/15 focus-visible:outline-none
-                focus-visible:ring-2 focus-visible:ring-teal-400/70  hover:shadow-[0_0_0_2px_rgb(45_212_191/80%),0_0_30px_-10px_rgb(34_211_238/100%)]"
+                className="inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft
+                pl-4 pr-3 py-2 text-sm font-semibold text-white hover:bg-sage-700 focus-visible:outline-none
+                focus-visible:ring-2 focus-visible:ring-sage-400/70"
               >
                 <span className="pb-0.5">Demander un devis</span>
-                <svg
-                  aria-hidden="true"
-                  className="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
-                </svg>
+                <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={1.8} />
               </NavLink>
             </li>
           </ul>
@@ -105,39 +116,21 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               ref={hamburgerRef}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center rounded-md border border-slate-700/60 bg-slate-900/60 p-2 cursor-pointer
-              text-slate-200 hover:text-white hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70"
+              className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-white p-2 cursor-pointer
+              text-stone-600 hover:text-stone-900 hover:bg-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400/70"
             >
               {isMenuOpen ? (
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
-                </svg>
+                <X className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
               ) : (
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-                </svg>
+                <Menu className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
               )}
             </button>
             {isMenuOpen && (
               <ul
                 id="mobile-menu"
                 ref={menuRef}
-                className="absolute right-0 mt-3 w-56 origin-top-right rounded-lg border border-slate-800 bg-slate-900/95 p-2
-                shadow-xl shadow-black/30"
+                className="absolute right-0 mt-3 w-56 origin-top-right rounded-lg border border-stone-200 bg-white p-2
+                shadow-xl shadow-stone-900/10"
               >
                 {links.map((item) => (
                   <li key={item.to}>
@@ -152,13 +145,15 @@ export default function Navbar() {
                   </li>
                 ))}
 
-                <li>
+                <li className="mt-2 border-t border-stone-200 pt-2">
                   <NavLink
                     to="/contact"
                     onClick={() => setIsMenuOpen(false)}
-                    className="block rounded-md px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/70"
+                    className="flex items-center justify-center gap-2 rounded-md bg-sage-600 shadow-soft
+                    px-3 py-2 text-sm font-semibold text-white hover:bg-sage-700"
                   >
-                    Demander un devis
+                    <span className="pb-0.5">Demander un devis</span>
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={1.8} />
                   </NavLink>
                 </li>
               </ul>

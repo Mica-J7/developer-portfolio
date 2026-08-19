@@ -4,20 +4,20 @@ import TechCard from './TechCard.jsx';
 
 export default function Skills() {
   return (
-    <section id="techs" className="scroll-mt-18 bg-slate-900/70">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20">
+    <section id="techs" className="scroll-mt-18 bg-stone-50">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
           id="techs-title"
-          className="font-mono text-2xl sm:text-3xl text-white"
+          className="text-3xl sm:text-4xl font-bold text-stone-900 text-center"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
         >
-          Stack technique&nbsp;:
+          Ma stack technique
         </motion.h2>
         <motion.p
-          className="mt-10 text-slate-400"
+          className="mt-10 font-semibold text-stone-600"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,7 +35,7 @@ export default function Skills() {
         </div>
 
         <motion.p
-          className="mt-8 text-slate-400"
+          className="mt-8 font-semibold text-stone-600"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,7 +53,7 @@ export default function Skills() {
         </div>
 
         <motion.p
-          className="mt-8 text-slate-400"
+          className="mt-8 font-semibold text-stone-600"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import { faq } from '../Data/faq.js';
+
+const MotionChevronDown = motion.create(ChevronDown);
 
 export default function FAQ() {
   const [openId, setOpenId] = useState(null);
@@ -8,10 +11,10 @@ export default function FAQ() {
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <section id="faq" className="scroll-mt-18">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20">
+    <section id="faq" className="scroll-mt-18 bg-sage-100">
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
-          className="font-mono text-2xl sm:text-3xl text-white"
+          className="text-3xl sm:text-4xl font-bold text-stone-900"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -24,27 +27,21 @@ export default function FAQ() {
           {faq.map((item) => {
             const isOpen = openId === item.id;
             return (
-              <div key={item.id} className="rounded-xl border border-slate-800 bg-slate-900/60 overflow-hidden">
+              <div key={item.id} className="rounded-xl border border-stone-200 bg-white overflow-hidden shadow-md">
                 <button
                   type="button"
                   onClick={() => toggle(item.id)}
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/70"
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400/70"
                 >
-                  <span className="font-mono text-sm sm:text-base text-slate-100">{item.question}</span>
-                  <motion.svg
+                  <span className="text-base sm:text-lg font-medium text-stone-800">{item.question}</span>
+                  <MotionChevronDown
                     aria-hidden="true"
-                    className="h-5 w-5 shrink-0 text-teal-400"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
+                    className="h-5 w-5 shrink-0 text-stone-500"
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                  </motion.svg>
+                  />
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -55,7 +52,7 @@ export default function FAQ() {
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 pb-4 text-sm text-slate-400 leading-relaxed">{item.answer}</p>
+                      <p className="px-5 pb-4 text-base text-stone-600 leading-relaxed">{item.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
