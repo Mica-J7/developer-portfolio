@@ -58,7 +58,7 @@ export default function ServicesTeaser() {
           Des solutions concrètes pour développer votre activité et votre visibilité en ligne.
         </motion.p>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((item, idx) => (
             <motion.div
               key={item.title}
@@ -96,8 +96,8 @@ export default function ServicesTeaser() {
         >
           <Link
             to="/tarifs"
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-300 bg-white
-             px-4 py-2.5 text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:border-stone-400 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-sage-600 bg-white
+             px-4 py-2.5 text-sm font-semibold text-sage-600 hover:bg-sage-600 hover:text-white transition-colors"
           >
             Voir tous les services en détail
           </Link>

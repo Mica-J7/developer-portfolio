@@ -80,8 +80,8 @@ export default function LegalNotice() {
 
         <Link
           to="/"
-          className="mt-10 inline-flex items-center gap-2 rounded-md border border-stone-300 bg-white
-          px-4 py-2 text-sm font-semibold text-stone-700 hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400/70"
+          className="mt-10 inline-flex items-center gap-2 rounded-md border-2 border-sage-600 bg-white
+          px-4 py-2 text-sm font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400/70"
         >
           <ArrowLeft aria-hidden="true" className="h-4 w-4" />
           <span className="pb-0.5">Retour à l'accueil</span>

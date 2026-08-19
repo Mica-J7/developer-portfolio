@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
+import { Tag } from 'lucide-react';
 import { services } from '../Data/services.js';
 import ServiceCard from '../components/ServiceCard.jsx';
 import Process from '../components/Process.jsx';
@@ -8,14 +9,14 @@ import CtaBanner from '../components/CtaBanner.jsx';
 
 export function meta() {
   return [
-    { title: 'Tarifs – Sites web & applications sur mesure | Michaël Jongeau' },
+    { title: 'Tarifs - Sites web & applications sur mesure | Michaël Jongeau' },
     {
       name: 'description',
       content:
         "Tarifs transparents pour la création d'un site vitrine, e-commerce ou application sur mesure, ainsi que pour l'accompagnement mensuel et l'audit SEO. Devis gratuit et personnalisé sous 24h.",
     },
     { tagName: 'link', rel: 'canonical', href: 'https://jongeau-m.fr/tarifs' },
-    { property: 'og:title', content: 'Tarifs – Michaël Jongeau, Développeur Web Freelance' },
+    { property: 'og:title', content: 'Tarifs - Michaël Jongeau, Développeur Web Freelance' },
     {
       property: 'og:description',
       content: "Tarifs transparents pour la création d'un site vitrine, e-commerce ou application sur mesure.",
@@ -53,8 +54,13 @@ export default function Tarifs() {
   return (
     <>
       {/* Hero */}
-      <section className="scroll-mt-18 bg-sage-100">
-        <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
+      <section className="scroll-mt-18 relative overflow-hidden bg-sage-100">
+        <Tag
+          aria-hidden="true"
+          strokeWidth={1}
+          className="pointer-events-none absolute right-6 top-6 z-0 h-28 w-28 text-sage-300 opacity-40 lg:h-36 lg:w-36"
+        />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
             className="text-3xl sm:text-5xl font-bold text-stone-900 leading-tight"
             initial={{ opacity: 0, y: 8 }}

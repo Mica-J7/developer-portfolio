@@ -1,18 +1,19 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
+import { FolderOpen } from 'lucide-react';
 import Projects from '../components/Projects.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 
 export function meta() {
   return [
-    { title: 'Réalisations – Projets web | Michaël Jongeau' },
+    { title: 'Réalisations - Projets web | Michaël Jongeau' },
     {
       name: 'description',
       content:
-        "Découvrez les projets web conçus et développés par Michaël Jongeau, développeur freelance : applications React/Django, outils sur mesure et sites vitrines.",
+        'Découvrez les projets web conçus et développés par Michaël Jongeau, développeur freelance : applications React/Django, outils sur mesure et sites vitrines.',
     },
     { tagName: 'link', rel: 'canonical', href: 'https://jongeau-m.fr/realisations' },
-    { property: 'og:title', content: 'Réalisations – Michaël Jongeau, Développeur Web Freelance' },
+    { property: 'og:title', content: 'Réalisations - Michaël Jongeau, Développeur Web Freelance' },
     {
       property: 'og:description',
       content: 'Projets web conçus et développés de bout en bout : applications sur mesure et sites vitrines.',
@@ -25,8 +26,13 @@ export default function Realisations() {
   return (
     <>
       {/* Hero */}
-      <section className="scroll-mt-18 bg-sage-100">
-        <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
+      <section className="scroll-mt-18 relative overflow-hidden bg-sage-100">
+        <FolderOpen
+          aria-hidden="true"
+          strokeWidth={1}
+          className="pointer-events-none absolute right-6 top-6 z-0 h-28 w-28 text-sage-300 opacity-40 lg:h-36 lg:w-36"
+        />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
             className="text-3xl sm:text-5xl font-bold text-stone-900 leading-tight"
             initial={{ opacity: 0, y: 8 }}

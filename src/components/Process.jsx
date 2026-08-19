@@ -54,7 +54,7 @@ export default function Process() {
           Déroulement d'un projet
         </motion.h2>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {steps.map((s, idx) => (
             <motion.div
               key={s.title}

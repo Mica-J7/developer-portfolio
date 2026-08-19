@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
-/* Light background from the very first paint, before React mounts, to avoid a flash on load */
+/* Matches the footer (always the last element on every page) so that mobile browsers revealing
+   extra space below the page when their toolbar auto-hides on scroll don't show a mismatched gap */
 html,
 body {
-  background-color: #fafaf9;
+  background-color: #292524;
 }
 
 @theme {
@@ -23,6 +24,8 @@ body {
 
   --color-sage-50: #eef3ea;
   --color-sage-100: #d7e3cb;
+  --color-sage-200: #b9cbaa;
+  --color-sage-300: #9ab489;
   --color-sage-400: #7c9c68;
   --color-sage-500: #55764a;
   --color-sage-600: #435e3a;

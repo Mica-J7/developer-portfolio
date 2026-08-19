@@ -5,14 +5,14 @@ import { Check, Loader2, Mail } from 'lucide-react';
 
 export function meta() {
   return [
-    { title: 'Contact – Devis gratuit | Michaël Jongeau' },
+    { title: 'Contact - Devis gratuit | Michaël Jongeau' },
     {
       name: 'description',
       content:
         'Contactez Michaël Jongeau pour discuter de votre projet web. Devis gratuit et personnalisé, réponse sous 24h.',
     },
     { tagName: 'link', rel: 'canonical', href: 'https://jongeau-m.fr/contact' },
-    { property: 'og:title', content: 'Contact – Michaël Jongeau, Développeur Web Freelance' },
+    { property: 'og:title', content: 'Contact - Michaël Jongeau, Développeur Web Freelance' },
     {
       property: 'og:description',
       content: 'Discutons de votre projet web. Devis gratuit et sans engagement, réponse sous 24h.',
@@ -109,8 +109,13 @@ export default function Contact() {
   return (
     <>
       {/* Hero */}
-      <section className="scroll-mt-18 bg-sage-100">
-        <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
+      <section className="scroll-mt-18 relative overflow-hidden bg-sage-100">
+        <Mail
+          aria-hidden="true"
+          strokeWidth={1}
+          className="pointer-events-none absolute right-6 top-6 z-0 h-28 w-28 text-sage-300 opacity-40 lg:h-36 lg:w-36"
+        />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
             className="text-3xl sm:text-5xl font-bold text-stone-900 leading-tight"
             initial={{ opacity: 0, y: 8 }}
@@ -127,7 +132,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
           >
-            Prêt à concrétiser votre projet ? Parlons-en !
+            Parlons de votre projet !
             <br />
             Devis gratuit et sans engagement
           </motion.p>
@@ -379,7 +384,7 @@ export default function Contact() {
               transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
             >
               <h2 className="text-xl font-bold text-stone-900">Coordonnées directes</h2>
-              <p className="mt-2 text-sm text-stone-600">Vous préférez me contacter directement ? C'est par ici !</p>
+              <p className="mt-2 text-sm text-stone-600">Si vous préférez me contacter directement :</p>
 
               <div className="mt-6 space-y-3">
                 <a

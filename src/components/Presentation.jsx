@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight, FileText, Globe } from 'lucide-react';
 
 const MotionLink = motion.create(Link);
 
@@ -15,7 +15,13 @@ const cascade = (delay) => ({
 export default function Presentation() {
   return (
     <section id="presentation" className="scroll-mt-19 relative overflow-hidden bg-sage-100">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-20 md:pb-24 relative">
+      {/* Decorative icon: static, large, pale sage, behind content */}
+      <Globe
+        aria-hidden="true"
+        strokeWidth={1}
+        className="pointer-events-none absolute right-6 top-6 z-0 h-28 w-28 text-sage-300 opacity-40 lg:h-36 lg:w-36"
+      />
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-20 md:pb-24 relative z-10">
         {/* Top: badge, name, full-width headline */}
         <motion.div
           className="inline-flex items-center gap-2 rounded-full border border-sage-300 bg-sage-50 px-3 py-1"
@@ -30,7 +36,10 @@ export default function Presentation() {
           <span className="text-xs text-stone-700">Disponible pour de nouvelles missions</span>
         </motion.div>
         <motion.p className="mt-4 text-sm text-stone-500 font-mono tracking-widest" {...cascade(0.08)}>
-          Michaël Jongeau · Développeur Web Freelance
+          Michaël Jongeau
+          <br className="sm:hidden" />
+          <span className="hidden sm:inline"> · </span>
+          Développeur Web Freelance
         </motion.p>
         <motion.h1
           id="presentation-title"
@@ -57,7 +66,7 @@ export default function Presentation() {
                 className="inline-flex w-64 items-center justify-center gap-2 rounded-md bg-sage-600
                 px-6 py-3.5 text-base text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
                 focus-visible:ring-sage-400 hover:bg-sage-700"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="text-nowrap">Voir mes prestations</span>
@@ -65,10 +74,9 @@ export default function Presentation() {
               </MotionLink>
               <MotionLink
                 to="/contact"
-                className="inline-flex w-64 items-center justify-center gap-2 rounded-md border border-stone-300 bg-white
-                px-6 py-3.5 text-base text-stone-700 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400
-                hover:bg-stone-50 hover:border-stone-400"
-                whileHover={{ scale: 1.05 }}
+                className="inline-flex w-64 items-center justify-center gap-2 rounded-md border-2 border-sage-600 bg-white
+                px-6 py-3 text-base text-sage-600 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400
+                hover:bg-sage-600 hover:text-white"
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="text-nowrap">Demander un devis</span>

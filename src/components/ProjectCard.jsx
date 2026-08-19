@@ -13,7 +13,7 @@ function BulletList({ label, items }) {
       <ul className="mt-2 space-y-2">
         {items.map((item) => (
           <li key={item} className="flex items-start gap-2 text-sm text-stone-600">
-            <Check aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-stone-500" />
+            <Check aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-sage-500" />
             <span>{item}</span>
           </li>
         ))}
@@ -86,7 +86,7 @@ export default function ProjectCard({ p, idx }) {
               type="button"
               onClick={() => setDetailsOpen((prev) => !prev)}
               aria-expanded={detailsOpen}
-              className="mt-4 inline-flex w-44 items-center justify-center gap-1.5 self-start rounded-md border border-sage-300 bg-sage-50 px-3 py-1.5 text-sm font-semibold text-sage-700 hover:bg-sage-100 hover:border-sage-400 transition-colors cursor-pointer"
+              className="mt-4 inline-flex w-44 items-center justify-between gap-1.5 self-start rounded-md bg-sage-600 shadow-soft px-3 py-1.5 text-sm font-semibold text-white hover:bg-sage-700 transition-colors cursor-pointer"
             >
               <span>{detailsOpen ? 'Masquer le détail' : 'Voir le détail'}</span>
               <MotionChevronDown
@@ -116,7 +116,7 @@ export default function ProjectCard({ p, idx }) {
 
         <ul className="mt-4 flex flex-wrap gap-2">
           {p.techs.map((t) => (
-            <li key={t} className="rounded border border-stone-300 px-2 py-1 text-xs text-stone-600">
+            <li key={t} className="rounded border border-sage-300 bg-sage-50 px-2 py-1 text-xs text-sage-700">
               {t}
             </li>
           ))}
@@ -125,12 +125,12 @@ export default function ProjectCard({ p, idx }) {
           {p.live && (
             <motion.a
               href={p.live}
-              className="inline-flex items-center gap-0.5 rounded-md border border-sage-400
-                      bg-sage-50 px-2 py-1.5 text-sm font-semibold text-sage-700"
+              className="inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft
+                      px-3 py-1.5 text-sm font-semibold text-white hover:bg-sage-700"
               aria-label="Ouvrir le site"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.09 }}
+              whileHover={{ y: -3 }}
               whileTap={{ scale: 0.91 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
@@ -141,11 +141,10 @@ export default function ProjectCard({ p, idx }) {
           {p.repo && (
             <motion.a
               href={p.repo}
-              className="inline-flex items-center gap-2 rounded-md border border-stone-300 bg-white px-2 py-1.5 text-sm font-semibold text-stone-700"
+              className="inline-flex items-center gap-2 rounded-md border-2 border-sage-600 bg-white px-3 py-1.5 text-sm font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white"
               aria-label="Ouvrir le repo GitHub"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.09 }}
               whileTap={{ scale: 0.91 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >

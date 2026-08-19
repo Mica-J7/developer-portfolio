@@ -24,7 +24,7 @@
     },
     {
       "id": 7,
-      "title": "Elowcraft – Chat Highlights",
+      "title": "Elowcraft - Chat Highlights",
       "description": "Outil qui détecte automatiquement les moments forts d'une VOD Twitch en analysant les pics d'activité dans le chat replay, puis télécharge les clips correspondants.",
       "features": [
         "Récupération automatique du chat replay d'une VOD (URL ou ID)",

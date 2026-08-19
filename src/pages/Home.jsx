@@ -6,7 +6,7 @@ import CtaBanner from '../components/CtaBanner.jsx';
 
 export function meta() {
   return [
-    { title: 'Michaël Jongeau – Développeur Web Freelance React & Django' },
+    { title: 'Michaël Jongeau - Développeur Web Freelance React & Django' },
     {
       name: 'description',
       content:

@@ -43,7 +43,7 @@ export default function CtaBanner({
             className="inline-flex items-center justify-center gap-2 rounded-md bg-sage-600
             px-4 py-2.5 text-sm text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
             focus-visible:ring-sage-400 hover:bg-sage-700"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ y: -3 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="text-nowrap">Me contacter</span>
