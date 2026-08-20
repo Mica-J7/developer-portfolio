@@ -1,69 +1,75 @@
 import { motion } from 'framer-motion';
-import { MessageCircle, Code2, Clock, Headset } from 'lucide-react';
+import { Lock, UserRound, Target, Tag } from 'lucide-react';
 
-const points = [
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 14 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-80px' },
+  transition: { duration: 0.5, ease: 'easeOut', delay },
+});
+
+const reasons = [
   {
-    title: 'Une communication claire',
-    description: "Des points d'étape réguliers, des réponses rapides, aucune boîte noire sur l'avancement.",
-    icon: <MessageCircle aria-hidden="true" strokeWidth={1.8} className="h-10 w-10" />,
+    n: '01',
+    icon: Lock,
+    title: 'Un code qui vous appartient',
+    body: "Pas d'abonnement à vie à une plateforme. Votre site est développé sur mesure et vous en restez propriétaire, du premier au dernier fichier.",
   },
   {
-    title: 'Un code maintenable',
-    description: 'Un code testé et documenté, facile à reprendre et à faire évoluer dans le temps.',
-    icon: <Code2 aria-hidden="true" strokeWidth={1.8} className="h-10 w-10" />,
+    n: '02',
+    icon: UserRound,
+    title: 'Un seul interlocuteur',
+    body: "Du cahier des charges à la mise en ligne, vous échangez directement avec la personne qui écrit le code. Pas d'intermédiaire, des échanges directs et efficaces.",
   },
   {
-    title: 'Des délais respectés',
-    description: 'Un périmètre et un planning validés dès le devis, pour éviter les mauvaises surprises.',
-    icon: <Clock aria-hidden="true" strokeWidth={1.8} className="h-10 w-10" />,
+    n: '03',
+    icon: Target,
+    title: 'Pensé pour votre activité',
+    body: 'Pas de thème générique recyclé. Chaque site est construit autour de vos besoins réels, de votre clientèle et de vos objectifs.',
   },
   {
-    title: 'Un suivi de projet',
-    description: 'Disponible pour la maintenance, les corrections et les évolutions une fois le projet en ligne.',
-    icon: <Headset aria-hidden="true" strokeWidth={1.8} className="h-10 w-10" />,
+    n: '04',
+    icon: Tag,
+    title: 'Des prix clairs et accessibles',
+    body: "Pas de grille tarifaire cachée derrière un formulaire de contact. Les prix sont annoncés dès la page d'accueil, et chaque devis détaille précisément ce qui est inclus.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-18 bg-stone-50">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-14 md:py-16">
+    <section id="about" className="scroll-mt-18 bg-white">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-24">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-stone-900 text-center"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"
+          {...fadeUp(0)}
         >
-          Ma façon de travailler
+          Pourquoi choisir un développeur Freelance ?
         </motion.h2>
-        <motion.p
-          className="mt-3 text-stone-600 text-center"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
-        >
-          Des principes simples, appliqués à chaque projet.
-        </motion.p>
-
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {points.map((point, idx) => (
-            <motion.div
-              key={point.title}
-              className="rounded-xl border border-stone-200 bg-white p-6 shadow-md text-center"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
-            >
-              <div className="flex flex-col items-center gap-3">
-                <div className="text-sage-600">{point.icon}</div>
-                <h3 className="text-base font-bold text-stone-900 whitespace-nowrap">{point.title}</h3>
-              </div>
-              <p className="mt-2 text-base text-stone-600 leading-relaxed">{point.description}</p>
-            </motion.div>
-          ))}
+        <div className="mt-12">
+          <div className="grid max-w-4xl grid-cols-1 gap-x-16 gap-y-14 sm:grid-cols-2">
+            {reasons.slice(0, 2).map((r, idx) => (
+              <motion.div key={r.title} {...fadeUp(idx * 0.08)}>
+                <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
+                <div className="mt-3 flex items-center gap-3">
+                  <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />
+                  <h3 className="text-xl font-bold text-stone-900">{r.title}</h3>
+                </div>
+                <p className="mt-3 text-stone-600 leading-relaxed">{r.body}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-14 grid max-w-4xl grid-cols-1 gap-x-16 gap-y-14 sm:grid-cols-2 lg:ml-56 lg:max-w-none">
+            {reasons.slice(2, 4).map((r, idx) => (
+              <motion.div key={r.title} {...fadeUp((idx + 2) * 0.08)}>
+                <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
+                <div className="mt-3 flex items-center gap-3">
+                  <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />
+                  <h3 className="text-xl font-bold text-stone-900">{r.title}</h3>
+                </div>
+                <p className="mt-3 text-stone-600 leading-relaxed">{r.body}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

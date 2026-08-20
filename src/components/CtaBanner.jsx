@@ -14,7 +14,7 @@ export default function CtaBanner({
     <section className={tone === 'alt' ? 'bg-sage-100' : 'bg-stone-50'}>
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-14 md:py-16 text-center">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-stone-900"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -41,13 +41,13 @@ export default function CtaBanner({
           <MotionLink
             to="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-md bg-sage-600
-            px-4 py-2.5 text-sm text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
+            px-6 py-3.5 text-base text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
             focus-visible:ring-sage-400 hover:bg-sage-700"
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="text-nowrap">Me contacter</span>
-            <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            <ArrowRight aria-hidden="true" className="h-5 w-5" />
           </MotionLink>
         </motion.div>
         {note && (

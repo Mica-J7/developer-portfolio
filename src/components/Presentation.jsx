@@ -18,8 +18,8 @@ export default function Presentation() {
       {/* Decorative icon: static, large, pale sage, behind content */}
       <Globe
         aria-hidden="true"
-        strokeWidth={1}
-        className="pointer-events-none absolute right-6 top-6 z-0 h-28 w-28 text-sage-300 opacity-40 lg:h-36 lg:w-36"
+        strokeWidth={0.4}
+        className="pointer-events-none absolute right-0 top-1/2 z-0 aspect-square h-full w-auto -translate-y-1/2 translate-x-1/2 text-sage-300 opacity-30"
       />
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-20 md:pb-24 relative z-10">
         {/* Top: badge, name, full-width headline */}
@@ -35,31 +35,30 @@ export default function Presentation() {
           />
           <span className="text-xs text-stone-700">Disponible pour de nouvelles missions</span>
         </motion.div>
-        <motion.p className="mt-4 text-sm text-stone-500 font-mono tracking-widest" {...cascade(0.08)}>
-          Michaël Jongeau
+        <motion.p className="mt-4 font-mono text-sm tracking-widest text-terracotta-600 uppercase" {...cascade(0.08)}>
+          Développeur web freelance
           <br className="sm:hidden" />
           <span className="hidden sm:inline"> · </span>
-          Développeur Web Freelance
+          Rochefort (17)
         </motion.p>
         <motion.h1
           id="presentation-title"
-          className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-stone-900"
+          className="font-archivo mt-5 max-w-4xl text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] text-stone-900"
           {...cascade(0.16)}
         >
-          Un site professionnel qui vous rend visible auprès de vos clients.
+          Création de sites web pour les professionnels.
         </motion.h1>
 
         {/* Below: intro paragraph + CTAs on the left, visiting card on the right */}
         <div className="mt-10 grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <motion.p className="max-w-2xl text-lg text-stone-600 leading-relaxed" {...cascade(0.24)}>
-              Je conçois des sites et des applications web sur mesure pour indépendants et petites entreprises. En tant
-              que développeur freelance, vous bénéficiez d'une relation directe avec la personne qui réalise votre
-              projet. Flexibilité, réactivité, tarifs transparents et accessibles.
+              Sites vitrines, boutiques en ligne et applications sur mesure pour les indépendants et petites
+              entreprises. Un interlocuteur unique à chaque étape, du cahier des charges à la mise en ligne.
             </motion.p>
             <motion.div
-              className="flex flex-wrap justify-center lg:justify-start items-center gap-4 mt-8"
-              {...cascade(0.32)}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-10"
+              {...cascade(0.48)}
             >
               <MotionLink
                 to="/tarifs"

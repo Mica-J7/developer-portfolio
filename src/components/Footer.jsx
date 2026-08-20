@@ -23,14 +23,14 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <Link to="/" className="relative inline-flex flex-col items-center px-4 py-2 shrink-0">
             <span className="sr-only">Michaël Jongeau — Accueil</span>
-            <span aria-hidden="true" className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-sage-400" />
-            <span aria-hidden="true" className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-sage-400" />
-            <span aria-hidden="true" className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-sage-400" />
-            <span aria-hidden="true" className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-sage-400" />
-            <span aria-hidden="true" className="font-archivo text-xl font-extrabold leading-none tracking-tight text-sage-50">
+            <span aria-hidden="true" className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-white" />
+            <span aria-hidden="true" className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-white" />
+            <span aria-hidden="true" className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-white" />
+            <span aria-hidden="true" className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-white" />
+            <span aria-hidden="true" className="font-archivo text-xl font-extrabold leading-none tracking-tight text-white">
               MJ
             </span>
-            <span aria-hidden="true" className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-sage-400">
+            <span aria-hidden="true" className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-white">
               Dév. Freelance
             </span>
           </Link>

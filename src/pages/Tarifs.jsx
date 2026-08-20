@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { Tag } from 'lucide-react';
 import { services } from '../Data/services.js';
 import ServiceCard from '../components/ServiceCard.jsx';
-import Process from '../components/Process.jsx';
+import HowWeWork from '../components/HowWeWork.jsx';
 import FAQ from '../components/FAQ.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 
@@ -40,8 +40,8 @@ const groups = [
   },
   {
     category: 'audit',
-    title: 'Audit & SEO',
-    description: 'Un état des lieux ponctuel pour prioriser vos prochaines actions.',
+    title: 'Optimisation & visibilité',
+    description: 'Des actions concrètes pour améliorer votre visibilité en ligne.',
     bg: 'bg-sage-100',
   },
 ];
@@ -62,13 +62,13 @@ export default function Tarifs() {
         />
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
-            className="text-3xl sm:text-5xl font-bold text-stone-900 leading-tight"
+            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-stone-900"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            Votre site web à partir de 800 €
+            Votre site web à partir de {minPrice} €
           </motion.h1>
           <motion.p
             className="mt-2 text-xs text-stone-500"
@@ -93,7 +93,7 @@ export default function Tarifs() {
         </div>
       </section>
 
-      <Process />
+      <HowWeWork />
 
       {/* Pricing groups */}
       {groups.map((group) => {
@@ -103,7 +103,7 @@ export default function Tarifs() {
           <section key={group.category} className={`scroll-mt-18 ${group.bg}`}>
             <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
               <motion.h2
-                className="text-2xl sm:text-3xl font-bold text-stone-900 text-center"
+                className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -113,7 +113,7 @@ export default function Tarifs() {
               </motion.h2>
               <p className="mt-2 text-base text-stone-500 text-center">{group.description}</p>
 
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-10">
                 {groupServices.map((service, idx) => (
                   <ServiceCard key={service.id} service={service} idx={idx} />
                 ))}
@@ -133,7 +133,7 @@ export default function Tarifs() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 text-center">
+            <h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center">
               Comment fonctionnent mes tarifs&nbsp;?
             </h2>
             <p className="mt-4 text-lg text-stone-600 leading-relaxed">

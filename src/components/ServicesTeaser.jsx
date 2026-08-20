@@ -4,7 +4,7 @@ import { ArrowRight, Search, ShoppingCart, Wrench, ShieldCheck, LayoutTemplate, 
 
 const benefits = [
   {
-    title: 'Un site qui vous ressemble',
+    title: 'Un site à votre image',
     description: 'Un design adapté à votre activité et votre identité visuelle.',
     icon: <LayoutTemplate aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
   },
@@ -40,7 +40,7 @@ export default function ServicesTeaser() {
     <section id="services" className="scroll-mt-18 bg-sage-100">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-stone-900 text-center"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -97,7 +97,7 @@ export default function ServicesTeaser() {
           <Link
             to="/tarifs"
             className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-sage-600 bg-white
-             px-4 py-2.5 text-sm font-semibold text-sage-600 hover:bg-sage-600 hover:text-white transition-colors"
+             px-6 py-3.5 text-base font-semibold text-sage-600 hover:bg-sage-600 hover:text-white transition-colors"
           >
             Voir tous les services en détail
           </Link>

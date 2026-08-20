@@ -14,7 +14,9 @@ export default function LegalNotice() {
   return (
     <section className="scroll-mt-18">
       <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
-        <h1 className="text-3xl sm:text-4xl font-bold text-stone-900">Mentions légales</h1>
+        <h1 className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-stone-900">
+          Mentions légales
+        </h1>
 
         <div className="mt-8 space-y-8 text-stone-600 leading-relaxed">
           <div>

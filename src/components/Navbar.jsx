@@ -41,10 +41,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      id="top"
-      className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50 shadow-sm"
-    >
+    <header id="top" className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50 shadow-sm">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-1">
         <nav className="flex h-16 items-center justify-between">
           {/* Brand */}
@@ -53,32 +50,32 @@ export default function Navbar() {
             className="group relative inline-flex flex-col items-center px-4 py-2 focus:outline-none focus-visible:ring-2
             focus-visible:ring-sage-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 rounded"
           >
-            <span className="sr-only">Michaël Jongeau — Accueil</span>
+            <span className="sr-only">Michaël Jongeau - Accueil</span>
             <span
               aria-hidden="true"
-              className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-sage-600 transition-colors group-hover:border-sage-700"
+              className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-stone-900 transition-colors group-hover:border-sage-600"
             />
             <span
               aria-hidden="true"
-              className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-sage-600 transition-colors group-hover:border-sage-700"
+              className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-stone-900 transition-colors group-hover:border-sage-600"
             />
             <span
               aria-hidden="true"
-              className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-sage-600 transition-colors group-hover:border-sage-700"
+              className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-stone-900 transition-colors group-hover:border-sage-600"
             />
             <span
               aria-hidden="true"
-              className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-sage-600 transition-colors group-hover:border-sage-700"
+              className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-stone-900 transition-colors group-hover:border-sage-600"
             />
             <span
               aria-hidden="true"
-              className="font-archivo text-xl font-extrabold leading-none tracking-tight text-sage-600 transition-colors group-hover:text-sage-700"
+              className="font-archivo text-xl font-extrabold leading-none tracking-tight text-stone-900 transition-colors group-hover:text-sage-600"
             >
               MJ
             </span>
             <span
               aria-hidden="true"
-              className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-sage-600 transition-colors group-hover:text-sage-700"
+              className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-stone-900 transition-colors group-hover:text-sage-600"
             >
               Dév. Freelance
             </span>

@@ -1,6 +1,7 @@
 import Presentation from '../components/Presentation.jsx';
 import About from '../components/About.jsx';
 import ServicesTeaser from '../components/ServicesTeaser.jsx';
+import ServicesLadder from '../components/ServicesLadder.jsx';
 import Techs from '../components/Techs.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 
@@ -35,12 +36,12 @@ export default function Home() {
       <Presentation />
       <About />
       <ServicesTeaser />
+      <ServicesLadder />
       <Techs />
       <CtaBanner
         title="Vous voulez un site qui vous ramène des clients ?"
         description="Premier échange gratuit et sans engagement."
         note="Réponse sous 24h"
-        tone="alt"
       />
     </>
   );

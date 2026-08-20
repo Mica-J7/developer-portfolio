@@ -102,10 +102,10 @@ export const services = [
   },
   {
     id: 7,
-    title: 'Audit SEO',
-    description: 'Un audit complet pour améliorer votre visibilité dans les résultats de recherche Google.',
+    title: 'Optimisation SEO',
+    description: 'Des actions concrètes pour améliorer votre visibilité dans les résultats de recherche Google.',
     includes: [
-      'Audit complet de votre site (technique, sémantique, contenu)',
+      'Audit technique, sémantique et contenu de votre site',
       'Analyse des positions actuelles sur Google',
       'Identification des mots-clés à cibler',
       'Optimisation des balises title, meta description et des contenus des pages/fiches produits',
@@ -115,5 +115,32 @@ export const services = [
     category: 'audit',
     billing: 'once',
     priceFrom: '200',
+  },
+  {
+    id: 8,
+    title: 'Campagne SEA',
+    description: 'Des campagnes Google Ads pour générer du trafic qualifié dès la mise en ligne.',
+    includes: [
+      'Création et paramétrage de campagnes Google Ads',
+      "Ciblage des mots-clés et de l'audience",
+      'Rédaction des annonces',
+      'Suivi des performances et ajustements',
+    ],
+    category: 'audit',
+    billing: 'once',
+    priceFrom: null,
+  },
+  {
+    id: 9,
+    title: 'Google Business Profil',
+    description: 'Une fiche établissement optimisée pour être visible sur Google Maps et la recherche locale.',
+    includes: [
+      "Création ou prise en main de la fiche établissement",
+      'Ajout des horaires, photos et catégories',
+      "Optimisation pour la recherche locale",
+    ],
+    category: 'audit',
+    billing: 'once',
+    priceFrom: null,
   },
 ];
