@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
-import { Tag } from 'lucide-react';
 import { services } from '../Data/services.js';
 import ServiceCard from '../components/ServiceCard.jsx';
 import HowWeWork from '../components/HowWeWork.jsx';
@@ -30,7 +29,7 @@ const groups = [
     category: 'site',
     title: 'Sites & projets',
     description: 'Prestations ponctuelles, du site one-page à l’application métier sur mesure.',
-    bg: 'bg-sage-100',
+    bg: 'bg-transparent',
   },
   {
     category: 'accompagnement',
@@ -42,7 +41,7 @@ const groups = [
     category: 'audit',
     title: 'Optimisation & visibilité',
     description: 'Des actions concrètes pour améliorer votre visibilité en ligne.',
-    bg: 'bg-sage-100',
+    bg: 'bg-transparent',
   },
 ];
 
@@ -54,12 +53,7 @@ export default function Tarifs() {
   return (
     <>
       {/* Hero */}
-      <section className="scroll-mt-18 relative overflow-hidden bg-sage-100">
-        <Tag
-          aria-hidden="true"
-          strokeWidth={1}
-          className="pointer-events-none absolute right-6 top-6 z-0 h-28 w-28 text-sage-300 opacity-40 lg:h-36 lg:w-36"
-        />
+      <section className="scroll-mt-18 relative overflow-hidden bg-transparent">
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
             className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-stone-900"
@@ -113,7 +107,7 @@ export default function Tarifs() {
               </motion.h2>
               <p className="mt-2 text-base text-stone-500 text-center">{group.description}</p>
 
-              <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-10">
+              <div className="mt-6 grid grid-cols-1 grid-rows-[repeat(5,auto)] gap-x-6 gap-y-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-10">
                 {groupServices.map((service, idx) => (
                   <ServiceCard key={service.id} service={service} idx={idx} />
                 ))}

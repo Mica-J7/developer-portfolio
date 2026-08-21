@@ -109,12 +109,7 @@ export default function Contact() {
   return (
     <>
       {/* Hero */}
-      <section className="scroll-mt-18 relative overflow-hidden bg-sage-100">
-        <Mail
-          aria-hidden="true"
-          strokeWidth={1}
-          className="pointer-events-none absolute right-6 top-6 z-0 h-28 w-28 text-sage-300 opacity-40 lg:h-36 lg:w-36"
-        />
+      <section className="scroll-mt-18 relative overflow-hidden bg-transparent">
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
             className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-stone-900"

@@ -38,3 +38,12 @@ body {
   --color-gold-600: #a87d2c;
   --color-gold-700: #8a6423;
 }
+
+/* Shared page-wide backdrop: sage fill applied once on the root wrapper (see root.jsx) so
+   every green section (set to bg-transparent) reveals the same flat color; every other
+   section keeps its own opaque background, which naturally masks it wherever it sits.
+   Previously also drew 3 diagonal lines via an SVG background-image — disabled for now
+   (didn't look good enough), see git history to bring them back. */
+.bg-site-backdrop {
+  background-color: var(--color-sage-100);
+}

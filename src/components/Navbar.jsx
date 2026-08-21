@@ -53,19 +53,19 @@ export default function Navbar() {
             <span className="sr-only">Michaël Jongeau - Accueil</span>
             <span
               aria-hidden="true"
-              className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-stone-900 transition-colors group-hover:border-sage-600"
+              className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-sage-600 transition-colors group-hover:border-sage-700"
             />
             <span
               aria-hidden="true"
-              className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-stone-900 transition-colors group-hover:border-sage-600"
+              className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-sage-600 transition-colors group-hover:border-sage-700"
             />
             <span
               aria-hidden="true"
-              className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-stone-900 transition-colors group-hover:border-sage-600"
+              className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-sage-600 transition-colors group-hover:border-sage-700"
             />
             <span
               aria-hidden="true"
-              className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-stone-900 transition-colors group-hover:border-sage-600"
+              className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-sage-600 transition-colors group-hover:border-sage-700"
             />
             <span
               aria-hidden="true"

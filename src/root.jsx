@@ -55,7 +55,7 @@ function ScrollToTop() {
 
 export default function Root() {
   return (
-    <div className="bg-stone-50 text-stone-900 antialiased selection:bg-stone-200 selection:text-stone-900">
+    <div className="bg-site-backdrop text-stone-900 antialiased selection:bg-stone-200 selection:text-stone-900">
       <ScrollToTop />
       <Navbar />
       <main id="content">

@@ -11,7 +11,7 @@ export default function CtaBanner({
   tone = 'base',
 }) {
   return (
-    <section className={tone === 'alt' ? 'bg-sage-100' : 'bg-stone-50'}>
+    <section className={tone === 'alt' ? 'bg-transparent' : 'bg-stone-50'}>
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-14 md:py-16 text-center">
         <motion.h2
           className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900"

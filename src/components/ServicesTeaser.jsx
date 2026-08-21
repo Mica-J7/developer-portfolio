@@ -37,7 +37,7 @@ const benefits = [
 
 export default function ServicesTeaser() {
   return (
-    <section id="services" className="scroll-mt-18 bg-sage-100">
+    <section id="services" className="scroll-mt-18 bg-transparent">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
         <motion.h2
           className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"

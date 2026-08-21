@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
-import { ArrowRight, FileText, Globe } from 'lucide-react';
+import { ArrowRight, FileText } from 'lucide-react';
 
 const MotionLink = motion.create(Link);
 
@@ -14,13 +14,8 @@ const cascade = (delay) => ({
 
 export default function Presentation() {
   return (
-    <section id="presentation" className="scroll-mt-19 relative overflow-hidden bg-sage-100">
+    <section id="presentation" className="scroll-mt-19 relative overflow-hidden bg-transparent">
       {/* Decorative icon: static, large, pale sage, behind content */}
-      <Globe
-        aria-hidden="true"
-        strokeWidth={0.4}
-        className="pointer-events-none absolute right-0 top-1/2 z-0 aspect-square h-full w-auto -translate-y-1/2 translate-x-1/2 text-sage-300 opacity-30"
-      />
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-20 md:pb-24 relative z-10">
         {/* Top: badge, name, full-width headline */}
         <motion.div

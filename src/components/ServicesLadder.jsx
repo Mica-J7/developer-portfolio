@@ -12,6 +12,9 @@ const fadeUp = (delay = 0) => ({
 
 const siteServices = services.filter((s) => s.category === 'site');
 const maintenanceService = services.find((s) => s.id === 5);
+const minAuditPrice = Math.min(
+  ...services.filter((s) => s.category === 'audit' && s.priceFrom).map((s) => Number(s.priceFrom)),
+);
 
 const formatPrice = (s) => {
   if (!s.priceFrom) return 'Sur devis';
@@ -25,7 +28,7 @@ const listItems = [
     title: 'Optimisation & visibilité',
     description:
       'Optimisation SEO, campagne SEA et optimisation Google Business Profil, pour améliorer votre visibilité dans les résultats de recherche Google.',
-    price: 'Sur devis',
+    price: `À partir de ${minAuditPrice} €`,
   },
   {
     key: 'maintenance',
@@ -55,7 +58,7 @@ export default function ServicesLadder() {
             >
               <h3 className="text-lg font-bold text-stone-900">{item.title}</h3>
               <p className="mt-2 text-sm text-stone-500 leading-relaxed">{item.description}</p>
-              <span className="font-archivo mt-auto pt-4 text-xl font-extrabold text-terracotta-600">{item.price}</span>
+              <span className="font-archivo mt-auto pt-4 text-lg font-extrabold text-terracotta-600">{item.price}</span>
             </motion.div>
           ))}
         </div>
