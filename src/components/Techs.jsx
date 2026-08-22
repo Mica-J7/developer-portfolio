@@ -5,10 +5,10 @@ import TechCard from './TechCard.jsx';
 export default function Skills() {
   return (
     <section id="techs" className="scroll-mt-18 bg-transparent">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
           id="techs-title"
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -38,17 +38,22 @@ const reasons = [
 export default function About() {
   return (
     <section id="about" className="scroll-mt-18 bg-white">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
           {...fadeUp(0)}
         >
-          Pourquoi choisir un développeur Freelance ?
+          Pourquoi choisir un développeur Freelance&nbsp;?
         </motion.h2>
         <div className="mt-12">
-          <div className="grid max-w-4xl grid-cols-1 gap-x-16 gap-y-14 sm:grid-cols-2">
-            {reasons.slice(0, 2).map((r, idx) => (
-              <motion.div key={r.title} {...fadeUp(idx * 0.08)}>
+          {/* Mobile only: single stacked column, each reason set off as a card with a terracotta accent */}
+          <div className="flex flex-col gap-6 sm:hidden">
+            {reasons.map((r, idx) => (
+              <motion.div
+                key={r.title}
+                className="rounded-xl border border-stone-200 border-b-4 border-b-terracotta-500 bg-white p-6 shadow-md"
+                {...fadeUp(idx * 0.08)}
+              >
                 <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
                 <div className="mt-3 flex items-center gap-3">
                   <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />
@@ -58,9 +63,11 @@ export default function About() {
               </motion.div>
             ))}
           </div>
-          <div className="mt-14 grid max-w-4xl grid-cols-1 gap-x-16 gap-y-14 sm:grid-cols-2 lg:ml-56 lg:max-w-none">
-            {reasons.slice(2, 4).map((r, idx) => (
-              <motion.div key={r.title} {...fadeUp((idx + 2) * 0.08)}>
+
+          {/* Tablet/desktop: plain symmetric 2x2 grid, no offset */}
+          <div className="mx-auto hidden max-w-4xl grid-cols-2 gap-x-16 gap-y-14 sm:grid">
+            {reasons.map((r, idx) => (
+              <motion.div key={r.title} {...fadeUp(idx * 0.08)}>
                 <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
                 <div className="mt-3 flex items-center gap-3">
                   <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />

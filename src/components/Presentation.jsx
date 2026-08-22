@@ -16,7 +16,7 @@ export default function Presentation() {
   return (
     <section id="presentation" className="scroll-mt-19 relative overflow-hidden bg-transparent">
       {/* Decorative icon: static, large, pale sage, behind content */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-20 md:pb-24 relative z-10">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 relative z-10">
         {/* Top: badge, name, full-width headline */}
         <motion.div
           className="inline-flex items-center gap-2 rounded-full border border-sage-300 bg-sage-50 px-3 py-1"
@@ -38,19 +38,20 @@ export default function Presentation() {
         </motion.p>
         <motion.h1
           id="presentation-title"
-          className="font-archivo mt-5 max-w-4xl text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] text-stone-900"
+          className="font-archivo color-[#353d45] mt-7 max-w-4xl text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#353d45] text-balance"
           {...cascade(0.16)}
         >
           Création de sites web pour les professionnels.
         </motion.h1>
 
         {/* Below: intro paragraph + CTAs on the left, visiting card on the right */}
-        <div className="mt-10 grid items-center gap-10 lg:grid-cols-12">
+        <div className="mt-7 lg:mt-2 grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <motion.p className="max-w-2xl text-lg text-stone-600 leading-relaxed" {...cascade(0.24)}>
+            <motion.p className="max-w-2xl text-base text-stone-600 leading-relaxed" {...cascade(0.24)}>
               Sites vitrines, boutiques en ligne et applications sur mesure pour les indépendants et petites
               entreprises. Un interlocuteur unique à chaque étape, du cahier des charges à la mise en ligne.
             </motion.p>
+
             <motion.div
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-10"
               {...cascade(0.48)}

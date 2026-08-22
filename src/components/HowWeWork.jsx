@@ -89,8 +89,8 @@ export default function HowWeWork({ bg = 'bg-stone-100' }) {
 
   return (
     <section className={`scroll-mt-18 ${bg}`}>
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-24">
-        <motion.h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900" {...fadeUp(0)}>
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
+        <motion.h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-balance" {...fadeUp(0)}>
           Déroulement d'un projet
         </motion.h2>
         <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-x-16 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">

@@ -28,7 +28,7 @@ export default function Realisations() {
       <section className="scroll-mt-18 relative overflow-hidden bg-transparent">
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
-            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-stone-900"
+            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#353d45] text-balance"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -37,7 +37,7 @@ export default function Realisations() {
             Mes réalisations
           </motion.h1>
           <motion.p
-            className="mt-5 text-lg text-stone-600"
+            className="mt-5 text-stone-600"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -50,9 +50,9 @@ export default function Realisations() {
 
       {/* Intro */}
       <section className="scroll-mt-18 bg-stone-50">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 py-14 md:py-16 text-center">
+        <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 py-16 md:py-20 text-center">
           <motion.p
-            className="text-lg text-stone-600 leading-relaxed"
+            className="text-stone-600 leading-relaxed"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -61,23 +61,29 @@ export default function Realisations() {
             Applications web et outils sur mesure : voici quelques projets personnels que j'ai conçus et développés de
             bout en bout, du cahier des charges à la mise en ligne.
           </motion.p>
-          <motion.p
-            className="mt-4 text-lg text-stone-600 leading-relaxed"
+          <motion.div
+            className="mt-6"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
           >
-            Vous cherchez un développeur pour votre projet&nbsp;?{' '}
-            <Link to="/tarifs" className="text-sage-600 underline hover:text-sage-700">
-              Consultez mes tarifs
-            </Link>{' '}
-            ou{' '}
-            <Link to="/contact" className="text-sage-600 underline hover:text-sage-700">
-              contactez-moi
-            </Link>{' '}
-            pour en discuter.
-          </motion.p>
+            <p className="text-stone-600 leading-relaxed">Vous cherchez un développeur pour votre projet&nbsp;?</p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                to="/tarifs"
+                className="inline-flex items-center rounded-md border-2 border-sage-600 bg-white px-4 py-2 text-sm font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white"
+              >
+                Consultez mes tarifs
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center rounded-md bg-sage-600 shadow-soft px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sage-700"
+              >
+                Me contacter
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 

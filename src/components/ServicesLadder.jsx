@@ -41,9 +41,9 @@ const listItems = [
 export default function ServicesLadder() {
   return (
     <section className="scroll-mt-18 bg-white">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
           {...fadeUp(0)}
         >
           Mes prestations
@@ -57,7 +57,7 @@ export default function ServicesLadder() {
               {...fadeUp(idx * 0.05)}
             >
               <h3 className="text-lg font-bold text-stone-900">{item.title}</h3>
-              <p className="mt-2 text-sm text-stone-500 leading-relaxed">{item.description}</p>
+              <p className="mt-2 text-stone-500 leading-relaxed">{item.description}</p>
               <span className="font-archivo mt-auto pt-4 text-lg font-extrabold text-terracotta-600">{item.price}</span>
             </motion.div>
           ))}

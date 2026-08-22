@@ -19,7 +19,7 @@ export default function Footer() {
       viewport={{ once: true }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-8 md:py-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <Link to="/" className="relative inline-flex flex-col items-center px-4 py-2 shrink-0">
             <span className="sr-only">Michaël Jongeau — Accueil</span>

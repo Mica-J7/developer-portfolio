@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
+import { ArrowRight, FileSearch, Wallet } from 'lucide-react';
 import { services } from '../Data/services.js';
 import ServiceCard from '../components/ServiceCard.jsx';
 import HowWeWork from '../components/HowWeWork.jsx';
 import FAQ from '../components/FAQ.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
+
+const MotionLink = motion.create(Link);
 
 export function meta() {
   return [
@@ -56,7 +59,7 @@ export default function Tarifs() {
       <section className="scroll-mt-18 relative overflow-hidden bg-transparent">
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
-            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-stone-900"
+            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#353d45] text-balance w-full"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -74,7 +77,7 @@ export default function Tarifs() {
             Prix HT, TVA non applicable, art. 293 B du CGI
           </motion.p>
           <motion.p
-            className="mt-5 text-lg text-stone-600"
+            className="mt-5 text-stone-600"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -95,9 +98,9 @@ export default function Tarifs() {
         if (groupServices.length === 0) return null;
         return (
           <section key={group.category} className={`scroll-mt-18 ${group.bg}`}>
-            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-12 pb-16 md:pt-16 md:pb-20">
+            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
               <motion.h2
-                className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center"
+                className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -119,33 +122,52 @@ export default function Tarifs() {
 
       {/* Trust panel */}
       <section className="scroll-mt-18 bg-stone-50">
-        <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 py-14 md:py-16">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
           <motion.div
-            className="rounded-2xl border border-sage-300 bg-white p-8 md:p-10 shadow-sm"
+            className="rounded-2xl border border-sage-300 bg-white p-8 md:p-10 shadow-lg"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            <h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center">
+            <h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance">
               Comment fonctionnent mes tarifs&nbsp;?
             </h2>
-            <p className="mt-4 text-lg text-stone-600 leading-relaxed">
-              Les prix affichés sont indicatifs&nbsp;: chaque projet est différent, donc chaque devis l'est aussi. Après
-              un premier échange gratuit et sans engagement, vous recevez un devis détaillé avec le périmètre exact et
-              le prix final, sans surprise par la suite.
-            </p>
-            <p className="mt-4 text-lg text-stone-600 leading-relaxed">
-              Le paiement se fait en deux temps&nbsp;: un acompte à la validation du devis, puis le solde à la livraison
-              du projet.
-            </p>
-            <p className="mt-4 text-lg text-stone-600 leading-relaxed">
-              Vous avez un projet en tête&nbsp;?{' '}
-              <Link to="/contact" className="text-sage-600 underline hover:text-sage-700">
-                Contactez-moi
-              </Link>{' '}
-              pour un devis gratuit, réponse sous 24h.
-            </p>
+
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+              <div className="flex gap-4">
+                <FileSearch aria-hidden="true" strokeWidth={1.8} className="h-8 w-8 shrink-0 text-sage-600" />
+                <div>
+                  <h3 className="font-bold text-stone-900">Devis détaillé après échange</h3>
+                  <p className="mt-1 text-stone-600 leading-relaxed">
+                    Les prix affichés sont indicatifs&nbsp;: chaque projet est différent. Après un premier échange
+                    gratuit et sans engagement, vous recevez un devis avec le prix final, sans surprise.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <Wallet aria-hidden="true" strokeWidth={1.8} className="h-8 w-8 shrink-0 text-sage-600" />
+                <div>
+                  <h3 className="font-bold text-stone-900">Paiement en deux temps</h3>
+                  <p className="mt-1 text-stone-600 leading-relaxed">
+                    Un acompte à la validation du devis, puis le solde à la livraison du projet.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-col items-center gap-3 border-t border-stone-200 pt-8 text-center">
+              <p className="text-stone-600">Vous avez un projet en tête&nbsp;?</p>
+              <MotionLink
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft px-5 py-2.5 text-sm font-semibold text-white hover:bg-sage-700"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>Me contacter pour un devis gratuit</span>
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </MotionLink>
+            </div>
           </motion.div>
         </div>
       </section>

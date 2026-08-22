@@ -12,9 +12,9 @@ export default function CtaBanner({
 }) {
   return (
     <section className={tone === 'alt' ? 'bg-transparent' : 'bg-stone-50'}>
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-14 md:py-16 text-center">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20 text-center">
         <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-balance"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
