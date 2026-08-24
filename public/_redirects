@@ -4,5 +4,13 @@ http://jongeau-m.fr/* https://jongeau-m.fr/:splat 301!
 # Redirect Netlify subdomain to primary domain
 https://jongeau-m.netlify.app/*  https://jongeau-m.fr/:splat  301!
 
+# Serve each pre-rendered route directly at its canonical (no trailing slash) URL.
+# Without this, Netlify's default directory handling 301-redirects /tarifs to /tarifs/,
+# which conflicts with the trailing-slash-free canonical/sitemap URLs and blocks indexing.
+/tarifs /tarifs/index.html 200!
+/realisations /realisations/index.html 200!
+/contact /contact/index.html 200!
+/mentions-legales /mentions-legales/index.html 200!
+
 # SPA fallback for unmatched routes (each real route now has its own pre-rendered HTML file)
 /* /__spa-fallback.html 200
