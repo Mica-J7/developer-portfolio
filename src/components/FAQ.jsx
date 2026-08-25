@@ -14,7 +14,7 @@ export default function FAQ() {
     <section id="faq" className="scroll-mt-18 bg-transparent">
       <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-balance"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-balance"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

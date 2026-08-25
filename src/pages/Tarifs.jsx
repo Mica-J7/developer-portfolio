@@ -59,7 +59,7 @@ export default function Tarifs() {
       <section className="scroll-mt-18 relative overflow-hidden bg-transparent">
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
-            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#353d45] text-balance w-full"
+            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance w-full"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -100,7 +100,7 @@ export default function Tarifs() {
           <section key={group.category} className={`scroll-mt-18 ${group.bg}`}>
             <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
               <motion.h2
-                className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
+                className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -130,7 +130,7 @@ export default function Tarifs() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            <h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance">
+            <h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance">
               Comment fonctionnent mes tarifs&nbsp;?
             </h2>
 
@@ -138,7 +138,7 @@ export default function Tarifs() {
               <div className="flex gap-4">
                 <FileSearch aria-hidden="true" strokeWidth={1.8} className="h-8 w-8 shrink-0 text-sage-600" />
                 <div>
-                  <h3 className="font-bold text-stone-900">Devis détaillé après échange</h3>
+                  <h3 className="font-bold text-[#2d343b]">Devis détaillé après échange</h3>
                   <p className="mt-1 text-stone-600 leading-relaxed">
                     Les prix affichés sont indicatifs&nbsp;: chaque projet est différent. Après un premier échange
                     gratuit et sans engagement, vous recevez un devis avec le prix final, sans surprise.
@@ -148,7 +148,7 @@ export default function Tarifs() {
               <div className="flex gap-4">
                 <Wallet aria-hidden="true" strokeWidth={1.8} className="h-8 w-8 shrink-0 text-sage-600" />
                 <div>
-                  <h3 className="font-bold text-stone-900">Paiement en deux temps</h3>
+                  <h3 className="font-bold text-[#2d343b]">Paiement en deux temps</h3>
                   <p className="mt-1 text-stone-600 leading-relaxed">
                     Un acompte à la validation du devis, puis le solde à la livraison du projet.
                   </p>

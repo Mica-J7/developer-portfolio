@@ -40,7 +40,7 @@ export default function ServicesTeaser() {
     <section id="services" className="scroll-mt-18 bg-transparent">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -70,7 +70,7 @@ export default function ServicesTeaser() {
             >
               <div className="flex flex-col items-center gap-4 text-center">
                 <div className="shrink-0 text-sage-600">{item.icon}</div>
-                <h3 className="text-xl font-bold text-stone-900">{item.title}</h3>
+                <h3 className="text-xl font-bold text-[#2d343b]">{item.title}</h3>
               </div>
               <p className="mt-2 text-base text-stone-500 leading-relaxed text-center">{item.description}</p>
               <Link

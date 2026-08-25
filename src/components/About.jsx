@@ -40,7 +40,7 @@ export default function About() {
     <section id="about" className="scroll-mt-18 bg-white">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
           {...fadeUp(0)}
         >
           Pourquoi choisir un développeur Freelance&nbsp;?
@@ -57,7 +57,7 @@ export default function About() {
                 <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
                 <div className="mt-3 flex items-center gap-3">
                   <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />
-                  <h3 className="text-xl font-bold text-stone-900">{r.title}</h3>
+                  <h3 className="text-xl font-bold text-[#2d343b]">{r.title}</h3>
                 </div>
                 <p className="mt-3 text-stone-600 leading-relaxed">{r.body}</p>
               </motion.div>
@@ -71,7 +71,7 @@ export default function About() {
                 <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
                 <div className="mt-3 flex items-center gap-3">
                   <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />
-                  <h3 className="text-xl font-bold text-stone-900">{r.title}</h3>
+                  <h3 className="text-xl font-bold text-[#2d343b]">{r.title}</h3>
                 </div>
                 <p className="mt-3 text-stone-600 leading-relaxed">{r.body}</p>
               </motion.div>

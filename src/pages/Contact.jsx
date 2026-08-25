@@ -112,7 +112,7 @@ export default function Contact() {
       <section className="scroll-mt-18 relative overflow-hidden bg-transparent">
         <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
           <motion.h1
-            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#353d45] text-balance"
+            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -146,7 +146,7 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
             >
-              <h2 className="text-2xl font-bold text-stone-900">Envoyez-moi votre demande</h2>
+              <h2 className="text-2xl font-bold text-[#2d343b]">Envoyez-moi votre demande</h2>
               <p className="mt-2 text-sm text-stone-500">
                 Remplissez ce formulaire et je reviendrai vers vous dans les 24 heures.
               </p>
@@ -378,7 +378,7 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
             >
-              <h2 className="text-xl font-bold text-stone-900">Coordonnées directes</h2>
+              <h2 className="text-xl font-bold text-[#2d343b]">Coordonnées directes</h2>
               <p className="mt-2 text-sm text-stone-600">Si vous préférez me contacter directement :</p>
 
               <div className="mt-6 space-y-3">
@@ -446,7 +446,7 @@ export default function Contact() {
               </div>
 
               <div className="mt-6 border-t border-sage-200 pt-6">
-                <h3 className="text-sm font-bold text-stone-900">Mes engagements</h3>
+                <h3 className="text-sm font-bold text-[#2d343b]">Mes engagements</h3>
                 <ul className="mt-3 space-y-2 text-sm text-stone-600">
                   {[
                     'Réponse sous 24h',

@@ -90,7 +90,7 @@ export default function HowWeWork({ bg = 'bg-stone-100' }) {
   return (
     <section className={`scroll-mt-18 ${bg}`}>
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <motion.h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-balance" {...fadeUp(0)}>
+        <motion.h2 className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-balance" {...fadeUp(0)}>
           Déroulement d'un projet
         </motion.h2>
         <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-x-16 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
@@ -125,7 +125,7 @@ export default function HowWeWork({ bg = 'bg-stone-100' }) {
               </div>
               <div className="sm:contents">
                 <span className="font-archivo block text-sm font-extrabold text-terracotta-500 sm:mt-4">{s.n}</span>
-                <h3 className="mt-1 text-lg font-bold text-stone-900">{s.title}</h3>
+                <h3 className="mt-1 text-lg font-bold text-[#2d343b]">{s.title}</h3>
                 <p className="mt-2 text-stone-600 leading-relaxed">{s.body}</p>
               </div>
             </motion.div>
@@ -164,7 +164,7 @@ export default function HowWeWork({ bg = 'bg-stone-100' }) {
               </div>
               <div className="sm:contents">
                 <span className="font-archivo block text-sm font-extrabold text-terracotta-500 sm:mt-4">{s.n}</span>
-                <h3 className="mt-1 text-lg font-bold text-stone-900">{s.title}</h3>
+                <h3 className="mt-1 text-lg font-bold text-[#2d343b]">{s.title}</h3>
                 <p className="mt-2 text-stone-600 leading-relaxed">{s.body}</p>
               </div>
             </motion.div>

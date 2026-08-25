@@ -101,6 +101,22 @@ export const services = [
     priceFrom: '100',
   },
   {
+    id: 10,
+    title: 'Suivi SEO',
+    description: 'Un suivi mensuel pour maintenir et améliorer votre visibilité sur Google dans la durée.',
+    includes: [
+      'Suivi mensuel des positions sur vos mots-clés cibles',
+      'Analyse du trafic et des performances (Search Console, Analytics)',
+      'Rapport mensuel détaillé',
+      'Optimisations continues (contenu, balises, maillage interne)',
+      "Veille des mises à jour de l'algorithme Google",
+      'Support réactif pour vos questions SEO',
+    ],
+    category: 'accompagnement',
+    billing: 'monthly',
+    priceFrom: '120',
+  },
+  {
     id: 7,
     title: 'Optimisation SEO',
     description: 'Des actions concrètes pour améliorer votre visibilité dans les résultats de recherche Google.',

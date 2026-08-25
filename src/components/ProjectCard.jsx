@@ -74,7 +74,7 @@ export default function ProjectCard({ p, idx }) {
         </div>
       </div>
       <div className="flex h-full flex-1 flex-col p-6">
-        <h3 className="text-2xl font-bold text-stone-900">
+        <h3 className="text-2xl font-bold text-[#2d343b]">
           {mainTitle}
           {titleNote && <span className="ml-2 text-sm font-normal text-stone-500">({titleNote})</span>}
         </h3>

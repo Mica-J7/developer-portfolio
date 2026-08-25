@@ -38,10 +38,10 @@ export default function Presentation() {
         </motion.p>
         <motion.h1
           id="presentation-title"
-          className="font-archivo color-[#353d45] mt-7 max-w-4xl text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#353d45] text-balance"
+          className="font-archivo mt-7 max-w-4xl text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance"
           {...cascade(0.16)}
         >
-          Création de sites web pour les professionnels.
+          Création de sites web pour les professionnels
         </motion.h1>
 
         {/* Below: intro paragraph + CTAs on the left, visiting card on the right */}
@@ -92,7 +92,7 @@ export default function Presentation() {
                     MJ
                   </div>
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-stone-900">Développeur Web Full-Stack</h2>
+                    <h2 className="text-lg md:text-xl font-bold text-[#2d343b]">Développeur Web Full-Stack</h2>
                     <p className="mt-1 text-xs text-stone-500">Titre RNCP Développeur Web - OpenClassrooms</p>
                   </div>
                 </div>

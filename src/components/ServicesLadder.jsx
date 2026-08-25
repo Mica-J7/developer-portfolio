@@ -43,7 +43,7 @@ export default function ServicesLadder() {
     <section className="scroll-mt-18 bg-white">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-stone-900 text-center text-balance"
+          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
           {...fadeUp(0)}
         >
           Mes prestations
@@ -56,7 +56,7 @@ export default function ServicesLadder() {
               className="flex flex-col rounded-xl border border-stone-200 border-t-4 border-t-sage-500 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg"
               {...fadeUp(idx * 0.05)}
             >
-              <h3 className="text-lg font-bold text-stone-900">{item.title}</h3>
+              <h3 className="text-lg font-bold text-[#2d343b]">{item.title}</h3>
               <p className="mt-2 text-stone-500 leading-relaxed">{item.description}</p>
               <span className="font-archivo mt-auto pt-4 text-lg font-extrabold text-terracotta-600">{item.price}</span>
             </motion.div>
@@ -81,7 +81,7 @@ export default function ServicesLadder() {
         >
           <Search aria-hidden="true" strokeWidth={1.8} className="h-8 w-8 shrink-0 text-sage-600" />
           <div>
-            <h3 className="text-lg font-bold text-stone-900">Être visible sur Google</h3>
+            <h3 className="text-lg font-bold text-[#2d343b]">Être visible sur Google</h3>
             <p className="mt-1 text-stone-600 leading-relaxed">
               Un site que personne ne trouve ne sert à rien. L'optimisation SEO fait partie intégrante de chaque projet
               dès sa conception, ce n'est pas une option ajoutée après coup.

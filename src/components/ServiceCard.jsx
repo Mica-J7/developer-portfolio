@@ -13,7 +13,7 @@ export default function ServiceCard({ service, idx }) {
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.15, ease: 'easeOut' }}
     >
-      <h3 className="text-xl sm:text-2xl font-bold text-stone-900 text-center">{service.title}</h3>
+      <h3 className="text-xl sm:text-2xl font-bold text-[#2d343b] text-center">{service.title}</h3>
       <p className="mt-0.5 border-b border-stone-200 pb-5 text-stone-500 text-base leading-relaxed text-center">
         {service.description}
       </p>
