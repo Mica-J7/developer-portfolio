@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+/* Self-hosted Archivo (weights 600/800), so the font loads with zero third-party requests —
+   no Google Fonts CDN call, no visitor IP sent to Google. Source: Google Fonts, OFL-licensed. */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/archivo-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/archivo-latin.woff2') format('woff2');
+}
+
 /* Matches the footer (always the last element on every page) so that mobile browsers revealing
    extra space below the page when their toolbar auto-hides on scroll don't show a mismatched gap */
 html,

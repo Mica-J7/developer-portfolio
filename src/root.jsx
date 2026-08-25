@@ -21,9 +21,6 @@ export function links() {
     { rel: 'icon', href: '/brand/favicon-64.png', sizes: '64x64', type: 'image/png' },
     { rel: 'apple-touch-icon', href: '/brand/apple-touch-icon-180.png' },
     { rel: 'manifest', href: '/brand/manifest.webmanifest' },
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&display=swap' },
   ];
 }
 
