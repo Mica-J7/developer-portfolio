@@ -83,7 +83,7 @@ const followUpSteps = [
   },
 ];
 
-export default function HowWeWork({ bg = 'bg-stone-100' }) {
+export default function HowWeWork({ bg = 'bg-stone-50' }) {
   const isDesktop = useIsDesktop();
   const cardAnim = (idx) => (isDesktop ? fadeRight(idx * 0.15) : fadeUp(idx * 0.15));
 

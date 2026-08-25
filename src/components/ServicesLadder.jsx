@@ -40,7 +40,7 @@ const listItems = [
 
 export default function ServicesLadder() {
   return (
-    <section className="scroll-mt-18 bg-white">
+    <section className="scroll-mt-18 bg-stone-50">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
           className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
@@ -55,6 +55,7 @@ export default function ServicesLadder() {
               key={item.key}
               className="flex flex-col rounded-xl border border-stone-200 border-t-4 border-t-sage-500 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg"
               {...fadeUp(idx * 0.05)}
+              whileHover={{ y: -6, transition: { duration: 0.15, ease: 'easeOut' } }}
             >
               <h3 className="text-lg font-bold text-[#2d343b]">{item.title}</h3>
               <p className="mt-2 text-stone-500 leading-relaxed">{item.description}</p>

@@ -37,7 +37,7 @@ const reasons = [
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-18 bg-white">
+    <section id="about" className="scroll-mt-18 bg-stone-50">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.h2
           className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
@@ -67,7 +67,11 @@ export default function About() {
           {/* Tablet/desktop: plain symmetric 2x2 grid, no offset */}
           <div className="mx-auto hidden max-w-4xl grid-cols-2 gap-x-16 gap-y-14 sm:grid">
             {reasons.map((r, idx) => (
-              <motion.div key={r.title} {...fadeUp(idx * 0.08)}>
+              <motion.div key={r.title} className="group relative self-start pl-6" {...fadeUp(idx * 0.08)}>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-y-0 left-0 w-0.5 origin-top scale-y-0 bg-terracotta-500 transition-transform duration-300 ease-out group-hover:scale-y-100"
+                />
                 <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
                 <div className="mt-3 flex items-center gap-3">
                   <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />

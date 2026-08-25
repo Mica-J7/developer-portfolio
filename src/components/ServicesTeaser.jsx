@@ -65,6 +65,7 @@ export default function ServicesTeaser() {
               className="flex h-full flex-col rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-md"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6, transition: { duration: 0.15, ease: 'easeOut' } }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
             >
