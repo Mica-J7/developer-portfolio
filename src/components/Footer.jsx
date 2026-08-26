@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/tarifs', label: 'Tarifs' },
   { to: '/realisations', label: 'Réalisations' },
   { to: '/contact', label: 'Contact' },
+  { to: '/mentions-legales', label: 'Mentions légales & Confidentialité' },
 ];
 
 const socialLinks = [
@@ -56,38 +57,41 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           {/* Brand */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <Link to="/" className="relative inline-flex flex-col items-center px-4 py-2 shrink-0">
+            <Link to="/" className="group relative inline-flex flex-col items-center px-4 py-2 shrink-0">
               <span className="sr-only">Michaël Jongeau — Accueil</span>
               <span
                 aria-hidden="true"
-                className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-white"
+                className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-white transition-colors group-hover:border-sage-400"
               />
               <span
                 aria-hidden="true"
-                className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-white"
+                className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-white transition-colors group-hover:border-sage-400"
               />
               <span
                 aria-hidden="true"
-                className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-white"
+                className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-white transition-colors group-hover:border-sage-400"
               />
               <span
                 aria-hidden="true"
-                className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-white"
+                className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-white transition-colors group-hover:border-sage-400"
               />
               <span
                 aria-hidden="true"
-                className="font-archivo text-xl font-extrabold leading-none tracking-tight text-white"
+                className="font-archivo text-xl font-extrabold leading-none tracking-tight text-white transition-colors group-hover:text-sage-400"
               >
                 MJ
               </span>
               <span
                 aria-hidden="true"
-                className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-white"
+                className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-white transition-colors group-hover:text-sage-400"
               >
                 Dév. Freelance
               </span>
             </Link>
-            <p className="mt-3 text-sm text-stone-400">Développeur web freelance basé à Rochefort (17).</p>
+            <p className="mt-5 text-sm text-stone-400">
+              Développeur web freelance <br />
+              Basé à Rochefort (17)
+            </p>
           </div>
 
           {/* Navigation */}
@@ -128,15 +132,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-8">
-          <p className="text-xs text-stone-500 text-center sm:text-left">
-            2026 - Michaël Jongeau, Développeur Web Freelance
-            <br className="sm:hidden" />
-            <span className="hidden sm:inline"> · </span>
-            SIRET : 99458742600010 ·{' '}
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-xs text-stone-500 sm:justify-start">
+            <span>2026 - Michaël Jongeau, Développeur Web Freelance</span>
+            <span>SIRET : 99458742600010</span>
             <Link to="/mentions-legales" className="hover:text-white underline underline-offset-2">
-              Mentions légales
+              Mentions légales &amp; Confidentialité
             </Link>
-          </p>
+          </div>
           <motion.a
             href="#top"
             onClick={onBackToTop}

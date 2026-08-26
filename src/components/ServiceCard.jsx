@@ -5,7 +5,7 @@ import { CircleCheckBig } from 'lucide-react';
 export default function ServiceCard({ service, idx }) {
   return (
     <motion.article
-      className="grid grid-rows-subgrid row-span-5 rounded-xl border border-stone-200 border-t-4 border-t-sage-500 bg-white p-7 shadow-md
+      className="will-change-transform grid grid-rows-subgrid row-span-5 rounded-xl border border-stone-200 border-t-4 border-t-sage-500 bg-white p-7 shadow-md
              transition-shadow duration-300 hover:shadow-lg"
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut', delay: idx * 0.04 } }}

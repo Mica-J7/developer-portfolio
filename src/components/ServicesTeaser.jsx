@@ -62,28 +62,32 @@ export default function ServicesTeaser() {
           {benefits.map((item, idx) => (
             <motion.div
               key={item.title}
-              className="flex h-full flex-col rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-md"
+              className="h-full"
               initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -6, transition: { duration: 0.15, ease: 'easeOut' } }}
+              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut', delay: idx * 0.04 } }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
             >
-              <div className="flex flex-col items-center gap-4 text-center">
-                <div className="shrink-0 text-sage-600">{item.icon}</div>
-                <h3 className="text-xl font-bold text-[#2d343b]">{item.title}</h3>
-              </div>
-              <p className="mt-2 text-base text-stone-500 leading-relaxed text-center">{item.description}</p>
-              <Link
-                to="/tarifs"
-                className="group/link mt-auto pt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-sage-600 hover:text-sage-700"
+              <motion.div
+                className="will-change-transform flex h-full flex-col rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-md"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
               >
-                Voir les tarifs
-                <ArrowRight
-                  aria-hidden="true"
-                  className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1.5"
-                />
-              </Link>
+                <div className="flex flex-col items-center gap-4 text-center">
+                  <div className="shrink-0 text-sage-600">{item.icon}</div>
+                  <h3 className="text-xl font-bold text-[#2d343b]">{item.title}</h3>
+                </div>
+                <p className="mt-2 text-base text-stone-500 leading-relaxed text-center">{item.description}</p>
+                <Link
+                  to="/tarifs"
+                  className="group/link mt-auto pt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-sage-600 hover:text-sage-700"
+                >
+                  Voir les tarifs
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1.5"
+                  />
+                </Link>
+              </motion.div>
             </motion.div>
           ))}
         </div>

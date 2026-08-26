@@ -7,8 +7,6 @@ import HowWeWork from '../components/HowWeWork.jsx';
 import FAQ from '../components/FAQ.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 
-const MotionLink = motion.create(Link);
-
 export function meta() {
   return [
     { title: 'Tarifs - Sites web & applications sur mesure | Michaël Jongeau' },
@@ -158,15 +156,20 @@ export default function Tarifs() {
 
             <div className="mt-8 flex flex-col items-center gap-3 border-t border-stone-200 pt-8 text-center">
               <p className="text-stone-600">Vous avez un projet en tête&nbsp;?</p>
-              <MotionLink
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft px-5 py-2.5 text-sm font-semibold text-white hover:bg-sage-700"
+              <motion.span
+                className="will-change-transform inline-block"
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
               >
-                <span>Me contacter pour un devis gratuit</span>
-                <ArrowRight aria-hidden="true" className="h-4 w-4" />
-              </MotionLink>
+                <Link
+                  to="/contact"
+                  className="flex items-center gap-2 rounded-md bg-sage-600 shadow-soft px-5 py-2.5 text-sm font-semibold text-white hover:bg-sage-700"
+                >
+                  <span>Me contacter pour un devis gratuit</span>
+                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                </Link>
+              </motion.span>
             </div>
           </motion.div>
         </div>

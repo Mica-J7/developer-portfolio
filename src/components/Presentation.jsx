@@ -2,8 +2,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import { ArrowRight, FileText } from 'lucide-react';
 
-const MotionLink = motion.create(Link);
-
 // Staggered fade+slide-up cascade on mount, from the badge down to the visiting card.
 const CASCADE_DURATION = 0.5;
 const cascade = (delay) => ({
@@ -56,27 +54,37 @@ export default function Presentation() {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-10"
               {...cascade(0.48)}
             >
-              <MotionLink
-                to="/tarifs"
-                className="inline-flex w-64 items-center justify-center gap-2 rounded-md bg-sage-600
-                px-6 py-3.5 text-base text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
-                focus-visible:ring-sage-400 hover:bg-sage-700"
+              <motion.span
+                className="will-change-transform inline-block"
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
               >
-                <span className="text-nowrap">Voir mes prestations</span>
-                <ArrowRight aria-hidden="true" className="h-5 w-5" />
-              </MotionLink>
-              <MotionLink
-                to="/contact"
-                className="inline-flex w-64 items-center justify-center gap-2 rounded-md border-2 border-sage-600 bg-white
-                px-6 py-3 text-base text-sage-600 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400
-                hover:bg-sage-600 hover:text-white"
+                <Link
+                  to="/tarifs"
+                  className="flex w-64 items-center justify-center gap-2 rounded-md bg-sage-600
+                  px-6 py-3.5 text-base text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
+                  focus-visible:ring-sage-400 hover:bg-sage-700"
+                >
+                  <span className="text-nowrap">Voir mes prestations</span>
+                  <ArrowRight aria-hidden="true" className="h-5 w-5" />
+                </Link>
+              </motion.span>
+              <motion.span
+                className="will-change-transform inline-block"
                 whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
               >
-                <span className="text-nowrap">Demander un devis</span>
-                <FileText aria-hidden="true" className="h-5 w-5" />
-              </MotionLink>
+                <Link
+                  to="/contact"
+                  className="flex w-64 items-center justify-center gap-2 rounded-md border-2 border-sage-600 bg-white
+                  px-6 py-3 text-base text-sage-600 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400
+                  hover:bg-sage-600 hover:text-white"
+                >
+                  <span className="text-nowrap">Demander un devis</span>
+                  <FileText aria-hidden="true" className="h-5 w-5" />
+                </Link>
+              </motion.span>
             </motion.div>
           </div>
 

@@ -2,8 +2,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
 
-const MotionLink = motion.create(Link);
-
 export default function CtaBanner({
   title = 'Un projet en tête ?',
   description = 'Discutons-en, le premier échange est gratuit et sans engagement.',
@@ -38,17 +36,22 @@ export default function CtaBanner({
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.08 }}
         >
-          <MotionLink
-            to="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-sage-600
-            px-6 py-3.5 text-base text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
-            focus-visible:ring-sage-400 hover:bg-sage-700"
+          <motion.span
+            className="will-change-transform inline-block"
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.15, ease: 'easeOut' }}
           >
-            <span className="text-nowrap">Me contacter</span>
-            <ArrowRight aria-hidden="true" className="h-5 w-5" />
-          </MotionLink>
+            <Link
+              to="/contact"
+              className="flex items-center justify-center gap-2 rounded-md bg-sage-600
+              px-6 py-3.5 text-base text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
+              focus-visible:ring-sage-400 hover:bg-sage-700"
+            >
+              <span className="text-nowrap">Me contacter</span>
+              <ArrowRight aria-hidden="true" className="h-5 w-5" />
+            </Link>
+          </motion.span>
         </motion.div>
         {note && (
           <motion.p

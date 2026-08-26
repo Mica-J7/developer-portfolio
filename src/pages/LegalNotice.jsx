@@ -3,8 +3,11 @@ import { ArrowLeft } from 'lucide-react';
 
 export function meta() {
   return [
-    { title: 'Mentions légales | Michaël Jongeau' },
-    { name: 'description', content: 'Mentions légales du site de Michaël Jongeau, développeur web freelance.' },
+    { title: 'Mentions légales & Confidentialité | Michaël Jongeau' },
+    {
+      name: 'description',
+      content: 'Mentions légales et politique de confidentialité du site de Michaël Jongeau, développeur web freelance.',
+    },
     { tagName: 'link', rel: 'canonical', href: 'https://jongeau-m.fr/mentions-legales' },
     { name: 'robots', content: 'noindex, follow' },
   ];
@@ -15,7 +18,7 @@ export default function LegalNotice() {
     <section className="scroll-mt-18">
       <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <h1 className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance">
-          Mentions légales
+          Mentions légales &amp; Confidentialité
         </h1>
 
         <div className="mt-8 space-y-8 text-stone-600 leading-relaxed">

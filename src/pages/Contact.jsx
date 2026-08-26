@@ -355,9 +355,13 @@ export default function Contact() {
                   <motion.button
                     type="submit"
                     disabled={submitted || isSubmitting}
-                    className={`inline-flex justify-center whitespace-nowrap text-sm md:text-base items-center gap-2 min-w-56 rounded-md bg-sage-600 px-5 py-2.5 text-white font-semibold shadow-soft
+                    className={`will-change-transform inline-flex justify-center whitespace-nowrap text-sm md:text-base items-center gap-2 min-w-56 rounded-md bg-sage-600 px-5 py-2.5 text-white font-semibold shadow-soft
                   ${submitted || isSubmitting ? 'opacity-50' : 'hover:bg-sage-700 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-sage-400 transition-colors duration-150'}`}
-                    whileHover={submitted || isSubmitting ? {} : { scale: 1.08 }}
+                    whileHover={
+                      submitted || isSubmitting
+                        ? {}
+                        : { scale: 1.08, transition: { duration: 0.15, ease: 'easeOut' } }
+                    }
                     whileTap={submitted || isSubmitting ? {} : { scale: 0.92 }}
                   >
                     {isSubmitting && <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin text-white" />}

@@ -125,14 +125,13 @@ export default function ProjectCard({ p, idx }) {
           {p.live && (
             <motion.a
               href={p.live}
-              className="inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft
+              className="will-change-transform inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft
                       px-3 py-1.5 text-sm font-semibold text-white hover:bg-sage-700"
               aria-label="Ouvrir le site"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -3 }}
+              whileHover={{ y: -3, transition: { duration: 0.15, ease: 'easeOut' } }}
               whileTap={{ scale: 0.91 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
             >
               <span className="pb-0.5">Voir le site</span>
               <ExternalLink className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />

@@ -5,9 +5,8 @@ import { services } from '../Data/services.js';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 14 },
-  whileInView: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut', delay } },
   viewport: { once: true, margin: '-80px' },
-  transition: { duration: 0.5, ease: 'easeOut', delay },
 });
 
 const siteServices = services.filter((s) => s.category === 'site');
@@ -51,15 +50,18 @@ export default function ServicesLadder() {
 
         <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {listItems.map((item, idx) => (
-            <motion.div
-              key={item.key}
-              className="flex flex-col rounded-xl border border-stone-200 border-t-4 border-t-sage-500 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg"
-              {...fadeUp(idx * 0.05)}
-              whileHover={{ y: -6, transition: { duration: 0.15, ease: 'easeOut' } }}
-            >
-              <h3 className="text-lg font-bold text-[#2d343b]">{item.title}</h3>
-              <p className="mt-2 text-stone-500 leading-relaxed">{item.description}</p>
-              <span className="font-archivo mt-auto pt-4 text-lg font-extrabold text-terracotta-600">{item.price}</span>
+            <motion.div key={item.key} {...fadeUp(idx * 0.05)}>
+              <motion.div
+                className="will-change-transform flex h-full flex-col rounded-xl border border-stone-200 border-t-4 border-t-sage-500 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+              >
+                <h3 className="text-lg font-bold text-[#2d343b]">{item.title}</h3>
+                <p className="mt-2 text-stone-500 leading-relaxed">{item.description}</p>
+                <span className="font-archivo mt-auto pt-4 text-lg font-extrabold text-terracotta-600">
+                  {item.price}
+                </span>
+              </motion.div>
             </motion.div>
           ))}
         </div>

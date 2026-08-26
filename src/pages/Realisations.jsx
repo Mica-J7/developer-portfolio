@@ -61,12 +61,19 @@ export default function Realisations() {
               >
                 Consulter mes tarifs
               </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center rounded-md border-2 border-transparent bg-sage-600 shadow-soft px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sage-700"
+              <motion.span
+                className="will-change-transform inline-block"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
               >
-                Me contacter
-              </Link>
+                <Link
+                  to="/contact"
+                  className="flex items-center rounded-md border-2 border-transparent bg-sage-600 shadow-soft px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sage-700"
+                >
+                  Me contacter
+                </Link>
+              </motion.span>
             </div>
           </motion.div>
         </div>
