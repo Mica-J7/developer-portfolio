@@ -15,37 +15,36 @@ export default function Presentation() {
     <section id="presentation" className="scroll-mt-19 relative overflow-hidden bg-transparent">
       {/* Decorative icon: static, large, pale sage, behind content */}
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 relative z-10">
-        {/* Top: badge, name, full-width headline */}
-        <motion.div
-          className="inline-flex items-center gap-2 rounded-full border border-sage-300 bg-sage-50 px-3 py-1"
-          {...cascade(0)}
-        >
-          <motion.span
-            aria-hidden="true"
-            className="h-2 w-2 rounded-full bg-sage-500"
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <span className="text-xs text-stone-700">Disponible pour de nouvelles missions</span>
-        </motion.div>
-        <motion.p className="mt-4 font-mono text-sm tracking-widest text-terracotta-600 uppercase" {...cascade(0.08)}>
-          Développeur web freelance
-          <br className="sm:hidden" />
-          <span className="hidden sm:inline"> · </span>
-          Rochefort (17)
-        </motion.p>
-        <motion.h1
-          id="presentation-title"
-          className="font-archivo mt-7 max-w-4xl text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance"
-          {...cascade(0.16)}
-        >
-          Création de sites web pour les professionnels
-        </motion.h1>
-
-        {/* Below: intro paragraph + CTAs on the left, visiting card on the right */}
-        <div className="mt-7 lg:mt-2 grid items-center gap-10 lg:grid-cols-12">
+        <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <motion.p className="max-w-2xl text-base text-stone-600 leading-relaxed" {...cascade(0.24)}>
+            {/* Top: badge, name, full-width headline */}
+            <motion.div
+              className="inline-flex items-center gap-2 rounded-full border border-sage-300 bg-sage-50 px-3 py-1"
+              {...cascade(0)}
+            >
+              <motion.span
+                aria-hidden="true"
+                className="h-2 w-2 rounded-full bg-sage-500"
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <span className="text-xs text-stone-700">Disponible pour de nouvelles missions</span>
+            </motion.div>
+            <motion.p className="mt-4 font-mono text-sm tracking-widest text-terracotta-600 uppercase" {...cascade(0.08)}>
+              Développeur web freelance
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> · </span>
+              Rochefort (17)
+            </motion.p>
+            <motion.h1
+              id="presentation-title"
+              className="font-archivo mt-7 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance"
+              {...cascade(0.16)}
+            >
+              Création de sites web pour les professionnels
+            </motion.h1>
+
+            <motion.p className="mt-7 max-w-2xl text-base text-stone-600 leading-relaxed" {...cascade(0.24)}>
               Sites vitrines, boutiques en ligne et applications sur mesure pour les indépendants et petites
               entreprises. Un interlocuteur unique à chaque étape, du cahier des charges à la mise en ligne.
             </motion.p>

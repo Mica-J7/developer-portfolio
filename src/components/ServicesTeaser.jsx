@@ -68,7 +68,7 @@ export default function ServicesTeaser() {
               viewport={{ once: true }}
             >
               <motion.div
-                className="will-change-transform flex h-full flex-col rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-md"
+                className="will-change-transform flex h-full flex-col rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-md transition-shadow duration-300 hover:shadow-lg"
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
               >
