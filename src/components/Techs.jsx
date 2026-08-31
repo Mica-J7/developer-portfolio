@@ -59,12 +59,12 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
-          • Autres Outils&nbsp;:
+          • CMS&nbsp;:
         </motion.p>
 
         <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
           {techs
-            .filter((t) => t.type === 'tools')
+            .filter((t) => t.type === 'cms')
             .map((t, idx) => (
               <TechCard key={t.id} tech={t} idx={idx} />
             ))}

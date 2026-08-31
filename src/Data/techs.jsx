@@ -1,30 +1,32 @@
 import {
   SiReact,
+  SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
-  SiJavascript,
   SiHtml5,
   SiCss,
-  SiSass,
-  SiPython,
   SiDjango,
+  SiSymfony,
   SiPostgresql,
   SiNodedotjs,
-  SiExpress,
   SiMongodb,
-  SiGit,
-  SiGithub,
-  SiDbeaver,
-  SiPostman,
-  SiFigma,
-  SiNotion,
+  SiWordpress,
+  SiPrestashop,
+  SiShopify,
 } from '@icons-pack/react-simple-icons';
+import { Database } from 'lucide-react';
 
 export const techs = [
   {
     id: 1,
     label: 'React',
     svg: <SiReact color="currentColor" size={32} />,
+    type: 'front',
+  },
+  {
+    id: 20,
+    label: 'Next.js',
+    svg: <SiNextdotjs color="currentColor" size={32} />,
     type: 'front',
   },
   {
@@ -40,12 +42,6 @@ export const techs = [
     type: 'front',
   },
   {
-    id: 4,
-    label: 'JavaScript',
-    svg: <SiJavascript color="currentColor" size={32} />,
-    type: 'front',
-  },
-  {
     id: 5,
     label: 'HTML',
     svg: <SiHtml5 color="currentColor" size={32} />,
@@ -57,23 +53,23 @@ export const techs = [
     svg: <SiCss color="currentColor" size={32} />,
     type: 'front',
   },
-  {
-    id: 7,
-    label: 'Sass',
-    svg: <SiSass color="currentColor" size={32} />,
-    type: 'front',
-  },
 
-  {
-    id: 8,
-    label: 'Python',
-    svg: <SiPython color="currentColor" size={32} />,
-    type: 'back',
-  },
   {
     id: 9,
     label: 'Django',
     svg: <SiDjango color="currentColor" size={32} />,
+    type: 'back',
+  },
+  {
+    id: 22,
+    label: 'Symfony',
+    svg: <SiSymfony color="currentColor" size={32} />,
+    type: 'back',
+  },
+  {
+    id: 23,
+    label: 'MySQL',
+    svg: <Database aria-hidden="true" strokeWidth={1.8} className="h-8 w-8" />,
     type: 'back',
   },
   {
@@ -89,46 +85,28 @@ export const techs = [
     type: 'back',
   },
   {
-    id: 12,
-    label: 'Express',
-    svg: <SiExpress color="currentColor" size={32} />,
-    type: 'back',
-  },
-  {
     id: 13,
     label: 'MongoDB',
     svg: <SiMongodb color="currentColor" size={32} />,
     type: 'back',
   },
+
   {
-    id: 14,
-    label: 'Git',
-    svg: <SiGit color="currentColor" size={32} />,
-    type: 'tools',
+    id: 24,
+    label: 'WordPress',
+    svg: <SiWordpress color="currentColor" size={32} />,
+    type: 'cms',
   },
   {
-    id: 15,
-    label: 'GitHub',
-    svg: <SiGithub color="currentColor" size={32} />,
-    type: 'tools',
+    id: 25,
+    label: 'PrestaShop',
+    svg: <SiPrestashop color="currentColor" size={32} />,
+    type: 'cms',
   },
   {
-    id: 16,
-    label: 'DBeaver',
-    svg: <SiDbeaver color="currentColor" size={32} />,
-    type: 'tools',
-  },
-  { id: 17, label: 'Postman', svg: <SiPostman color="currentColor" size={32} />, type: 'tools' },
-  {
-    id: 18,
-    label: 'Figma',
-    svg: <SiFigma color="currentColor" size={32} />,
-    type: 'tools',
-  },
-  {
-    id: 19,
-    label: 'Notion',
-    svg: <SiNotion color="currentColor" size={32} />,
-    type: 'tools',
+    id: 26,
+    label: 'Shopify',
+    svg: <SiShopify color="currentColor" size={32} />,
+    type: 'cms',
   },
 ];

@@ -17,6 +17,25 @@ export const services = [
     priceFrom: '800',
   },
   {
+    id: 12,
+    title: 'Refonte de site',
+    description:
+      'Remise à jour ou refonte complète de votre site existant, pour un design moderne et de meilleures performances.',
+    includes: [
+      'Audit du site existant (technique, design, contenu)',
+      'Nouveau design adapté à votre identité visuelle',
+      'Reprise et optimisation des contenus existants',
+      'Amélioration des performances et de la vitesse de chargement',
+      'Conservation des URLs et redirections pour ne pas perdre votre référencement',
+      'Responsive design (mobile / tablette / ordinateur)',
+      'Conformité RGPD',
+      'Optimisation SEO',
+    ],
+    category: 'site',
+    billing: 'once',
+    priceFrom: null,
+  },
+  {
     id: 2,
     title: 'Site vitrine',
     description: 'Un site vitrine complet pour présenter votre activité et convertir vos visiteurs.',
@@ -53,7 +72,7 @@ export const services = [
   },
   {
     id: 4,
-    title: 'Application web sur mesure',
+    title: 'Application web',
     description: 'Un outil métier ou une application complète développée sur mesure en React et Django.',
     includes: [
       'Cadrage du besoin métier',
@@ -117,6 +136,23 @@ export const services = [
     priceFrom: '120',
   },
   {
+    id: 11,
+    title: 'Suivi SEA',
+    description: 'Un suivi mensuel pour piloter et optimiser vos campagnes Google Ads dans la durée.',
+    includes: [
+      'Suivi mensuel du budget et des performances des campagnes',
+      'Optimisation des enchères et des mots-clés',
+      'Ajout de mots-clés négatifs pour limiter le gaspillage budgétaire',
+      'Tests et optimisation des annonces (A/B testing)',
+      'Rapport mensuel détaillé',
+      'Support réactif pour vos questions SEA',
+    ],
+    note: 'Budget publicitaire non inclus (facturé directement par Google)',
+    category: 'accompagnement',
+    billing: 'monthly',
+    priceFrom: '120',
+  },
+  {
     id: 7,
     title: 'Optimisation SEO',
     description: 'Des actions concrètes pour améliorer votre visibilité dans les résultats de recherche Google.',
@@ -127,6 +163,7 @@ export const services = [
       'Optimisation des balises title, meta description et des contenus des pages/fiches produits',
       'Révision de la structuration HTML (hiérarchie des titres, sémantique)',
       "Création et soumission d'un sitemap XML",
+      'Optimisation pour les moteurs de réponse IA (ChatGPT, Perplexity...)',
     ],
     category: 'audit',
     billing: 'once',

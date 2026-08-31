@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import { ArrowRight, FileSearch, Wallet } from 'lucide-react';
 import { services } from '../Data/services.js';
+import { faq } from '../Data/faq.js';
 import ServiceCard from '../components/ServiceCard.jsx';
 import HowWeWork from '../components/HowWeWork.jsx';
 import FAQ from '../components/FAQ.jsx';
@@ -22,6 +23,20 @@ export function meta() {
       content: "Tarifs transparents pour la création d'un site vitrine, e-commerce ou application sur mesure.",
     },
     { property: 'og:url', content: 'https://jongeau-m.fr/tarifs' },
+    {
+      'script:ld+json': {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      },
+    },
   ];
 }
 
@@ -33,15 +48,16 @@ const groups = [
     bg: 'bg-transparent',
   },
   {
-    category: 'accompagnement',
-    title: 'Accompagnement mensuel',
-    description: 'Abonnements pour garder votre site à jour, sécurisé et disponible en permanence.',
+    category: 'audit',
+    title: 'Optimisation & visibilité',
+    description:
+      'Audit SEO, campagne Google Ads et optimisation de votre fiche Google Business Profil, pour améliorer votre visibilité en ligne.',
     bg: 'bg-stone-50',
   },
   {
-    category: 'audit',
-    title: 'Optimisation & visibilité',
-    description: 'Des actions concrètes pour améliorer votre visibilité en ligne.',
+    category: 'accompagnement',
+    title: 'Accompagnement mensuel',
+    description: 'Abonnements pour garder votre site à jour, sécurisé et disponible en permanence.',
     bg: 'bg-transparent',
   },
 ];

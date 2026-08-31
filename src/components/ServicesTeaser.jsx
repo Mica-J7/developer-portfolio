@@ -55,7 +55,8 @@ export default function ServicesTeaser() {
           viewport={{ once: true }}
           transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
         >
-          Des solutions concrètes pour développer votre activité et votre visibilité en ligne.
+          Sites vitrines, e-commerce, outils métier sur mesure et optimisation SEO, pour les indépendants et petites
+          entreprises.
         </motion.p>
 
         <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

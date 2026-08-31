@@ -19,6 +19,9 @@ export default function ServiceCard({ service, idx }) {
         {service.priceFrom
           ? `À partir de ${service.priceFrom} €${service.billing === 'monthly' ? '/mois' : ''}`
           : 'Sur devis'}
+        {service.billing === 'monthly' && (
+          <span className="mt-1 block text-xs font-semibold text-sage-600">Sans engagement</span>
+        )}
       </p>
 
       <div>
