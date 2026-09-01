@@ -39,7 +39,7 @@ export default function ServiceCard({ service, idx }) {
       <motion.span
         className="will-change-transform mt-3 justify-self-center inline-block"
         whileHover={{ y: -3 }}
-        whileTap={{ scale: 0.95 }}
+        whileTap={{ scale: 0.91 }}
         transition={{ duration: 0.15, ease: 'easeOut' }}
       >
         <Link

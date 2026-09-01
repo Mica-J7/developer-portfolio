@@ -4,7 +4,7 @@ export default function TechCard({ tech, idx }) {
   return (
     <motion.div
       key={tech.id}
-      className="will-change-transform group rounded-xl border border-stone-200 bg-white p-4 shadow-md
+      className="will-change-transform w-44 shrink-0 group rounded-xl border border-stone-200 bg-white p-4 shadow-md
              hover:shadow-lg
              transition-shadow duration-200"
       initial={{ opacity: 0, y: 10 }}

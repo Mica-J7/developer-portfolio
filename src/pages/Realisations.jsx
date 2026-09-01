@@ -37,14 +37,14 @@ export default function Realisations() {
             Mes réalisations
           </motion.h1>
           <motion.p
-            className="mt-5 text-stone-600 leading-relaxed"
+            className="mt-5 text-lg text-stone-600 leading-relaxed"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
           >
-            Applications web et outils sur mesure : découvrez quelques projets personnels que j'ai conçus et
-            développés de bout en bout, du cahier des charges à la mise en ligne.
+            Applications web et outils sur mesure : découvrez quelques projets personnels que j'ai conçus et développés
+            de bout en bout, du cahier des charges à la mise en ligne.
           </motion.p>
           <motion.div
             className="mt-6"
@@ -53,23 +53,25 @@ export default function Realisations() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 }}
           >
-            <p className="text-stone-600 leading-relaxed">Vous cherchez un développeur pour votre projet&nbsp;?</p>
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+            <p className="text-lg text-stone-600 leading-relaxed">
+              Vous cherchez un développeur pour votre projet&nbsp;?
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/tarifs"
-                className="inline-flex items-center rounded-md border-2 border-sage-600 bg-white px-4 py-2 text-sm font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white"
+                className="inline-flex items-center rounded-md border-2 border-sage-600 bg-white px-4 py-2 font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white"
               >
                 Consulter mes tarifs
               </Link>
               <motion.span
                 className="will-change-transform inline-block"
                 whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.91 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
               >
                 <Link
                   to="/contact"
-                  className="flex items-center rounded-md border-2 border-transparent bg-sage-600 shadow-soft px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sage-700"
+                  className="flex items-center rounded-md border-2 border-transparent bg-sage-600 shadow-soft px-4 py-2 font-semibold text-white transition-colors hover:bg-sage-700"
                 >
                   Me contacter
                 </Link>

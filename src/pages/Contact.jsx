@@ -121,7 +121,7 @@ export default function Contact() {
             Contactez-moi pour discuter de votre projet
           </motion.h1>
           <motion.p
-            className="mt-5 text-stone-600"
+            className="mt-5 text-lg text-stone-600"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -358,9 +358,7 @@ export default function Contact() {
                     className={`will-change-transform inline-flex justify-center whitespace-nowrap text-sm md:text-base items-center gap-2 min-w-56 rounded-md bg-sage-600 px-5 py-2.5 text-white font-semibold shadow-soft
                   ${submitted || isSubmitting ? 'opacity-50' : 'hover:bg-sage-700 focus-visible:outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-sage-400 transition-colors duration-150'}`}
                     whileHover={
-                      submitted || isSubmitting
-                        ? {}
-                        : { scale: 1.08, transition: { duration: 0.15, ease: 'easeOut' } }
+                      submitted || isSubmitting ? {} : { scale: 1.08, transition: { duration: 0.15, ease: 'easeOut' } }
                     }
                     whileTap={submitted || isSubmitting ? {} : { scale: 0.92 }}
                   >

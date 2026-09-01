@@ -23,6 +23,28 @@
       "type": "perso"
     },
     {
+      "id": 8,
+      "title": "Vert Horizon",
+      "description": "Site vitrine one-page (page unique) de démonstration pour un paysagiste fictif, conçu avec Symfony.",
+      "features": [
+        "Page d'accueil avec présentation de l'activité et appel à l'action vers une demande de devis",
+        "Section Services détaillant les prestations proposées",
+        "Section Réalisations pour présenter des exemples de chantiers",
+        "Section Avis clients",
+        "Section Zone d'intervention",
+        "FAQ répondant aux questions fréquentes des prospects",
+        "Formulaire de demande de devis"
+      ],
+      "technical": [
+        "Développé avec le framework Symfony",
+        "Templating avec Twig",
+        "Bibliothèque d'icônes PHP intégrée"
+      ],
+      "image": "/images-projects/greenhorizon.webp",
+      "techs": ["Symfony", "PHP", "Twig"],
+      "type": "draft"
+    },
+    {
       "id": 7,
       "title": "Elowcraft - Chat Highlights",
       "description": "Outil qui détecte automatiquement les moments forts d'une VOD Twitch en analysant les pics d'activité dans le chat replay, puis télécharge les clips correspondants.",

@@ -91,7 +91,7 @@ export default function Tarifs() {
             Prix HT, TVA non applicable, art. 293 B du CGI
           </motion.p>
           <motion.p
-            className="mt-5 text-stone-600"
+            className="mt-5 text-lg text-stone-600"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -175,7 +175,7 @@ export default function Tarifs() {
               <motion.span
                 className="will-change-transform inline-block"
                 whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.91 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
               >
                 <Link

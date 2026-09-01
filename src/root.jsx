@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Meta, Links, Outlet, Scripts, useLocation } from 'react-router';
+import { Meta, Links, Outlet, Scripts, useLocation, useRouteError, isRouteErrorResponse, Link } from 'react-router';
+import { ArrowLeft } from 'lucide-react';
 import './index.css';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
@@ -57,6 +58,47 @@ export default function Root() {
       <Navbar />
       <main id="content">
         <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  const is404 = isRouteErrorResponse(error) && error.status === 404;
+
+  return (
+    <div className="bg-site-backdrop text-stone-900 antialiased selection:bg-stone-200 selection:text-stone-900">
+      <Navbar />
+      <main id="content">
+        <section className="scroll-mt-18">
+          <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 py-26 md:py-32 text-center">
+            {is404 && (
+              <p className="font-archivo text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-none text-terracotta-600">
+                404
+              </p>
+            )}
+            <h1 className="font-archivo mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance">
+              {is404 ? 'Page introuvable' : 'Une erreur est survenue'}
+            </h1>
+            <p className="mt-6 text-lg text-stone-600 leading-relaxed">
+              {is404
+                ? "Zut ! La page que vous cherchez n'existe pas."
+                : "Quelque chose s'est mal passé de notre côté. Réessayez ou revenez à l'accueil."}
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Link
+                to="/"
+                className="inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft
+                px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sage-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400"
+              >
+                <ArrowLeft aria-hidden="true" className="h-4 w-4" />
+                <span className="pb-0.5">Retour à l'accueil</span>
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

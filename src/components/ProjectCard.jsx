@@ -73,12 +73,12 @@ export default function ProjectCard({ p, idx }) {
           />
         </div>
       </div>
-      <div className="flex h-full flex-1 flex-col p-6">
+      <div className="flex h-full flex-1 flex-col py-4 px-6">
         <h3 className="text-2xl font-bold text-[#2d343b]">
           {mainTitle}
           {titleNote && <span className="ml-2 text-sm font-normal text-stone-500">({titleNote})</span>}
         </h3>
-        <p className="mt-2 text-stone-600 text-base">{p.description}</p>
+        <p className="mt-2 min-h-18 text-stone-600 text-base">{p.description}</p>
 
         {hasDetails && (
           <>
@@ -106,8 +106,8 @@ export default function ProjectCard({ p, idx }) {
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
-                  <BulletList label="Fonctionnalités" items={p.features} />
-                  <BulletList label="Aspects techniques" items={p.technical} />
+                  <BulletList label="Fonctionnalités :" items={p.features} />
+                  <BulletList label="Aspects techniques :" items={p.technical} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -121,21 +121,21 @@ export default function ProjectCard({ p, idx }) {
             </li>
           ))}
         </ul>
-        <div className="mt-auto pt-4 flex items-center gap-3">
+        <div className="mt-auto min-h-8 pt-3 pl-1 flex items-center gap-3">
           {p.live && (
-            <motion.a
+            <a
               href={p.live}
-              className="will-change-transform inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft
-                      px-3 py-1.5 text-sm font-semibold text-white hover:bg-sage-700"
+              className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-sage-600 hover:text-sage-700"
               aria-label="Ouvrir le site"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -3, transition: { duration: 0.15, ease: 'easeOut' } }}
-              whileTap={{ scale: 0.91 }}
             >
-              <span className="pb-0.5">Voir le site</span>
-              <ExternalLink className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
-            </motion.a>
+              Voir le site
+              <ExternalLink
+                aria-hidden="true"
+                className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1.5"
+              />
+            </a>
           )}
           {p.repo && (
             <motion.a
@@ -144,7 +144,10 @@ export default function ProjectCard({ p, idx }) {
               aria-label="Ouvrir le repo GitHub"
               target="_blank"
               rel="noopener noreferrer"
-              whileTap={{ scale: 0.91 }}
+              whileTap={{
+                scale: 0.91,
+                boxShadow: '0px 8px 20px -6px rgba(85, 118, 74, 0.35), 0px 2px 8px -2px rgba(28, 25, 23, 0.08)',
+              }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
               <span className="pb-0.5">GitHub</span>

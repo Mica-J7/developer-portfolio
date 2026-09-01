@@ -30,7 +30,10 @@ export default function Presentation() {
               />
               <span className="text-xs text-stone-700">Disponible pour de nouvelles missions</span>
             </motion.div>
-            <motion.p className="mt-4 font-mono text-sm tracking-widest text-terracotta-600 uppercase" {...cascade(0.08)}>
+            <motion.p
+              className="mt-4 font-mono text-sm tracking-widest text-terracotta-600 uppercase"
+              {...cascade(0.08)}
+            >
               Développeur web freelance
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> · </span>
@@ -44,7 +47,7 @@ export default function Presentation() {
               Création de sites web pour les professionnels
             </motion.h1>
 
-            <motion.p className="mt-7 max-w-2xl text-base text-stone-600 leading-relaxed" {...cascade(0.24)}>
+            <motion.p className="mt-10 max-w-2xl text-lg text-stone-600 leading-relaxed" {...cascade(0.24)}>
               Sites vitrines, boutiques en ligne et applications sur mesure pour les indépendants et petites
               entreprises. Un interlocuteur unique à chaque étape, du cahier des charges à la mise en ligne.
             </motion.p>
@@ -56,7 +59,7 @@ export default function Presentation() {
               <motion.span
                 className="will-change-transform inline-block"
                 whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.91 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
               >
                 <Link
@@ -70,8 +73,11 @@ export default function Presentation() {
                 </Link>
               </motion.span>
               <motion.span
-                className="will-change-transform inline-block"
-                whileTap={{ scale: 0.95 }}
+                className="will-change-transform inline-block rounded-md"
+                whileTap={{
+                  scale: 0.91,
+                  boxShadow: '0px 8px 20px -6px rgba(85, 118, 74, 0.35), 0px 2px 8px -2px rgba(28, 25, 23, 0.08)',
+                }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
               >
                 <Link

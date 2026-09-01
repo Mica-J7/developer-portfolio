@@ -17,7 +17,7 @@ export default function Skills() {
           Ma stack technique
         </motion.h2>
         <motion.p
-          className="mt-10 font-semibold text-stone-600"
+          className="mt-10 text-center text-lg font-semibold text-stone-600"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -26,7 +26,7 @@ export default function Skills() {
           • Front-end&nbsp;:
         </motion.p>
 
-        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+        <div className="mt-4 flex flex-wrap justify-center gap-4">
           {techs
             .filter((t) => t.type === 'front')
             .map((t, idx) => (
@@ -35,7 +35,7 @@ export default function Skills() {
         </div>
 
         <motion.p
-          className="mt-8 font-semibold text-stone-600"
+          className="mt-8 text-center text-lg font-semibold text-stone-600"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -44,7 +44,7 @@ export default function Skills() {
           • Back-end&nbsp;:
         </motion.p>
 
-        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+        <div className="mt-4 flex flex-wrap justify-center gap-4">
           {techs
             .filter((t) => t.type === 'back')
             .map((t, idx) => (
@@ -53,7 +53,7 @@ export default function Skills() {
         </div>
 
         <motion.p
-          className="mt-8 font-semibold text-stone-600"
+          className="mt-8 text-center text-lg font-semibold text-stone-600"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -62,7 +62,7 @@ export default function Skills() {
           • CMS&nbsp;:
         </motion.p>
 
-        <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+        <div className="mt-4 flex flex-wrap justify-center gap-4">
           {techs
             .filter((t) => t.type === 'cms')
             .map((t, idx) => (
