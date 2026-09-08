@@ -85,7 +85,7 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center">
             {links.map((item) => (
               <li key={item.to} className="pb-1">
-                <NavLink to={item.to} end={item.to === '/'} className={navLinkClass}>
+                <NavLink to={item.to} end={item.to === '/'} prefetch="viewport" className={navLinkClass}>
                   {item.label}
                 </NavLink>
               </li>
@@ -94,6 +94,7 @@ export default function Navbar() {
             <li className="ml-5">
               <NavLink
                 to="/contact"
+                prefetch="viewport"
                 className="inline-flex items-center gap-2 rounded-md bg-sage-600 shadow-soft
                 pl-4 pr-3 py-2 text-sm font-semibold text-white hover:bg-sage-700 focus-visible:outline-none
                 focus-visible:ring-2 focus-visible:ring-sage-400/70"
@@ -134,6 +135,7 @@ export default function Navbar() {
                     <NavLink
                       to={item.to}
                       end={item.to === '/'}
+                      prefetch="viewport"
                       onClick={() => setIsMenuOpen(false)}
                       className={mobileNavLinkClass}
                     >
@@ -145,6 +147,7 @@ export default function Navbar() {
                 <li className="mt-2 border-t border-stone-200 pt-2">
                   <NavLink
                     to="/contact"
+                    prefetch="viewport"
                     onClick={() => setIsMenuOpen(false)}
                     className="flex items-center justify-center gap-2 rounded-md bg-sage-600 shadow-soft
                     px-3 py-2 text-sm font-semibold text-white hover:bg-sage-700"

@@ -100,7 +100,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-center sm:text-left">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="text-stone-300 hover:text-white">
+                  <Link to={link.to} prefetch="viewport" className="text-stone-300 hover:text-white">
                     {link.label}
                   </Link>
                 </li>
@@ -135,7 +135,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-xs text-stone-500 sm:justify-start">
             <span>2026 - Michaël Jongeau, Développeur Web Freelance</span>
             <span>SIRET : 99458742600010</span>
-            <Link to="/mentions-legales" className="hover:text-white underline underline-offset-2">
+            <Link to="/mentions-legales" prefetch="viewport" className="hover:text-white underline underline-offset-2">
               Mentions légales &amp; Confidentialité
             </Link>
           </div>

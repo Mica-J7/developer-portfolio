@@ -18,7 +18,7 @@
         "Design responsive (mobile, tablette, ordinateur)"
       ],
       "image": "/images-projects/mysession.webp",
-      "techs": ["React", "TypeScript", "Tailwind", "Django", "DRF", "PostgreSQL"],
+      "techs": ["React", "Next.js", "TypeScript", "Tailwind", "Django", "DRF", "PostgreSQL"],
       "live": "https://my-session.app",
       "type": "perso"
     },

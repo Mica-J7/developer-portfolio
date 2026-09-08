@@ -307,7 +307,7 @@ export default function Contact() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    maxLength={500}
+                    maxLength={1000}
                     aria-invalid={Boolean(errors.message)}
                     aria-describedby={errors.message ? 'message-error' : undefined}
                     className={`mt-1 w-full rounded-md border bg-white px-3 py-2 text-stone-900
@@ -316,14 +316,14 @@ export default function Contact() {
                       ? 'border-red-500 focus:border-red-500 focus:ring-red-500/30'
                       : 'border-stone-300 focus:border-sage-500 focus:ring-sage-500/30'
                   }`}
-                    placeholder="Message (500 caractères max)"
+                    placeholder="Message (1000 caractères max)"
                   />
                   {errors.message && (
                     <p id="message-error" className="mt-1 text-xs text-red-600 text-center">
                       {errors.message}
                     </p>
                   )}
-                  <div className="flex justify-center mt-1 text-stone-500">{message.length} / 500</div>
+                  <div className="flex justify-center mt-1 text-stone-500">{message.length} / 1000</div>
                 </div>
 
                 <div className="mt-4">
