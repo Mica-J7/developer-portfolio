@@ -26,7 +26,7 @@ export default function Skills() {
           • Front-end&nbsp;:
         </motion.p>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-4">
+        <div className="mt-4 grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:justify-center">
           {techs
             .filter((t) => t.type === 'front')
             .map((t, idx) => (
@@ -44,7 +44,7 @@ export default function Skills() {
           • Back-end&nbsp;:
         </motion.p>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-4">
+        <div className="mt-4 grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:justify-center">
           {techs
             .filter((t) => t.type === 'back')
             .map((t, idx) => (
@@ -62,7 +62,7 @@ export default function Skills() {
           • CMS&nbsp;:
         </motion.p>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-4">
+        <div className="mt-4 grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:justify-center">
           {techs
             .filter((t) => t.type === 'cms')
             .map((t, idx) => (
