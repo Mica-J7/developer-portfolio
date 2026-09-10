@@ -6,4 +6,5 @@ export default [
   route('realisations', 'pages/Realisations.jsx'),
   route('contact', 'pages/Contact.jsx'),
   route('mentions-legales', 'pages/LegalNotice.jsx'),
+  route('conditions-generales-de-vente', 'pages/Terms.jsx'),
 ];

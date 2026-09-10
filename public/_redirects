@@ -11,6 +11,7 @@ https://jongeau-m.netlify.app/*  https://jongeau-m.fr/:splat  301!
 /realisations /realisations/index.html 200!
 /contact /contact/index.html 200!
 /mentions-legales /mentions-legales/index.html 200!
+/conditions-generales-de-vente /conditions-generales-de-vente/index.html 200!
 
 # SPA fallback for unmatched routes (each real route now has its own pre-rendered HTML file)
 /* /__spa-fallback.html 200

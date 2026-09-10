@@ -6,7 +6,8 @@ export function meta() {
     { title: 'Mentions légales & Confidentialité | Michaël Jongeau' },
     {
       name: 'description',
-      content: 'Mentions légales et politique de confidentialité du site de Michaël Jongeau, développeur web freelance.',
+      content:
+        'Mentions légales et politique de confidentialité du site de Michaël Jongeau, développeur web freelance.',
     },
     { tagName: 'link', rel: 'canonical', href: 'https://jongeau-m.fr/mentions-legales' },
     { name: 'robots', content: 'noindex, follow' },
@@ -73,16 +74,16 @@ export default function LegalNotice() {
             <h2 className="text-lg font-bold text-[#2d343b]">Données personnelles</h2>
             <p className="mt-2">
               Le responsable du traitement des données est Michaël Jongeau. Les informations transmises via le
-              formulaire de contact (nom, email, message) sont utilisées uniquement pour répondre à votre demande et
-              ne sont ni cédées ni utilisées à des fins commerciales.
+              formulaire de contact (nom, email, message) sont utilisées uniquement pour répondre à votre demande et ne
+              sont ni cédées ni utilisées à des fins commerciales.
             </p>
             <p className="mt-2">
-              Ce traitement est fondé sur votre consentement, recueilli lors de l'envoi du formulaire. Les données
-              sont conservées pendant une durée maximale de 6 mois, puis supprimées.
+              Ce traitement est fondé sur votre consentement, recueilli lors de l'envoi du formulaire. Les données sont
+              conservées pendant une durée maximale de 6 mois, puis supprimées.
             </p>
             <p className="mt-2">
-              Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos
-              données, que vous pouvez exercer à tout moment en écrivant à{' '}
+              Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données,
+              que vous pouvez exercer à tout moment en écrivant à{' '}
               <a href="mailto:jongeau.m@gmail.com" className="text-stone-700 underline hover:text-stone-900">
                 jongeau.m@gmail.com
               </a>
@@ -108,7 +109,7 @@ export default function LegalNotice() {
           </div>
         </div>
 
-        <p className="mt-10 text-sm text-stone-600">Dernière mise à jour : 25 août 2026</p>
+        <p className="mt-10 text-sm text-stone-600">Dernière mise à jour : 10 septembre 2026</p>
 
         <div className="mt-10 flex justify-center">
           <Link

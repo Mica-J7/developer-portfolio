@@ -9,6 +9,7 @@ const navLinks = [
   { to: '/realisations', label: 'Réalisations' },
   { to: '/contact', label: 'Contact' },
   { to: '/mentions-legales', label: 'Mentions légales & Confidentialité' },
+  { to: '/conditions-generales-de-vente', label: 'Conditions générales de vente' },
 ];
 
 const socialLinks = [
