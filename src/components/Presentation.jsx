@@ -49,7 +49,8 @@ export default function Presentation() {
 
             <motion.p className="mt-10 max-w-2xl text-lg text-stone-600 leading-relaxed" {...cascade(0.24)}>
               Sites vitrines, boutiques en ligne et applications sur mesure pour les indépendants et petites
-              entreprises. Un interlocuteur unique à chaque étape, du cahier des charges à la mise en ligne.
+              entreprises, à Rochefort et dans toute la Charente-Maritime. Un interlocuteur unique à chaque étape,
+              du cahier des charges à la mise en ligne.
             </motion.p>
 
             <motion.div

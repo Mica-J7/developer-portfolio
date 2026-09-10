@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SiX } from '@icons-pack/react-simple-icons';
-import { Check, Loader2, Mail } from 'lucide-react';
+import { Check, Loader2, Mail, Phone } from 'lucide-react';
 
 export function meta() {
   return [
@@ -384,6 +384,19 @@ export default function Contact() {
               <p className="mt-2 text-sm text-stone-600">Si vous préférez me contacter directement :</p>
 
               <div className="mt-6 space-y-3">
+                <a
+                  href="tel:+33635964465"
+                  className="group flex w-max px-2 py-1 items-center gap-3 text-stone-600 hover:text-stone-900"
+                >
+                  <span
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-white border border-stone-200
+                 group-hover:border-sage-400 group-hover:shadow-md"
+                  >
+                    <Phone className="h-5 w-5 text-stone-600" strokeWidth={1.8} />
+                  </span>
+                  <span className="pb-1">06 35 96 44 65</span>
+                </a>
+
                 <a
                   href="mailto:jongeau.m@gmail.com"
                   className="group flex w-max px-2 py-1 items-center gap-3 text-stone-600 hover:text-stone-900"
