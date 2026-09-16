@@ -18,6 +18,8 @@ export function meta() {
       content: 'Discutons de votre projet web. Devis gratuit et sans engagement, réponse sous 24h.',
     },
     { property: 'og:url', content: 'https://jongeau-m.fr/contact' },
+    { property: 'og:image', content: 'https://jongeau-m.fr/contact.png' },
+    { name: 'twitter:image', content: 'https://jongeau-m.fr/contact.png' },
   ];
 }
 

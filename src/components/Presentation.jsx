@@ -37,7 +37,7 @@ export default function Presentation() {
               Développeur web freelance
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> · </span>
-              Rochefort (17)
+              Charente-Maritime (17)
             </motion.p>
             <motion.h1
               id="presentation-title"
@@ -48,9 +48,10 @@ export default function Presentation() {
             </motion.h1>
 
             <motion.p className="mt-10 max-w-2xl text-lg text-stone-600 leading-relaxed" {...cascade(0.24)}>
-              Sites vitrines, boutiques en ligne et applications sur mesure pour les indépendants et petites
-              entreprises, à Rochefort et dans toute la Charente-Maritime. Un interlocuteur unique à chaque étape,
-              du cahier des charges à la mise en ligne.
+              Sites vitrines, boutiques en ligne et applications sur mesure, pensés pour les indépendants et petites
+              entreprises qui font vivre la Charente-Maritime. <br />
+              Basé à Rochefort, j'interviens dans tout le département. Un interlocuteur unique à chaque étape, du cahier
+              des charges à la mise en ligne.
             </motion.p>
 
             <motion.div
@@ -106,7 +107,7 @@ export default function Presentation() {
                     MJ
                   </div>
                   <div>
-                    <h2 className="text-lg md:text-xl font-bold text-[#2d343b]">Développeur Web Full-Stack</h2>
+                    <h2 className="text-lg md:text-xl font-bold text-[#2d343b]">Développeur Web Full Stack</h2>
                     <p className="mt-1 text-xs text-stone-500">Titre RNCP Développeur Web - OpenClassrooms</p>
                   </div>
                 </div>

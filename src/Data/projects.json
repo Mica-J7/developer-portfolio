@@ -18,6 +18,7 @@
         "Design responsive (mobile, tablette, ordinateur)"
       ],
       "image": "/images-projects/mysession.webp",
+      "imageAlt": "Capture d'écran de My Session, application de suivi de séances de musculation avec statistiques.",
       "techs": ["React", "Next.js", "TypeScript", "Tailwind", "Django", "DRF", "PostgreSQL"],
       "live": "https://my-session.app",
       "type": "perso"
@@ -41,6 +42,7 @@
         "Bibliothèque d'icônes PHP intégrée"
       ],
       "image": "/images-projects/greenhorizon.webp",
+      "imageAlt": "Capture d'écran du site vitrine Vert Horizon, réalisé pour un paysagiste, avec présentation des services et demande de devis.",
       "techs": ["Symfony", "PHP", "Twig"],
       "type": "draft"
     },
@@ -63,6 +65,7 @@
         "Détection des pics d'activité du chat par comparaison à une moyenne récente, puis fusion des pics proches"
       ],
       "image": "/images-projects/elowcraft.webp",
+      "imageAlt": "Capture d'écran de l'outil Elowcraft, qui détecte les moments forts d'une VOD Twitch à partir du chat replay.",
       "techs": ["Python", "Streamlit", "Pandas", "NumPy", "yt-dlp", "TwitchDownloaderCLI", "Typer"],
       "type": "perso"
     }

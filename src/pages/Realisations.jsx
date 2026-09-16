@@ -9,7 +9,7 @@ export function meta() {
     {
       name: 'description',
       content:
-        'Découvrez les projets web conçus et développés par Michaël Jongeau, développeur freelance : applications React/Django, outils sur mesure et sites vitrines.',
+        'Découvrez les projets web conçus et développés par Michaël Jongeau, développeur freelance : applications sur mesure, outils métier et sites vitrines.',
     },
     { tagName: 'link', rel: 'canonical', href: 'https://jongeau-m.fr/realisations' },
     { property: 'og:title', content: 'Réalisations - Michaël Jongeau, Développeur Web Freelance' },
@@ -18,6 +18,8 @@ export function meta() {
       content: 'Projets web conçus et développés de bout en bout : applications sur mesure et sites vitrines.',
     },
     { property: 'og:url', content: 'https://jongeau-m.fr/realisations' },
+    { property: 'og:image', content: 'https://jongeau-m.fr/realisations.png' },
+    { name: 'twitter:image', content: 'https://jongeau-m.fr/realisations.png' },
   ];
 }
 

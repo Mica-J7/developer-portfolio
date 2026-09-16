@@ -82,7 +82,7 @@ export default function ServicesTeaser() {
                   to="/tarifs"
                   className="group/link mt-auto pt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-sage-600 hover:text-sage-700"
                 >
-                  Voir les tarifs
+                  <span className="pb-0.5">Voir les tarifs</span>
                   <ArrowRight
                     aria-hidden="true"
                     className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1.5"

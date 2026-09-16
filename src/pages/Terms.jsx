@@ -58,7 +58,7 @@ export default function Terms() {
             <h3 className="mt-4 font-semibold text-[#2d343b]">Prestations ponctuelles</h3>
             <p className="mt-2">
               Un acompte est demandé à la validation du devis, le solde étant réglé à la livraison du projet. Le
-              montant de l'acompte est précisé sur chaque devis. Le solde doit être réglé dans un délai de 15
+              montant de l'acompte est précisé sur chaque devis. Le solde doit être réglé dans un délai de 30
               jours à compter de la réception de la facture. Tant que le solde n'est pas intégralement réglé, la
               livraison finale (mise en ligne, transfert des accès et du code source) peut être différée.
             </p>
@@ -77,7 +77,7 @@ export default function Terms() {
             <p className="mt-2">
               Le cycle de facturation démarre à la date de début de la prestation, et non au 1ᵉʳ du mois
               calendaire. La facture correspondant à un mois travaillé est émise à l'issue de ce mois et doit être
-              réglée dans un délai de 15 jours à compter de sa réception. Par exemple, pour une prestation
+              réglée dans un délai de 30 jours à compter de sa réception. Par exemple, pour une prestation
               débutant le 14 d'un mois, le mois travaillé se termine le 13 du mois suivant, et la facture est
               émise le 14.
             </p>
@@ -152,7 +152,7 @@ export default function Terms() {
           </div>
         </div>
 
-        <p className="mt-10 text-sm text-stone-600">Dernière mise à jour : 10 septembre 2026</p>
+        <p className="mt-10 text-sm text-stone-600">Dernière mise à jour : 16 septembre 2026</p>
 
         <div className="mt-10 flex justify-center">
           <Link

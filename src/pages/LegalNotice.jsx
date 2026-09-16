@@ -26,7 +26,7 @@ export default function LegalNotice() {
           <div>
             <h2 className="text-lg font-bold text-[#2d343b]">Éditeur du site</h2>
             <p className="mt-2">
-              Michaël Jongeau — Entrepreneur individuel (auto-entrepreneur)
+              Michaël Jongeau, Entrepreneur individuel (auto-entrepreneur)
               <br />
               SIRET : 99458742600010
               <br />

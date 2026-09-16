@@ -23,6 +23,8 @@ export function meta() {
       content: "Tarifs transparents pour la création d'un site vitrine, e-commerce ou application sur mesure.",
     },
     { property: 'og:url', content: 'https://jongeau-m.fr/tarifs' },
+    { property: 'og:image', content: 'https://jongeau-m.fr/tarifs.png' },
+    { name: 'twitter:image', content: 'https://jongeau-m.fr/tarifs.png' },
     {
       'script:ld+json': {
         '@context': 'https://schema.org',

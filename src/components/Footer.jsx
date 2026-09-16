@@ -59,7 +59,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <Link to="/" className="group relative inline-flex flex-col items-center px-4 py-2 shrink-0">
-              <span className="sr-only">Michaël Jongeau — Accueil</span>
+              <span className="sr-only">Michaël Jongeau, accueil</span>
               <span
                 aria-hidden="true"
                 className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-white transition-colors group-hover:border-sage-400"
@@ -130,6 +130,15 @@ export default function Footer() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="mt-10 text-center sm:text-left">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">Zone d'intervention</h2>
+          <p className="mt-3 text-sm text-stone-400 leading-relaxed">
+            Rochefort, La Rochelle, Châtelaillon-Plage, Aytré, Île de Ré, Île d'Oléron, Tonnay-Charente, Marennes,
+            Surgères, Saint-Jean-d'Angély, Marans, Saintes, Pons, Royan, Saujon et Jonzac, et plus largement toute la
+            Charente-Maritime.
+          </p>
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-8">

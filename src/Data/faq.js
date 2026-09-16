@@ -15,7 +15,7 @@ export const faq = [
     id: 3,
     question: 'Travaillez-vous à distance ?',
     answer:
-      "Oui, je travaille en full remote avec des points d'étape réguliers par email, visio ou messagerie, quel que soit votre lieu.",
+      "Je travaille principalement avec des clients de Charente-Maritime, où je peux me déplacer si besoin, mais j'accompagne aussi des clients partout en France à distance, avec des points d'étape réguliers par email, visio ou messagerie.",
   },
   {
     id: 4,

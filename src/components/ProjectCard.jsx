@@ -64,7 +64,7 @@ export default function ProjectCard({ p, idx }) {
           <motion.img
             layoutId={imageLayoutId}
             src={p.image}
-            alt={`Image du site ${p.title}`}
+            alt={p.imageAlt || `Image du site ${p.title}`}
             className="aspect-1200/630 w-full cursor-zoom-in object-cover"
             loading="lazy"
             onClick={() => setZoomed(true)}
@@ -177,7 +177,7 @@ export default function ProjectCard({ p, idx }) {
                 <motion.img
                   layoutId={imageLayoutId}
                   src={p.image}
-                  alt={`Image du site ${p.title}`}
+                  alt={p.imageAlt || `Image du site ${p.title}`}
                   className="mx-auto max-w-none rounded-lg object-contain shadow-2xl pointer-fine:max-h-full pointer-fine:max-w-full"
                 />
               </motion.div>
