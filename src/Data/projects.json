@@ -26,7 +26,7 @@
     {
       "id": 8,
       "title": "Vert Horizon",
-      "description": "Site vitrine one-page (page unique) de démonstration pour un paysagiste fictif, conçu avec Symfony.",
+      "description": "Site vitrine one-page pour un paysagiste, avec présentation des services, réalisations et formulaire de demande de devis.",
       "features": [
         "Page d'accueil avec présentation de l'activité et appel à l'action vers une demande de devis",
         "Section Services détaillant les prestations proposées",
@@ -43,8 +43,8 @@
       ],
       "image": "/images-projects/greenhorizon.webp",
       "imageAlt": "Capture d'écran du site vitrine Vert Horizon, réalisé pour un paysagiste, avec présentation des services et demande de devis.",
-      "techs": ["Symfony", "PHP", "Twig"],
-      "type": "draft"
+      "techs": ["PHP 8.2", "Symfony 7.4", "Stimulus", "Twig"],
+      "type": "perso"
     },
     {
       "id": 7,
