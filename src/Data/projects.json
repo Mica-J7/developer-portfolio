@@ -47,6 +47,24 @@
       "type": "perso"
     },
     {
+      "id": 9,
+      "title": "Château de Ségurie",
+      "description": "Site vitrine d'un domaine viticole, présentant son histoire, son approche de vinification et son catalogue de cuvées.",
+      "features": [
+        "Présentation de l'histoire et de l'approche de vinification du domaine (vendanges manuelles, élevage en barrique de chêne français, petits volumes)",
+        "Catalogue de six cuvées avec fiche détaillée par cuvée (cépages, millésime, accords mets-vins, prix)",
+        "Page visite/contact pour les dégustations sur place"
+      ],
+      "technical": [
+        "Développé avec PHP 8.2+ et le framework Symfony 7.4",
+        "Templating avec Twig"
+      ],
+      "image": "/images-projects/segurie.webp",
+      "imageAlt": "Capture d'écran du site vitrine du Château de Ségurie, domaine viticole, avec présentation des cuvées et page de dégustation.",
+      "techs": ["PHP 8.2+", "Symfony 7.4", "Twig"],
+      "type": "perso"
+    },
+    {
       "id": 7,
       "title": "Elowcraft - Chat Highlights",
       "description": "Outil qui détecte automatiquement les moments forts d'une VOD Twitch en analysant les pics d'activité dans le chat replay, puis télécharge les clips correspondants.",
