@@ -147,7 +147,6 @@ export const services = [
       'Création ou vérification de la bannière de consentement cookies',
       'Configuration du Consent Mode v2 (RGPD)',
       'Création de la campagne (mots-clés, annonces)',
-      'Suivi des conversions inclus sur le premier mois',
     ],
     note: 'Budget publicitaire non inclus (facturé directement par Google)',
     category: 'audit',
