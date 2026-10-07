@@ -1,22 +1,13 @@
-import { motion } from 'framer-motion';
-
-export default function TechCard({ tech, idx }) {
+export default function TechCard({ tech }) {
   return (
-    <motion.div
-      key={tech.id}
-      className="will-change-transform sm:max-w-44 sm:w-full sm:shrink-0 group rounded-xl border border-stone-200 bg-white p-4 shadow-md
-             hover:shadow-lg
-             transition-shadow duration-200"
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut', delay: idx * 0.03 } }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.06 }}
-      transition={{ duration: 0.15, ease: 'easeOut' }}
+    <li
+      className="group inline-flex items-center gap-2.5 rounded-full border border-paper/25 py-2 pl-2.5 pr-4
+      transition-colors duration-200 hover:border-paper hover:bg-paper"
     >
-      <div className="flex items-center justify-center gap-3">
-        <span className="text-sage-600">{tech.svg}</span>
-        <span className="text-base font-semibold text-stone-700">{tech.label}</span>
-      </div>
-    </motion.div>
+      <span className="text-paper/70 transition-colors group-hover:text-coral-600 [&_svg]:h-5 [&_svg]:w-5">
+        {tech.svg}
+      </span>
+      <span className="text-sm font-semibold text-paper transition-colors group-hover:text-ink">{tech.label}</span>
+    </li>
   );
 }

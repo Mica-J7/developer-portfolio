@@ -1,13 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
-import { ArrowRight, Search } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { services } from '../Data/services.js';
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 14 },
-  whileInView: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut', delay } },
-  viewport: { once: true, margin: '-80px' },
-});
+import SectionHeading, { fadeUp } from './SectionHeading.jsx';
 
 const siteServices = services.filter((s) => s.category === 'site');
 const maintenanceService = services.find((s) => s.id === 5);
@@ -17,7 +12,7 @@ const minAuditPrice = Math.min(
 
 const formatPrice = (s) => {
   if (!s.priceFrom) return 'Sur devis';
-  return `À partir de ${s.priceFrom} €${s.billing === 'monthly' ? '/mois' : ''}`;
+  return `dès ${s.priceFrom} €${s.billing === 'monthly' ? '/mois' : ''}`;
 };
 
 const listItems = [
@@ -26,8 +21,8 @@ const listItems = [
     key: 'audit',
     title: 'Optimisation & visibilité',
     description:
-      'Optimisation SEO, campagne SEA et optimisation Google Business Profil, pour améliorer votre visibilité dans les résultats de recherche Google.',
-    price: `À partir de ${minAuditPrice} €`,
+      'Optimisation SEO et campagne SEA, pour améliorer votre visibilité dans les résultats de recherche Google.',
+    price: `dès ${minAuditPrice} €`,
   },
   {
     key: 'maintenance',
@@ -39,58 +34,67 @@ const listItems = [
 
 export default function ServicesLadder() {
   return (
-    <section className="scroll-mt-18 bg-stone-50">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
-          {...fadeUp(0)}
-        >
-          Mes prestations
-        </motion.h2>
+    <section className="scroll-mt-18 bg-paper-dots">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+        <SectionHeading aside="Au menu" title="Mes prestations" />
 
-        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {listItems.map((item, idx) => (
-            <motion.div key={item.key} {...fadeUp(idx * 0.05)}>
-              <motion.div
-                className="will-change-transform flex h-full flex-col rounded-xl border border-stone-200 border-t-4 border-t-sage-500 bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-lg"
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.15, ease: 'easeOut' }}
-              >
-                <h3 className="text-lg font-bold text-[#2d343b]">{item.title}</h3>
-                <p className="mt-2 text-stone-500 leading-relaxed">{item.description}</p>
-                <span className="font-archivo mt-auto pt-4 text-lg font-extrabold text-terracotta-600">
-                  {item.price}
-                </span>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-        <motion.p className="mt-6 text-center text-stone-500" {...fadeUp(0.15)}>
-          <Link
-            to="/tarifs"
-            className="group inline-flex items-center gap-1.5 font-semibold text-sage-600 hover:text-sage-700"
+        <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-14 items-start">
+          {/* Menu card */}
+          <motion.div
+            className="lg:col-span-8 rounded-sm border-2 border-ink bg-white px-6 py-8 sm:px-12 sm:py-12 shadow-offset-lg"
+            {...fadeUp(0.05)}
           >
-            <span>Voir le détail de toutes les prestations</span>
-            <ArrowRight
-              aria-hidden="true"
-              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1.5"
-            />
-          </Link>
-        </motion.p>
+            <p className="text-center font-archivo text-xs font-extrabold uppercase tracking-[0.4em] text-ink-soft">
+              <span className="text-coral-500">✶</span> La carte <span className="text-coral-500">✶</span>
+            </p>
+            <ul className="mt-8 space-y-7">
+              {listItems.map((item) => (
+                <li key={item.key}>
+                  <div className="flex items-baseline gap-3">
+                    <h3 className="font-serif text-xl sm:text-2xl font-semibold text-ink">{item.title}</h3>
+                    <span
+                      aria-hidden="true"
+                      className="flex-1 border-b-2 border-dotted border-ink/30 translate-y-[-0.3em]"
+                    />
+                    <span className="shrink-0 font-hand text-2xl sm:text-[1.7rem] leading-none text-coral-600">
+                      {item.price}
+                    </span>
+                  </div>
+                  <p className="mt-1 max-w-xl text-ink-soft leading-relaxed">{item.description}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10 border-t border-dashed border-ink/25 pt-6 text-center">
+              <Link
+                to="/tarifs"
+                className="group font-semibold text-ink underline decoration-coral-500 decoration-2 underline-offset-[6px] hover:text-coral-700"
+              >
+                Voir le détail de toutes les prestations
+                <ArrowRight
+                  aria-hidden="true"
+                  className="ml-1.5 inline h-4 w-4 transition-transform duration-200 group-hover:translate-x-1.5"
+                />
+              </Link>
+            </div>
+          </motion.div>
 
-        <motion.div
-          className="mt-10 mx-auto flex max-w-3xl items-start gap-4 rounded-xl border border-sage-200 bg-sage-50 p-6"
-          {...fadeUp(0.15)}
-        >
-          <Search aria-hidden="true" strokeWidth={1.8} className="h-8 w-8 shrink-0 text-sage-600" />
-          <div>
-            <h3 className="text-lg font-bold text-[#2d343b]">Être visible sur Google</h3>
-            <p className="mt-1 text-stone-600 leading-relaxed">
+          {/* Sticky note */}
+          <motion.aside
+            className="relative lg:col-span-4 lg:mt-16 mx-auto max-w-sm rotate-2 bg-sun px-7 pt-9 pb-8 shadow-[0_18px_30px_-14px_rgb(22_38_46/0.45)]
+            transition-transform duration-500 hover:rotate-0"
+            {...fadeUp(0.15)}
+          >
+            <span
+              aria-hidden="true"
+              className="absolute -top-3 left-1/2 h-6 w-20 -translate-x-1/2 -rotate-3 bg-white/60 shadow-sm"
+            />
+            <h3 className="font-hand text-3xl leading-none text-ink">Être visible sur Google</h3>
+            <p className="mt-4 font-hand text-[1.4rem] leading-snug text-ink/85">
               Un site que personne ne trouve ne sert à rien. L'optimisation SEO fait partie intégrante de chaque projet
               dès sa conception, ce n'est pas une option ajoutée après coup.
             </p>
-          </div>
-        </motion.div>
+          </motion.aside>
+        </div>
       </div>
     </section>
   );

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { faq } from '../Data/faq.js';
+import SectionHeading from './SectionHeading.jsx';
 
-const MotionChevronDown = motion.create(ChevronDown);
+const MotionPlus = motion.create(Plus);
 
 export default function FAQ() {
   const [openId, setOpenId] = useState(null);
@@ -11,54 +12,61 @@ export default function FAQ() {
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <section id="faq" className="scroll-mt-18 bg-transparent">
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-balance"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-        >
-          Questions fréquentes&nbsp;:
-        </motion.h2>
+    <section id="faq" className="scroll-mt-18 bg-sand">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <SectionHeading aside="Vous vous demandez..." title="Questions fréquentes" />
+            </div>
+          </div>
 
-        <div className="mt-8 space-y-3">
-          {faq.map((item) => {
-            const isOpen = openId === item.id;
-            return (
-              <div key={item.id} className="rounded-xl border border-stone-200 bg-white overflow-hidden shadow-md">
-                <button
-                  type="button"
-                  onClick={() => toggle(item.id)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400/70"
-                >
-                  <span className="text-base sm:text-lg font-medium text-stone-800">{item.question}</span>
-                  <MotionChevronDown
-                    aria-hidden="true"
-                    className="h-5 w-5 shrink-0 text-stone-500"
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeInOut' }}
-                      className="overflow-hidden"
+          <div className="lg:col-span-8 border-t-2 border-ink">
+            {faq.map((item) => {
+              const isOpen = openId === item.id;
+              return (
+                <div key={item.id} className="border-b border-ink/20">
+                  <button
+                    type="button"
+                    onClick={() => toggle(item.id)}
+                    aria-expanded={isOpen}
+                    className="group flex w-full items-center justify-between gap-6 py-6 text-left cursor-pointer
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-400/70"
+                  >
+                    <span className="font-serif text-xl sm:text-2xl font-semibold text-ink transition-colors group-hover:text-coral-700">
+                      {item.question}
+                    </span>
+                    <span
+                      className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-ink transition-colors ${
+                        isOpen ? 'bg-coral-600 text-white' : 'bg-paper text-ink group-hover:bg-sun'
+                      }`}
                     >
-                      <p className="px-5 pb-4 text-base text-stone-600 leading-relaxed">{item.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
+                      <MotionPlus
+                        aria-hidden="true"
+                        className="h-5 w-5"
+                        strokeWidth={2.2}
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                    </span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <p className="max-w-2xl pb-7 text-lg text-ink-soft leading-relaxed">{item.answer}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { SiX } from '@icons-pack/react-simple-icons';
 import { ChevronUp, Mail } from 'lucide-react';
+import Logo from './Logo.jsx';
 
 const navLinks = [
   { to: '/', label: 'Accueil' },
@@ -38,6 +39,10 @@ function SocialIcon({ label }) {
 }
 
 export default function Footer() {
+  // The sign-off would duplicate the form on the contact page itself
+  const { pathname } = useLocation();
+  const showSignOff = pathname !== '/contact';
+
   const onBackToTop = (e) => {
     e.preventDefault();
     // Use window scroll for consistent behavior across browsers
@@ -48,48 +53,41 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-stone-800"
+      className="bg-ink text-paper"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-16 pb-8 md:pt-20 md:pb-10">
+        {/* Sign-off */}
+        {showSignOff && (
+          <div className="mb-14 border-b border-paper/15 pb-14 text-center sm:text-left">
+            <p
+              className="font-serif text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.05] text-balance"
+              style={{ fontVariationSettings: '"SOFT" 100' }}
+            >
+              Un projet&nbsp;? <em className="font-medium text-coral-500">Écrivez-moi.</em>
+            </p>
+            <a
+              href="mailto:jongeau.m@gmail.com"
+              className="mt-5 inline-block font-hand text-3xl text-sun underline decoration-sun/40 decoration-2 underline-offset-8 hover:decoration-sun"
+            >
+              jongeau.m@gmail.com
+            </a>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           {/* Brand */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <Link to="/" className="group relative inline-flex flex-col items-center px-4 py-2 shrink-0">
+            <Link to="/" className="group shrink-0">
               <span className="sr-only">Michaël Jongeau, accueil</span>
-              <span
-                aria-hidden="true"
-                className="absolute left-0 top-0 h-2.5 w-2.5 border-t-2 border-l-2 border-white transition-colors group-hover:border-sage-400"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute right-0 top-0 h-2.5 w-2.5 border-t-2 border-r-2 border-white transition-colors group-hover:border-sage-400"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute left-0 bottom-0 h-2.5 w-2.5 border-b-2 border-l-2 border-white transition-colors group-hover:border-sage-400"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute right-0 bottom-0 h-2.5 w-2.5 border-b-2 border-r-2 border-white transition-colors group-hover:border-sage-400"
-              />
-              <span
-                aria-hidden="true"
-                className="font-archivo text-xl font-extrabold leading-none tracking-tight text-white transition-colors group-hover:text-sage-400"
-              >
-                MJ
-              </span>
-              <span
-                aria-hidden="true"
-                className="mt-1 font-archivo text-[8px] font-semibold uppercase tracking-[0.22em] text-white transition-colors group-hover:text-sage-400"
-              >
-                Dév. Freelance
+              <span aria-hidden="true">
+                <Logo dark size={46} />
               </span>
             </Link>
-            <p className="mt-5 text-sm text-stone-400">
+            <p className="mt-5 text-sm text-paper/60">
               Développeur web freelance <br />
               Basé à Rochefort (17)
             </p>
@@ -97,11 +95,11 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="flex flex-col items-center sm:items-start">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">Navigation</h2>
+            <h2 className="font-hand text-2xl text-sun">Navigation</h2>
             <ul className="mt-4 space-y-2 text-center sm:text-left">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} prefetch="viewport" className="text-stone-300 hover:text-white">
+                  <Link to={link.to} prefetch="viewport" className="text-paper/80 hover:text-sun">
                     {link.label}
                   </Link>
                 </li>
@@ -111,8 +109,8 @@ export default function Footer() {
 
           {/* Contact & social */}
           <div className="flex flex-col items-center sm:items-start">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">Contact</h2>
-            <a href="mailto:jongeau.m@gmail.com" className="mt-4 text-stone-300 hover:text-white">
+            <h2 className="font-hand text-2xl text-sun">Contact</h2>
+            <a href="mailto:jongeau.m@gmail.com" className="mt-4 text-paper/80 hover:text-sun">
               jongeau.m@gmail.com
             </a>
             <div className="mt-4 flex items-center gap-3">
@@ -123,7 +121,7 @@ export default function Footer() {
                   target={link.href.startsWith('http') ? '_blank' : undefined}
                   rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={link.label}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/15 bg-white/5 text-stone-300 hover:border-sage-400 hover:text-white"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-paper/20 text-paper/80 hover:border-sun hover:text-sun"
                 >
                   <SocialIcon label={link.label} />
                 </a>
@@ -133,28 +131,28 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 text-center sm:text-left">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">Zone d'intervention</h2>
-          <p className="mt-3 text-sm text-stone-400 leading-relaxed">
+          <h2 className="font-hand text-2xl text-sun">Zone d'intervention</h2>
+          <p className="mt-3 text-sm text-paper/60 leading-relaxed">
             Rochefort, La Rochelle, Châtelaillon-Plage, Aytré, Île de Ré, Île d'Oléron, Tonnay-Charente, Marennes,
             Surgères, Saint-Jean-d'Angély, Marans, Saintes, Pons, Royan, Saujon et Jonzac, et plus largement toute la
             Charente-Maritime.
           </p>
         </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-xs text-stone-500 sm:justify-start">
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-paper/15 pt-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-xs text-paper/50 sm:justify-start">
             <span>2026 - Michaël Jongeau, Développeur Web Freelance</span>
             <span>SIRET : 99458742600010</span>
-            <Link to="/mentions-legales" prefetch="viewport" className="hover:text-white underline underline-offset-2">
+            <Link to="/mentions-legales" prefetch="viewport" className="hover:text-sun underline underline-offset-2">
               Mentions légales &amp; Confidentialité
             </Link>
           </div>
           <motion.a
             href="#top"
             onClick={onBackToTop}
-            className="inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/5
-                  pl-3 pr-4 py-2 text-sm font-semibold text-stone-200 hover:text-white hover:bg-white/10 focus-visible:outline-none
-                  focus-visible:ring-2 focus-visible:ring-sage-400/70"
+            className="inline-flex items-center gap-2 rounded-full border border-paper/25
+                  pl-3 pr-4 py-2 text-sm font-semibold text-paper hover:text-ink hover:bg-paper focus-visible:outline-none
+                  focus-visible:ring-2 focus-visible:ring-sun/70"
             aria-label="Retour en haut de page"
           >
             <ChevronUp className="h-4 w-4" aria-hidden="true" />

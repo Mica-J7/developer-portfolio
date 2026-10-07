@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
+import { fadeUp } from './SectionHeading.jsx';
 
 export default function CtaBanner({
   title = 'Un projet en tête ?',
@@ -9,61 +10,50 @@ export default function CtaBanner({
   tone = 'base',
 }) {
   return (
-    <section className={tone === 'alt' ? 'bg-transparent' : 'bg-stone-50'}>
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20 text-center">
-        <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-balance"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-        >
-          {title}
-        </motion.h2>
-        <motion.p
-          className="mt-3 text-stone-600"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
-        >
-          {description}
-        </motion.p>
+    <section className={tone === 'alt' ? 'bg-sand' : 'bg-paper'}>
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-24">
         <motion.div
-          className="mt-6"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.08 }}
+          className="relative overflow-hidden rounded-3xl border-2 border-ink bg-coral-600 px-6 py-14 sm:px-12 md:py-20 text-center
+          shadow-offset-lg"
+          {...fadeUp(0)}
         >
-          <motion.span
-            className="will-change-transform inline-block"
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.91 }}
-            transition={{ duration: 0.15, ease: 'easeOut' }}
+          {/* Decorative waves, a nod to the Atlantic coast */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 400 40"
+            preserveAspectRatio="none"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-16 w-full text-coral-700/70"
+            fill="none"
           >
+            <path
+              d="M0 20 q25 -14 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 M0 34 q25 -14 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0"
+              stroke="currentColor"
+              strokeWidth="3"
+            />
+          </svg>
+
+          <h2
+            className="relative font-serif text-[2.1rem] sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] text-white text-balance"
+            style={{ fontVariationSettings: '"SOFT" 100' }}
+          >
+            {title}
+          </h2>
+          <p className="relative mt-4 text-lg text-white/90">{description}</p>
+          <div className="relative mt-9">
             <Link
               to="/contact"
-              className="flex items-center justify-center gap-2 rounded-md bg-sage-600
-              px-6 py-3.5 text-base text-white font-semibold shadow-soft focus-visible:outline-none focus-visible:ring-2
-              focus-visible:ring-sage-400 hover:bg-sage-700"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink bg-paper px-7 py-3.5
+              text-base font-semibold text-ink shadow-offset transition-all duration-150
+              hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-offset-md
+              active:translate-x-1 active:translate-y-1 active:shadow-none
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2 focus-visible:ring-offset-coral-600"
             >
               <span className="text-nowrap">Me contacter</span>
-              <ArrowRight aria-hidden="true" className="h-5 w-5" />
+              <ArrowRight aria-hidden="true" className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
-          </motion.span>
+          </div>
+          {note && <p className="relative mt-6 font-hand text-2xl text-sun -rotate-2">{note}&nbsp;!</p>}
         </motion.div>
-        {note && (
-          <motion.p
-            className="mt-4 text-sm text-stone-500"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
-          >
-            {note}
-          </motion.p>
-        )}
       </div>
     </section>
   );

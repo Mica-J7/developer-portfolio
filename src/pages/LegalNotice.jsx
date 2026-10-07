@@ -18,13 +18,13 @@ export default function LegalNotice() {
   return (
     <section className="scroll-mt-18">
       <div className="mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <h1 className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] text-ink text-balance">
           Mentions légales &amp; Confidentialité
         </h1>
 
-        <div className="mt-8 space-y-8 text-stone-600 leading-relaxed">
+        <div className="mt-8 space-y-8 text-ink-soft leading-relaxed">
           <div>
-            <h2 className="text-lg font-bold text-[#2d343b]">Éditeur du site</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink">Éditeur du site</h2>
             <p className="mt-2">
               Michaël Jongeau, Entrepreneur individuel (auto-entrepreneur)
               <br />
@@ -33,19 +33,22 @@ export default function LegalNotice() {
               Adresse : Rochefort (17), France
               <br />
               Email :{' '}
-              <a href="mailto:jongeau.m@gmail.com" className="text-stone-700 underline hover:text-stone-900">
+              <a
+                href="mailto:jongeau.m@gmail.com"
+                className="text-ink underline decoration-coral-500 decoration-2 underline-offset-4 hover:text-coral-700"
+              >
                 jongeau.m@gmail.com
               </a>
             </p>
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#2d343b]">Directeur de la publication</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink">Directeur de la publication</h2>
             <p className="mt-2">Michaël Jongeau</p>
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#2d343b]">Hébergement</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink">Hébergement</h2>
             <p className="mt-2">
               Netlify, Inc.
               <br />
@@ -55,7 +58,7 @@ export default function LegalNotice() {
                 href="https://www.netlify.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-700 underline hover:text-stone-900"
+                className="text-ink underline decoration-coral-500 decoration-2 underline-offset-4 hover:text-coral-700"
               >
                 netlify.com
               </a>
@@ -63,7 +66,7 @@ export default function LegalNotice() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#2d343b]">Propriété intellectuelle</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink">Propriété intellectuelle</h2>
             <p className="mt-2">
               L'ensemble des contenus présents sur ce site (textes, visuels, code) est la propriété de Michaël Jongeau,
               sauf mention contraire. Toute reproduction sans autorisation est interdite.
@@ -71,7 +74,7 @@ export default function LegalNotice() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#2d343b]">Données personnelles</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink">Données personnelles</h2>
             <p className="mt-2">
               Le responsable du traitement des données est Michaël Jongeau. Les informations transmises via le
               formulaire de contact (nom, email, message) sont utilisées uniquement pour répondre à votre demande et ne
@@ -84,7 +87,10 @@ export default function LegalNotice() {
             <p className="mt-2">
               Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données,
               que vous pouvez exercer à tout moment en écrivant à{' '}
-              <a href="mailto:jongeau.m@gmail.com" className="text-stone-700 underline hover:text-stone-900">
+              <a
+                href="mailto:jongeau.m@gmail.com"
+                className="text-ink underline decoration-coral-500 decoration-2 underline-offset-4 hover:text-coral-700"
+              >
                 jongeau.m@gmail.com
               </a>
               . Vous disposez également du droit d'introduire une réclamation auprès de la{' '}
@@ -92,7 +98,7 @@ export default function LegalNotice() {
                 href="https://www.cnil.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-700 underline hover:text-stone-900"
+                className="text-ink underline decoration-coral-500 decoration-2 underline-offset-4 hover:text-coral-700"
               >
                 CNIL
               </a>{' '}
@@ -101,7 +107,7 @@ export default function LegalNotice() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-[#2d343b]">Cookies</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink">Cookies</h2>
             <p className="mt-2">
               Ce site n'utilise aucun cookie de suivi, de mesure d'audience ou publicitaire. Aucun consentement n'est
               donc requis.
@@ -109,13 +115,13 @@ export default function LegalNotice() {
           </div>
         </div>
 
-        <p className="mt-10 text-sm text-stone-600">Dernière mise à jour : 10 septembre 2026</p>
+        <p className="mt-10 text-sm text-ink-soft">Dernière mise à jour : 10 septembre 2026</p>
 
         <div className="mt-10 flex justify-center">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-md border-2 border-sage-600 bg-white
-            px-4 py-2 text-sm font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400/70"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-paper
+            px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-sun focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-400/70"
           >
             <ArrowLeft aria-hidden="true" className="h-4 w-4" />
             <span className="pb-0.5">Retour à l'accueil</span>

@@ -21,46 +21,63 @@
    extra space below the page when their toolbar auto-hides on scroll don't show a mismatched gap */
 html,
 body {
-  background-color: #292524;
+  background-color: #16262e;
 }
 
 @theme {
-  /* Soft elevation shadow for primary CTAs — replaces the old neon glow */
-  --shadow-soft: 0 8px 20px -6px rgb(85 118 74 / 0.35), 0 2px 8px -2px rgb(28 25 23 / 0.08);
-
   /* Brand wordmark typeface (see public/brand/README.md) */
   --font-archivo: 'Archivo', sans-serif;
 
-  /* Warm accent palette: terracotta (primary), sage (secondary), gold (tertiary) */
-  --color-terracotta-50: #fbf1ec;
-  --color-terracotta-100: #f5ddd0;
-  --color-terracotta-400: #d98459;
-  --color-terracotta-500: #c2542d;
-  --color-terracotta-600: #a6431f;
-  --color-terracotta-700: #8a3618;
+  /* "Atlantique" editorial theme (2026-10 redesign): paper, ocean ink, sunset coral, highlighter */
+  --font-serif: 'Fraunces Variable', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
 
-  --color-sage-50: #eef3ea;
-  --color-sage-100: #d7e3cb;
-  --color-sage-200: #b9cbaa;
-  --color-sage-300: #9ab489;
-  --color-sage-400: #7c9c68;
-  --color-sage-500: #55764a;
-  --color-sage-600: #435e3a;
-  --color-sage-700: #354a2e;
+  --color-paper: #fbf6ec;
+  --color-sand: #f1e6d2;
+  --color-ink: #16262e;
+  --color-ink-soft: #4a5960;
 
-  --color-gold-50: #fbf3e3;
-  --color-gold-100: #f3e0b8;
-  --color-gold-400: #ddb55e;
-  --color-gold-500: #c79a3d;
-  --color-gold-600: #a87d2c;
-  --color-gold-700: #8a6423;
+  --color-coral-100: #ffe1d6;
+  --color-coral-400: #f4805f;
+  --color-coral-500: #ea6440;
+  --color-coral-600: #c8461f;
+  --color-coral-700: #a83815;
+
+  --color-ocean-50: #e8f1f2;
+  --color-ocean-100: #cfe2e5;
+  --color-ocean-400: #4f8f9c;
+  --color-ocean-500: #2e6e80;
+  --color-ocean-700: #1d4b58;
+
+  --color-sun: #ffd65c;
+
+  /* Offset "printed" shadows (buttons, cards, logo): ocean blue so they read apart from ink borders */
+  --shadow-offset-sm: 3px 3px 0 0 var(--color-ocean-500);
+  --shadow-offset: 4px 4px 0 0 var(--color-ocean-500);
+  --shadow-offset-md: 6px 6px 0 0 var(--color-ocean-500);
+  --shadow-offset-lg: 8px 8px 0 0 var(--color-ocean-500);
 }
 
-/* Shared page-wide backdrop: sage fill applied once on the root wrapper (see root.jsx) so
-   every green section (set to bg-transparent) reveals the same flat color; every other
-   section keeps its own opaque background, which naturally masks it wherever it sits.
-   Previously also drew 3 diagonal lines via an SVG background-image — disabled for now
-   (didn't look good enough), see git history to bring them back. */
+/* Page-wide base fill applied once on the root wrapper (see root.jsx) */
 .bg-site-backdrop {
-  background-color: var(--color-sage-100);
+  background-color: var(--color-paper);
+}
+
+/* Highlighter-pen stroke behind a word: slightly skewed band covering the lower half of the text */
+.marker {
+  background-image: linear-gradient(100deg, transparent 1%, var(--color-sun) 3%, var(--color-sun) 96%, transparent 99%);
+  background-repeat: no-repeat;
+  background-size: 100% 42%;
+  background-position: 0 88%;
+  padding-inline: 0.12em;
+  margin-inline: -0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Faint dotted-paper texture for editorial sections */
+.bg-paper-dots {
+  background-color: var(--color-paper);
+  background-image: radial-gradient(rgb(22 38 46 / 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
 }

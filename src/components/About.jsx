@@ -1,35 +1,24 @@
 import { motion } from 'framer-motion';
-import { Lock, UserRound, Target, Tag } from 'lucide-react';
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 14 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' },
-  transition: { duration: 0.5, ease: 'easeOut', delay },
-});
+import SectionHeading, { fadeUp } from './SectionHeading.jsx';
 
 const reasons = [
   {
     n: '01',
-    icon: Lock,
     title: 'Un code qui vous appartient',
     body: "Pas d'abonnement à vie à une plateforme. Votre site est développé sur mesure et vous en restez propriétaire, du premier au dernier fichier.",
   },
   {
     n: '02',
-    icon: UserRound,
     title: 'Un seul interlocuteur',
     body: "Du cahier des charges à la mise en ligne, vous échangez directement avec la personne qui écrit le code. Pas d'intermédiaire, des échanges directs et efficaces.",
   },
   {
     n: '03',
-    icon: Target,
     title: 'Pensé pour votre activité',
     body: 'Pas de thème générique recyclé. Chaque site est construit autour de vos besoins réels, de votre clientèle et de vos objectifs.',
   },
   {
     n: '04',
-    icon: Tag,
     title: 'Des prix clairs et accessibles',
     body: "Pas de grille tarifaire cachée derrière un formulaire de contact. Les prix sont annoncés dès la page d'accueil, et chaque devis détaille précisément ce qui est inclus.",
   },
@@ -37,50 +26,43 @@ const reasons = [
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-18 bg-stone-50">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
-          {...fadeUp(0)}
-        >
-          Pourquoi choisir un développeur Freelance&nbsp;?
-        </motion.h2>
-        <div className="mt-12">
-          {/* Mobile only: single stacked column, each reason set off as a card with a terracotta accent */}
-          <div className="flex flex-col gap-6 sm:hidden">
-            {reasons.map((r, idx) => (
-              <motion.div
-                key={r.title}
-                className="rounded-xl border border-stone-200 border-b-4 border-b-terracotta-500 bg-white p-6 shadow-md"
-                {...fadeUp(idx * 0.08)}
-              >
-                <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
-                <div className="mt-3 flex items-center gap-3">
-                  <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />
-                  <h3 className="text-xl font-bold text-[#2d343b]">{r.title}</h3>
-                </div>
-                <p className="mt-3 text-stone-600 leading-relaxed">{r.body}</p>
-              </motion.div>
-            ))}
+    <section id="about" className="scroll-mt-18 bg-paper">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-32">
+              <SectionHeading
+                aside="Bonne question !"
+                title={
+                  <>
+                    Pourquoi choisir un développeur <em className="text-coral-600 font-medium">freelance</em>&nbsp;?
+                  </>
+                }
+                intro="Une agence, une plateforme clé en main ou un indépendant : voici ce qui change concrètement quand vous travaillez avec moi."
+              />
+            </div>
           </div>
 
-          {/* Tablet/desktop: plain symmetric 2x2 grid, no offset */}
-          <div className="mx-auto hidden max-w-4xl grid-cols-2 gap-x-16 gap-y-14 sm:grid">
+          <ol className="lg:col-span-7 border-t border-ink/15">
             {reasons.map((r, idx) => (
-              <motion.div key={r.title} className="group relative self-start pl-6" {...fadeUp(idx * 0.08)}>
+              <motion.li
+                key={r.title}
+                className="group grid grid-cols-[auto_1fr] gap-x-6 sm:gap-x-10 border-b border-ink/15 py-8"
+                {...fadeUp(idx * 0.06)}
+              >
                 <span
-                  aria-hidden="true"
-                  className="absolute inset-y-0 left-0 w-0.5 origin-top scale-y-0 bg-terracotta-500 transition-transform duration-300 ease-out group-hover:scale-y-100"
-                />
-                <span className="font-archivo text-sm font-extrabold text-terracotta-500">{r.n}</span>
-                <div className="mt-3 flex items-center gap-3">
-                  <r.icon aria-hidden="true" strokeWidth={1.8} className="h-6 w-6 text-sage-600" />
-                  <h3 className="text-xl font-bold text-[#2d343b]">{r.title}</h3>
+                  className="w-14 sm:w-20 font-serif text-5xl sm:text-6xl font-semibold leading-none text-coral-500 transition-transform duration-300 group-hover:-rotate-6"
+                  style={{ fontVariationSettings: '"SOFT" 100' }}
+                >
+                  {r.n}
+                </span>
+                <div>
+                  <h3 className="font-serif text-2xl font-semibold text-ink">{r.title}</h3>
+                  <p className="mt-2 text-ink-soft leading-relaxed">{r.body}</p>
                 </div>
-                <p className="mt-3 text-stone-600 leading-relaxed">{r.body}</p>
-              </motion.div>
+              </motion.li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>

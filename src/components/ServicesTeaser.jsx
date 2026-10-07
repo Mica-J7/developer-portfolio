@@ -1,113 +1,84 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
-import { ArrowRight, Search, ShoppingCart, Wrench, ShieldCheck, LayoutTemplate, Euro } from 'lucide-react';
+import { ArrowUpRight, Search, ShoppingCart, Wrench, ShieldCheck, LayoutTemplate, Euro } from 'lucide-react';
+import SectionHeading, { fadeUp } from './SectionHeading.jsx';
 
 const benefits = [
   {
     title: 'Un site à votre image',
     description: 'Un design adapté à votre activité et votre identité visuelle.',
-    icon: <LayoutTemplate aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+    icon: LayoutTemplate,
   },
   {
     title: 'Être visible sur Google',
     description: 'Un audit et des optimisations SEO pour que vos clients vous trouvent dans leurs recherches Google.',
-    icon: <Search aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+    icon: Search,
   },
   {
     title: 'Vente en ligne',
     description: 'Une boutique e-commerce qui tourne 24h/24.',
-    icon: <ShoppingCart aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+    icon: ShoppingCart,
   },
   {
     title: 'Un outil métier sur mesure',
     description: 'Gestion, publication, administration : un outil développé sur mesure pour votre activité.',
-    icon: <Wrench aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+    icon: Wrench,
   },
   {
     title: 'Gestion technique',
-    description: "Hébergement, mises à jour, sécurité : je gère tout pour vous, vous n'avez rien à faire.",
-    icon: <ShieldCheck aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+    description: "Mises à jour, sécurité, correctifs : je m'occupe de la technique, vous n'avez rien à faire.",
+    icon: ShieldCheck,
   },
   {
     title: 'Des tarifs transparents',
     description: 'Des prix clairs annoncés et détaillés à l’avance.',
-    icon: <Euro aria-hidden="true" strokeWidth={1.8} className="h-14 w-14" />,
+    icon: Euro,
   },
 ];
 
 export default function ServicesTeaser() {
   return (
-    <section id="services" className="scroll-mt-18 bg-transparent">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <motion.h2
-          className="font-archivo text-3xl sm:text-4xl font-extrabold text-[#2d343b] text-center text-balance"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-        >
-          Je vous aide à développer votre activité en ligne
-        </motion.h2>
-        <motion.p
-          className="mt-3 text-stone-600 text-center"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
-        >
-          Sites vitrines, e-commerce, outils métier sur mesure et optimisation SEO, pour les indépendants et petites
-          entreprises.
-        </motion.p>
+    <section id="services" className="scroll-mt-18 bg-sand">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+        <SectionHeading
+          aside="Concrètement..."
+          title={
+            <>
+              Je vous aide à <span className="marker">développer votre activité</span> en ligne
+            </>
+          }
+          intro="Sites vitrines, e-commerce, outils métier sur mesure et optimisation SEO, pour les indépendants et petites entreprises."
+        />
 
-        <div className="mt-10 mx-auto max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {benefits.map((item, idx) => (
-            <motion.div
-              key={item.title}
-              className="h-full"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut', delay: idx * 0.04 } }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                className="will-change-transform flex h-full flex-col rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-md transition-shadow duration-300 hover:shadow-lg"
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.15, ease: 'easeOut' }}
+            <motion.div key={item.title} className="h-full" {...fadeUp(idx * 0.05)}>
+              <Link
+                to="/tarifs"
+                className="group relative flex h-full flex-col rounded-3xl border-2 border-ink bg-paper p-7 pb-10 sm:p-8 sm:pb-12
+                shadow-offset transition-[translate,box-shadow,background-color] duration-200
+                hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-white hover:shadow-offset-md
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:ring-offset-2 focus-visible:ring-offset-sand"
               >
-                <div className="flex flex-col items-center gap-4 text-center">
-                  <div className="shrink-0 text-sage-600">{item.icon}</div>
-                  <h3 className="text-xl font-bold text-[#2d343b]">{item.title}</h3>
-                </div>
-                <p className="mt-2 text-base text-stone-500 leading-relaxed text-center">{item.description}</p>
-                <Link
-                  to="/tarifs"
-                  className="group/link mt-auto pt-4 flex items-center justify-center gap-1.5 text-base font-semibold text-sage-600 hover:text-sage-700"
-                >
-                  <span className="pb-0.5">Voir les tarifs</span>
-                  <ArrowRight
+                <div className="flex items-start justify-between">
+                  <span className="relative inline-flex h-14 w-14 items-center justify-center">
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-[40%_60%_55%_45%] bg-sun/70 rotate-12 transition-transform duration-500 group-hover:rotate-100"
+                    />
+                    <item.icon aria-hidden="true" strokeWidth={1.8} className="relative h-7 w-7 text-ink" />
+                  </span>
+                  <ArrowUpRight
                     aria-hidden="true"
-                    className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1.5"
+                    className="h-6 w-6 text-ink/30 transition-all duration-300 group-hover:text-coral-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
-                </Link>
-              </motion.div>
+                </div>
+                <h3 className="mt-6 font-serif text-2xl font-semibold text-ink">{item.title}</h3>
+                <p className="mt-2 text-ink-soft leading-relaxed">{item.description}</p>
+              </Link>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          className="mt-10 flex justify-center"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 }}
-        >
-          <Link
-            to="/tarifs"
-            className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-sage-600 bg-white
-             px-6 py-3.5 text-base font-semibold text-sage-600 hover:bg-sage-600 hover:text-white transition-colors"
-          >
-            Voir tous les services en détail
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

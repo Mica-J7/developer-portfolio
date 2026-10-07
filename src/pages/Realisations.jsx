@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import Projects from '../components/Projects.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
+import SectionHeading, { fadeUp } from '../components/SectionHeading.jsx';
 
 export function meta() {
   return [
@@ -27,58 +28,33 @@ export default function Realisations() {
   return (
     <>
       {/* Hero */}
-      <section className="scroll-mt-18 relative overflow-hidden bg-transparent">
-        <div className="relative z-10 mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 pt-16 pb-16 md:pt-20 md:pb-20 text-center">
-          <motion.h1
-            className="font-archivo text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#2d343b] text-balance"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
-          >
-            Mes réalisations
-          </motion.h1>
-          <motion.p
-            className="mt-5 text-lg text-stone-600 leading-relaxed"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
-          >
-            Applications web et outils sur mesure : découvrez quelques projets personnels que j'ai conçus et développés
-            de bout en bout, du cahier des charges à la mise en ligne.
-          </motion.p>
-          <motion.div
-            className="mt-6"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 }}
-          >
-            <p className="text-lg text-stone-600 leading-relaxed">
-              Vous cherchez un développeur pour votre projet&nbsp;?
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                to="/tarifs"
-                className="inline-flex items-center rounded-md border-2 border-sage-600 bg-white px-4 py-2 font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white"
-              >
-                Consulter mes tarifs
-              </Link>
-              <motion.span
-                className="will-change-transform inline-block"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.91 }}
-                transition={{ duration: 0.15, ease: 'easeOut' }}
-              >
-                <Link
-                  to="/contact"
-                  className="flex items-center rounded-md border-2 border-transparent bg-sage-600 shadow-soft px-4 py-2 font-semibold text-white transition-colors hover:bg-sage-700"
-                >
-                  Me contacter
-                </Link>
-              </motion.span>
-            </div>
+      <section className="scroll-mt-18 relative overflow-hidden bg-paper-dots">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24">
+          <SectionHeading
+            as="h1"
+            aside="Fait maison"
+            title={
+              <>
+                Mes <span className="marker">réalisations</span>
+              </>
+            }
+            intro="Applications web et outils sur mesure : découvrez quelques projets personnels que j'ai conçus et développés de bout en bout, du cahier des charges à la mise en ligne."
+          />
+          <motion.div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5" {...fadeUp(0.15)}>
+            <Link
+              to="/contact"
+              className="inline-flex items-center rounded-full border-2 border-ink bg-coral-600 px-6 py-3 font-semibold text-white
+              shadow-offset transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-offset-md
+              active:translate-x-1 active:translate-y-1 active:shadow-none"
+            >
+              Me contacter
+            </Link>
+            <Link
+              to="/tarifs"
+              className="font-semibold text-ink underline decoration-coral-500 decoration-2 underline-offset-[6px] hover:text-coral-700"
+            >
+              Consulter mes tarifs
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -87,7 +63,6 @@ export default function Realisations() {
       <CtaBanner
         title="Votre projet pourrait être le prochain !"
         description="Parlons de ce que vous voulez construire."
-        tone="alt"
       />
     </>
   );

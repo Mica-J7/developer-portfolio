@@ -1,8 +1,8 @@
 {
   "name": "Michaël Jongeau",
-  "short_name": "MJ",
-  "theme_color": "#435e3a",
-  "background_color": "#f7f6f2",
+  "short_name": "M. Jongeau",
+  "theme_color": "#16262e",
+  "background_color": "#fbf6ec",
   "display": "standalone",
   "icons": [
     { "src": "/brand/icon-512.png", "sizes": "512x512", "type": "image/png" },

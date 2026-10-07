@@ -9,11 +9,13 @@ function BulletList({ label, items }) {
   if (!items) return null;
   return (
     <div className="mt-4">
-      <p className="text-xs font-mono font-semibold uppercase tracking-wide text-sage-600">{label}</p>
+      <p className="font-hand text-2xl leading-none text-ocean-500">{label}</p>
       <ul className="mt-2 space-y-2">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-sm text-stone-600">
-            <Check aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-sage-500" />
+          <li key={item} className="flex items-start gap-2.5 text-sm text-ink-soft">
+            <span className="mt-0.5 inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-sun">
+              <Check aria-hidden="true" strokeWidth={3} className="h-3 w-3 text-ink" />
+            </span>
             <span>{item}</span>
           </li>
         ))}
@@ -49,18 +51,16 @@ export default function ProjectCard({ p, idx }) {
   return (
     <motion.article
       key={p.id}
-      className="group flex flex-col overflow-hidden rounded-xl border border-stone-200
-             bg-white shadow-md
-             hover:border-sage-400
-             hover:shadow-lg
-             transition-[border-color,box-shadow] duration-300"
+      className="group flex flex-col overflow-hidden rounded-2xl border-2 border-ink bg-white
+             shadow-offset transition-[translate,box-shadow] duration-200
+             hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-offset-lg"
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.04 }}
     >
       <div className="relative p-4 pb-0">
-        <div className="overflow-hidden rounded-lg">
+        <div className="overflow-hidden rounded-lg border-2 border-ink">
           <motion.img
             layoutId={imageLayoutId}
             src={p.image}
@@ -68,17 +68,17 @@ export default function ProjectCard({ p, idx }) {
             className="aspect-1200/630 w-full cursor-zoom-in object-cover"
             loading="lazy"
             onClick={() => setZoomed(true)}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
           />
         </div>
       </div>
       <div className="flex h-full flex-1 flex-col py-4 px-6">
-        <h3 className="text-2xl font-bold text-[#2d343b]">
+        <h3 className="font-serif text-3xl font-semibold text-ink">
           {mainTitle}
-          {titleNote && <span className="ml-2 text-sm font-normal text-stone-500">({titleNote})</span>}
+          {titleNote && <span className="ml-2 font-hand text-xl font-normal text-coral-600">({titleNote})</span>}
         </h3>
-        <p className="mt-2 min-h-18 text-stone-600 text-base">{p.description}</p>
+        <p className="mt-2 min-h-18 text-ink-soft text-base leading-relaxed">{p.description}</p>
 
         {hasDetails && (
           <>
@@ -86,7 +86,7 @@ export default function ProjectCard({ p, idx }) {
               type="button"
               onClick={() => setDetailsOpen((prev) => !prev)}
               aria-expanded={detailsOpen}
-              className="mt-4 inline-flex w-44 items-center justify-between gap-1.5 self-start rounded-md bg-sage-600 shadow-soft px-3 py-1.5 text-sm font-semibold text-white hover:bg-sage-700 transition-colors cursor-pointer"
+              className="mt-4 inline-flex w-48 items-center justify-between gap-1.5 self-start rounded-full border-2 border-ink bg-paper px-4 py-1.5 text-sm font-semibold text-ink hover:bg-sun transition-colors cursor-pointer"
             >
               <span>{detailsOpen ? 'Masquer le détail' : 'Voir le détail'}</span>
               <MotionChevronDown
@@ -116,7 +116,7 @@ export default function ProjectCard({ p, idx }) {
 
         <ul className="mt-4 flex flex-wrap gap-2">
           {p.techs.map((t) => (
-            <li key={t} className="rounded border border-sage-300 bg-sage-50 px-2 py-1 text-xs text-sage-700">
+            <li key={t} className="rounded-full bg-ocean-50 px-3 py-1 text-xs font-semibold text-ocean-700">
               {t}
             </li>
           ))}
@@ -125,7 +125,7 @@ export default function ProjectCard({ p, idx }) {
           {p.live && (
             <a
               href={p.live}
-              className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-sage-600 hover:text-sage-700"
+              className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-ink underline decoration-coral-500 decoration-2 underline-offset-4 hover:text-coral-700"
               aria-label="Ouvrir le site"
               target="_blank"
               rel="noopener noreferrer"
@@ -140,14 +140,11 @@ export default function ProjectCard({ p, idx }) {
           {p.repo && (
             <motion.a
               href={p.repo}
-              className="inline-flex items-center gap-2 rounded-md border-2 border-sage-600 bg-white px-3 py-1.5 text-sm font-semibold text-sage-600 transition-colors hover:bg-sage-600 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-4 py-1.5 text-sm font-semibold text-paper transition-colors hover:bg-coral-600"
               aria-label="Ouvrir le repo GitHub"
               target="_blank"
               rel="noopener noreferrer"
-              whileTap={{
-                scale: 0.91,
-                boxShadow: '0px 8px 20px -6px rgba(85, 118, 74, 0.35), 0px 2px 8px -2px rgba(28, 25, 23, 0.08)',
-              }}
+              whileTap={{ scale: 0.94 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
               <span className="pb-0.5">GitHub</span>
@@ -164,7 +161,7 @@ export default function ProjectCard({ p, idx }) {
           <AnimatePresence>
             {zoomed && (
               <motion.div
-                className="fixed inset-0 z-50 cursor-zoom-out overflow-auto bg-stone-950/90 p-6
+                className="fixed inset-0 z-50 cursor-zoom-out overflow-auto bg-ink/90 p-6
               pointer-fine:flex pointer-fine:items-center pointer-fine:justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

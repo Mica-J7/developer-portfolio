@@ -3,9 +3,9 @@ import ProjectCard from './ProjectCard.jsx';
 
 export default function Projects() {
   return (
-    <section id="projects" className="scroll-mt-18 bg-stone-50 py-16 md:py-20">
+    <section id="projects" className="scroll-mt-18 bg-sand py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 items-start sm:grid-cols-2 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-1 items-start sm:grid-cols-2 gap-x-10 gap-y-12">
           {projects.projects
             .filter((p) => p.type === 'perso')
             .map((p, idx) => (
