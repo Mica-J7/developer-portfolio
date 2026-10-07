@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { SiX } from '@icons-pack/react-simple-icons';
 import { Check, Loader2, Mail, Phone } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading.jsx';
+import { BusinessCard } from '../components/HeroVisuals.jsx';
 
 export function meta() {
   return [
@@ -113,17 +114,23 @@ export default function Contact() {
     <>
       {/* Hero */}
       <section className="scroll-mt-18 relative overflow-hidden bg-paper-dots">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24">
-          <SectionHeading
-            as="h1"
-            aside="Écrivez-moi !"
-            title={
-              <>
-                Parlons de <span className="marker">votre projet</span>
-              </>
-            }
-            intro="Devis gratuit et sans engagement. Je vous réponds sous 24h."
-          />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+          <div className="lg:col-span-7">
+            <SectionHeading
+              as="h1"
+              aside="Écrivez-moi !"
+              title={
+                <>
+                  Parlons de <span className="marker">votre projet</span>
+                </>
+              }
+              intro="Devis gratuit et sans engagement. Je vous réponds sous 24h."
+            />
+          </div>
+          {/* Decorative paper object (lg+ only, the hero stays single-column below) */}
+          <div className="hidden lg:col-span-5 lg:flex lg:justify-center">
+            <BusinessCard />
+          </div>
         </div>
       </section>
 

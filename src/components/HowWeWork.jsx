@@ -41,7 +41,7 @@ export default function HowWeWork({ bg = 'bg-sand' }) {
               {idx % 3 !== 2 && (
                 <span
                   aria-hidden="true"
-                  className="absolute left-16 right-[-2.5rem] top-7 hidden border-t-2 border-dashed border-ink/25 lg:block"
+                  className="absolute left-16 -right-10 top-7 hidden border-t-2 border-dashed border-ink/25 lg:block"
                 />
               )}
               <span

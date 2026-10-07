@@ -65,17 +65,17 @@ function Postmark({ className }) {
 
 // Postcard recipient: cycles through local trades so prospects picture their own business receiving it
 const recipients = [
-  'La Boulangerie',
-  'Le Gîte',
-  'Le Restaurant',
-  "L'Atelier",
-  'Le Cabinet',
-  'Le Domaine',
-  'La Boutique',
-  'Le Garage',
-  'L’Agence',
-  'Le Bar',
-  'La Librairie',
+  'Votre Boulangerie',
+  'Votre Gîte',
+  'Votre Restaurant',
+  'Votre Atelier',
+  'Votre Cabinet',
+  'Votre Domaine',
+  'Votre Boutique',
+  'Votre Garage',
+  'Votre Agence',
+  'Votre Bar',
+  'Votre Librairie',
 ];
 
 function Recipient() {

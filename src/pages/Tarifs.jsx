@@ -8,6 +8,7 @@ import HowWeWork from '../components/HowWeWork.jsx';
 import FAQ from '../components/FAQ.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import SectionHeading, { fadeUp } from '../components/SectionHeading.jsx';
+import { Chalkboard } from '../components/HeroVisuals.jsx';
 
 export function meta() {
   return [
@@ -55,8 +56,7 @@ const groups = [
     category: 'audit',
     aside: 'Pour être trouvé',
     title: 'Optimisation & visibilité',
-    description:
-      'Audit SEO et campagne Google Ads, pour améliorer votre visibilité en ligne.',
+    description: 'Audit SEO et campagne Google Ads, pour améliorer votre visibilité en ligne.',
     bg: 'bg-sand',
   },
   {
@@ -77,20 +77,26 @@ export default function Tarifs() {
     <>
       {/* Hero */}
       <section className="scroll-mt-18 relative overflow-hidden bg-paper-dots">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24">
-          <SectionHeading
-            as="h1"
-            aside="Des prix transparents"
-            title={
-              <>
-                Votre site web à partir de <span className="marker whitespace-nowrap">{minPrice} €</span>
-              </>
-            }
-            intro="Chaque projet est différent : le devis est gratuit et personnalisé."
-          />
-          <motion.p className="mt-4 text-xs text-ink-soft/80" {...fadeUp(0.15)}>
-            Prix HT, TVA non applicable, art. 293 B du CGI
-          </motion.p>
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+          <div className="lg:col-span-7">
+            <SectionHeading
+              as="h1"
+              aside="Des prix transparents"
+              title={
+                <>
+                  Votre site web à partir de <span className="marker whitespace-nowrap">{minPrice} €</span>
+                </>
+              }
+              intro="Chaque projet est différent : le devis est gratuit et personnalisé."
+            />
+            <motion.p className="mt-4 text-xs text-ink-soft/80" {...fadeUp(0.15)}>
+              Prix HT, TVA non applicable, art. 293 B du CGI
+            </motion.p>
+          </div>
+          {/* Decorative paper object (lg+ only, the hero stays single-column below) */}
+          <div className="hidden lg:col-span-5 lg:flex lg:justify-center">
+            <Chalkboard />
+          </div>
         </div>
       </section>
 
