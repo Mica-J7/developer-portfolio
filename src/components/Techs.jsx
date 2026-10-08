@@ -12,7 +12,7 @@ const groups = [
 export default function Skills() {
   return (
     <section id="techs" className="scroll-mt-18 bg-ink">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <SectionHeading
           aside="Pour les curieux"
           title="Ma stack technique"

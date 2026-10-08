@@ -23,7 +23,10 @@ Dans le site, le logo n'est pas une image : il est dessiné en SVG par `src/comp
 | `icon-512.png` | 512×512 | icône PWA / manifest, fond papier |
 | `icon-maskable-512.png` | 512×512 | icône `maskable` (symbole dans la zone sûre) |
 | `avatar-400.png` | 400×400 | photo de profil réseaux |
+| `logo-1024.png` | 1024×1024 | logo carré haute définition, fond papier (annuaires, Solocal, PagesJaunes…) |
+| `logo-1024-transparent.png` | 1024×1024 | même logo carré, fond transparent |
 | `og-1200x630.png` | 1200×630 | image Open Graph / Twitter card générique |
+| `linkedin-banner-1584x396.png` | 1584×396 | bannière LinkedIn, optimisée pour ordinateur (contenu à droite, le coin bas gauche est masqué par la photo de profil) |
 
 Les PNG sont rendus depuis le même SVG que le site (Playwright + polices auto-hébergées), donc identiques
 au logo affiché en ligne. Pour un vrai fichier vectoriel (impression), il faudra vectoriser le « M » en

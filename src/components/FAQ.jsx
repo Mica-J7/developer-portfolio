@@ -13,7 +13,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="scroll-mt-18 bg-sand">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
@@ -21,7 +21,7 @@ export default function FAQ() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 border-t-2 border-ink">
+          <div className="lg:col-span-8">
             {faq.map((item) => {
               const isOpen = openId === item.id;
               return (

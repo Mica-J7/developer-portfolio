@@ -31,7 +31,7 @@ const steps = [
 export default function HowWeWork({ bg = 'bg-sand' }) {
   return (
     <section className={`scroll-mt-18 ${bg}`}>
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <SectionHeading aside="Pas à pas" title="Déroulement d'un projet" />
 
         <ol className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">

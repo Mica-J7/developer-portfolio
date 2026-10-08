@@ -62,7 +62,7 @@ export function meta() {
           { '@type': 'City', name: 'Saujon' },
           { '@type': 'City', name: 'Jonzac' },
         ],
-        sameAs: ['https://github.com/Mica-J7', 'https://www.linkedin.com/in/jongeau/', 'https://x.com/Mica_J7'],
+        sameAs: ['https://www.linkedin.com/in/jongeau/', 'https://github.com/Mica-J7'],
       },
     },
   ];

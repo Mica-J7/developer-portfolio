@@ -14,7 +14,6 @@ export function meta() {
     { property: 'og:type', content: 'website' },
     { property: 'og:locale', content: 'fr_FR' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:creator', content: '@Mica_J7' },
     { name: 'author', content: 'Michaël Jongeau' },
   ];
 }

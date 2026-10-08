@@ -30,7 +30,7 @@ export default function Realisations() {
     <>
       {/* Hero */}
       <section className="scroll-mt-18 relative overflow-hidden bg-paper-dots">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="lg:col-span-7">
             <SectionHeading
               as="h1"
@@ -42,7 +42,10 @@ export default function Realisations() {
               }
               intro="Applications web et outils sur mesure : découvrez quelques projets personnels que j'ai conçus et développés de bout en bout, du cahier des charges à la mise en ligne."
             />
-            <motion.div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5" {...fadeUp(0.15)}>
+            <motion.div
+              className="mt-11 sm:mt-9 flex flex-col items-center gap-y-5 sm:flex-row sm:flex-wrap sm:gap-x-8"
+              {...fadeUp(0.15)}
+            >
               <Link
                 to="/contact"
                 className="inline-flex items-center rounded-full border-2 border-ink bg-coral-600 px-6 py-3 font-semibold text-white

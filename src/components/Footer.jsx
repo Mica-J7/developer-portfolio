@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router';
-import { SiX } from '@icons-pack/react-simple-icons';
+import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 import { ChevronUp, Mail } from 'lucide-react';
 import Logo from './Logo.jsx';
 
@@ -15,9 +15,9 @@ const navLinks = [
 
 const socialLinks = [
   { href: 'mailto:jongeau.m@gmail.com', label: 'Email' },
-  { href: 'https://github.com/Mica-J7', label: 'GitHub' },
+  { href: 'https://wa.me/33635964465', label: 'WhatsApp' },
   { href: 'https://www.linkedin.com/in/jongeau/', label: 'LinkedIn' },
-  { href: 'https://x.com/Mica_J7', label: 'X' },
+  { href: 'https://github.com/Mica-J7', label: 'GitHub' },
 ];
 
 function SocialIcon({ label }) {
@@ -35,7 +35,8 @@ function SocialIcon({ label }) {
         <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5.001 2.5 2.5 0 0 0 0-5zM3 9.75h3.96V21H3zM14.71 9.5c-2.06 0-2.99 1.13-3.51 1.92h-.07V9.75H7.29V21h3.97v-5.7c0-1.5.28-2.96 2.15-2.96 1.85 0 1.88 1.7 1.88 3.05V21h3.97v-6.3c0-3.02-.65-5.2-4.55-5.2z" />
       </svg>
     );
-  return <SiX size={18} className={className} aria-hidden="true" />;
+  if (label === 'WhatsApp') return <SiWhatsapp size={18} className={className} aria-hidden="true" />;
+  return null;
 }
 
 export default function Footer() {

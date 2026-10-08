@@ -39,7 +39,7 @@ const benefits = [
 export default function ServicesTeaser() {
   return (
     <section id="services" className="scroll-mt-18 bg-sand">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <SectionHeading
           aside="Concrètement..."
           title={

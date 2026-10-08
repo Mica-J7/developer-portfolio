@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
-import { ArrowRight, FileSearch, Wallet } from 'lucide-react';
+import { ArrowDown, ArrowRight, FileSearch, Wallet } from 'lucide-react';
 import { services } from '../Data/services.js';
 import { faq } from '../Data/faq.js';
 import ServiceCard from '../components/ServiceCard.jsx';
@@ -77,7 +77,7 @@ export default function Tarifs() {
     <>
       {/* Hero */}
       <section className="scroll-mt-18 relative overflow-hidden bg-paper-dots">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="lg:col-span-7">
             <SectionHeading
               as="h1"
@@ -92,9 +92,26 @@ export default function Tarifs() {
             <motion.p className="mt-4 text-xs text-ink-soft/80" {...fadeUp(0.15)}>
               Prix HT, TVA non applicable, art. 293 B du CGI
             </motion.p>
+            {/* Jumps to the first pricing group (smooth scroll comes from scroll-smooth on <html>) */}
+            <motion.div className="mt-11 sm:mt-9 flex justify-center sm:justify-start" {...fadeUp(0.2)}>
+              <a
+                href="#tarifs-site"
+                className="group inline-flex items-center gap-2 rounded-full border-2 border-ink bg-coral-600 px-7 py-3.5
+                text-base font-semibold text-white shadow-offset transition-all duration-150
+                hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-offset-md
+                active:translate-x-1 active:translate-y-1 active:shadow-none
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-400 focus-visible:ring-offset-2"
+              >
+                <span className="text-nowrap">Voir tous les tarifs</span>
+                <ArrowDown
+                  aria-hidden="true"
+                  className="h-5 w-5 transition-transform duration-200 group-hover:translate-y-0.5"
+                />
+              </a>
+            </motion.div>
           </div>
-          {/* Decorative paper object (lg+ only, the hero stays single-column below) */}
-          <div className="hidden lg:col-span-5 lg:flex lg:justify-center">
+          {/* Paper object: under the hero text on small screens, right column from lg */}
+          <div className="mt-16 sm:mt-12 flex justify-center px-2 sm:px-0 lg:col-span-5 lg:mt-0">
             <Chalkboard />
           </div>
         </div>
@@ -107,8 +124,8 @@ export default function Tarifs() {
         const groupServices = services.filter((s) => s.category === group.category);
         if (groupServices.length === 0) return null;
         return (
-          <section key={group.category} className={`scroll-mt-18 ${group.bg}`}>
-            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+          <section key={group.category} id={`tarifs-${group.category}`} className={`scroll-mt-18 ${group.bg}`}>
+            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
               <SectionHeading aside={group.aside} title={group.title} intro={group.description} />
 
               <div className="mt-12 grid grid-cols-1 grid-rows-[repeat(5,auto)] gap-x-6 gap-y-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
@@ -123,7 +140,7 @@ export default function Tarifs() {
 
       {/* Trust panel */}
       <section className="scroll-mt-18 bg-paper-dots">
-        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
           <motion.div className="rounded-3xl border-2 border-ink bg-white p-8 md:p-12 shadow-offset-lg" {...fadeUp(0)}>
             <h2
               className="font-serif text-[2rem] sm:text-5xl font-semibold tracking-tight leading-[1.05] text-ink text-balance"

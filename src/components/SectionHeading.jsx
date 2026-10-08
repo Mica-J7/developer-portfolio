@@ -45,7 +45,7 @@ export default function SectionHeading({
       </Title>
       {intro && (
         <motion.p
-          className={`mt-5 text-lg leading-relaxed ${dark ? 'text-paper/75' : 'text-ink-soft'} ${
+          className={`${as === 'h1' ? 'mt-7 sm:mt-5' : 'mt-5'} text-lg leading-relaxed ${dark ? 'text-paper/75' : 'text-ink-soft'} ${
             centered ? 'mx-auto' : ''
           } max-w-2xl`}
           {...fadeUp(0.1)}

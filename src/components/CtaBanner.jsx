@@ -11,7 +11,7 @@ export default function CtaBanner({
 }) {
   return (
     <section className={tone === 'alt' ? 'bg-sand' : 'bg-paper'}>
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
         <motion.div
           className="relative overflow-hidden rounded-3xl border-2 border-ink bg-coral-600 px-6 py-14 sm:px-12 md:py-20 text-center
           shadow-offset-lg"

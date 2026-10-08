@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { SiX } from '@icons-pack/react-simple-icons';
+import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 import { Check, Loader2, Mail, Phone } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading.jsx';
 import { BusinessCard } from '../components/HeroVisuals.jsx';
@@ -114,7 +114,7 @@ export default function Contact() {
     <>
       {/* Hero */}
       <section className="scroll-mt-18 relative overflow-hidden bg-paper-dots">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 pt-14 pb-16 md:pt-20 md:pb-24 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="lg:col-span-7">
             <SectionHeading
               as="h1"
@@ -127,8 +127,8 @@ export default function Contact() {
               intro="Devis gratuit et sans engagement. Je vous réponds sous 24h."
             />
           </div>
-          {/* Decorative paper object (lg+ only, the hero stays single-column below) */}
-          <div className="hidden lg:col-span-5 lg:flex lg:justify-center">
+          {/* Paper object: under the hero text on small screens, right column from lg */}
+          <div className="mt-16 sm:mt-12 flex justify-center px-2 sm:px-0 lg:col-span-5 lg:mt-0">
             <BusinessCard />
           </div>
         </div>
@@ -403,6 +403,21 @@ export default function Contact() {
                 </a>
 
                 <a
+                  href="https://wa.me/33635964465"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex w-max px-2 py-1 items-center gap-3 text-ink hover:text-coral-700 font-semibold"
+                >
+                  <span
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-paper border-2 border-ink
+                 group-hover:bg-white"
+                  >
+                    <SiWhatsapp size={32} className="h-4.5 w-4.5 text-ink" aria-hidden="true" />
+                  </span>
+                  <span className="pb-1">WhatsApp</span>
+                </a>
+
+                <a
                   href="mailto:jongeau.m@gmail.com"
                   className="group flex w-max px-2 py-1 items-center gap-3 text-ink hover:text-coral-700 font-semibold"
                 >
@@ -413,6 +428,23 @@ export default function Contact() {
                     <Mail className="h-5 w-5 text-ink" strokeWidth={1.8} />
                   </span>
                   <span className="pb-1">jongeau.m@gmail.com</span>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/jongeau/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex w-max px-2 py-1 items-center gap-3 text-ink hover:text-coral-700 font-semibold"
+                >
+                  <span
+                    className="inline-flex h-9 w-9 pl-0.5 pb-0.5 items-center justify-center rounded-full bg-paper border-2 border-ink
+                 group-hover:bg-white"
+                  >
+                    <svg className="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5.001 2.5 2.5 0 0 0 0-5zM3 9.75h3.96V21H3zM14.71 9.5c-2.06 0-2.99 1.13-3.51 1.92h-.07V9.75H7.29V21h3.97v-5.7c0-1.5.28-2.96 2.15-2.96 1.85 0 1.88 1.7 1.88 3.05V21h3.97v-6.3c0-3.02-.65-5.2-4.55-5.2z" />
+                    </svg>
+                  </span>
+                  LinkedIn
                 </a>
 
                 <a
@@ -430,38 +462,6 @@ export default function Contact() {
                     </svg>
                   </span>
                   GitHub
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/jongeau/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex w-max px-2 py-1 items-center gap-3 text-ink hover:text-coral-700 font-semibold"
-                >
-                  <span
-                    className="inline-flex h-9 w-9 pl-0.5 pb-0.5 items-center justify-center rounded-full bg-paper border-2 border-ink
-                 group-hover:bg-white"
-                  >
-                    <svg className="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5.001 2.5 2.5 0 0 0 0-5zM3 9.75h3.96V21H3zM14.71 9.5c-2.06 0-2.99 1.13-3.51 1.92h-.07V9.75H7.29V21h3.97v-5.7c0-1.5.28-2.96 2.15-2.96 1.85 0 1.88 1.7 1.88 3.05V21h3.97v-6.3c0-3.02-.65-5.2-4.55-5.2z" />
-                    </svg>
-                  </span>
-                  Linkedin
-                </a>
-
-                <a
-                  href="https://x.com/Mica_J7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex w-max px-2 py-1 items-center gap-3 text-ink hover:text-coral-700 font-semibold"
-                >
-                  <span
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-paper border-2 border-ink
-                 group-hover:bg-white"
-                  >
-                    <SiX size={32} className="h-4 w-4 text-ink" />
-                  </span>
-                  Twitter
                 </a>
               </div>
 

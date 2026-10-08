@@ -15,7 +15,17 @@ const enter = (delay = 0.3) => ({
 
 const paperShadow = 'shadow-[0_24px_50px_-20px_rgb(22_38_46/0.35)]';
 
-// Tarifs: a bistro chalkboard ("ardoise du jour"), echoing the home page's "La carte" menu.
+// Sand-colored sheet tilted the other way behind a hero object, like a small stack on a desk
+export function BackingCard({ className = 'rounded-xl', rotate = 'rotate-6' }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute inset-0 ${rotate} ${className} border border-sand bg-sand ${paperShadow}`}
+    />
+  );
+}
+
+// Tarifs: a bistro chalkboard ("À la carte"), echoing the home page's "La carte" menu.
 // Prices come straight from services.js so the board stays in sync with the pricing cards.
 const boardItems = [
   { id: 1, label: 'Page unique' },
@@ -35,40 +45,42 @@ export function Chalkboard() {
   });
 
   return (
-    <motion.div
-      aria-hidden="true"
-      className={`relative w-92 -rotate-2 rounded-lg border-12 border-[#8a5a33] p-7 pb-6
-      transition-transform duration-500 ease-out hover:rotate-0`}
-      style={{
-        // Slate with faint eraser smudges
-        backgroundColor: '#24323a',
-        backgroundImage:
-          'radial-gradient(ellipse at 20% 30%, rgb(255 255 255 / 0.06), transparent 55%), radial-gradient(ellipse at 80% 75%, rgb(255 255 255 / 0.05), transparent 50%)',
-        boxShadow:
-          'inset 0 0 0 2px #6e4526, inset 0 0 30px rgb(0 0 0 / 0.35), 0 36px 60px -18px rgb(22 38 46 / 0.6), 0 12px 20px -10px rgb(22 38 46 / 0.4)',
-      }}
-      {...enter()}
-    >
-      <p className="text-center font-hand text-[2.1rem] leading-none text-paper" style={chalk}>
-        L'ardoise du jour
-      </p>
-      <svg viewBox="0 0 200 8" className="mx-auto mt-1 h-2 w-40 text-sun/80" fill="none">
-        <path d="M2 5 Q50 1 100 4 T198 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
+    <motion.div className="relative w-full max-w-92" {...enter()}>
+      <BackingCard className="rounded-lg" rotate="rotate-4" />
+      <div
+        aria-hidden="true"
+        className={`relative w-full -rotate-2 rounded-lg border-12 border-[#8a5a33] p-5 pb-5 sm:p-7 sm:pb-6
+        transition-transform duration-500 ease-out hover:rotate-0`}
+        style={{
+          // Slate with faint eraser smudges
+          backgroundColor: '#24323a',
+          backgroundImage:
+            'radial-gradient(ellipse at 20% 30%, rgb(255 255 255 / 0.06), transparent 55%), radial-gradient(ellipse at 80% 75%, rgb(255 255 255 / 0.05), transparent 50%)',
+          boxShadow:
+            'inset 0 0 0 2px #6e4526, inset 0 0 30px rgb(0 0 0 / 0.35), 0 36px 60px -18px rgb(22 38 46 / 0.6), 0 12px 20px -10px rgb(22 38 46 / 0.4)',
+        }}
+      >
+        <p className="text-center font-hand text-[2.1rem] leading-none text-paper" style={chalk}>
+          À la carte
+        </p>
+        <svg viewBox="0 0 200 8" className="mx-auto mt-1 h-2 w-40 text-sun/80" fill="none">
+          <path d="M2 5 Q50 1 100 4 T198 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
 
-      <ul className="mt-6 space-y-3.5 font-hand text-2xl leading-none text-paper/90" style={chalk}>
-        {rows.map((r) => (
-          <li key={r.id} className="flex items-baseline gap-2">
-            <span>{r.label}</span>
-            <span className="flex-1 border-b-2 border-dotted border-paper/30" />
-            <span className="text-sun">{r.price}</span>
-          </li>
-        ))}
-      </ul>
+        <ul className="mt-6 space-y-3.5 font-hand text-xl sm:text-2xl leading-none text-paper/90" style={chalk}>
+          {rows.map((r) => (
+            <li key={r.id} className="flex items-baseline gap-2">
+              <span>{r.label}</span>
+              <span className="flex-1 border-b-2 border-dotted border-paper/30" />
+              <span className="text-sun">{r.price}</span>
+            </li>
+          ))}
+        </ul>
 
-      <p className="mt-7 text-center font-hand text-2xl leading-none text-coral-400 -rotate-2" style={chalk}>
-        Devis offert !
-      </p>
+        <p className="mt-7 text-center font-hand text-2xl leading-none text-coral-400 -rotate-2" style={chalk}>
+          Devis offert !
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -155,14 +167,10 @@ export function Polaroids() {
 // Contact: a business card with real, clickable contact details
 export function BusinessCard() {
   return (
-    <motion.div className="relative" {...enter()}>
-      {/* Second card peeking out behind, like a small stack on a desk */}
+    <motion.div className="relative w-full max-w-88" {...enter()}>
+      <BackingCard />
       <div
-        aria-hidden="true"
-        className={`absolute inset-0 rotate-6 rounded-xl border border-sand bg-sand ${paperShadow}`}
-      />
-      <div
-        className={`relative w-88 -rotate-2 rounded-xl border-2 border-ink bg-white p-7 shadow-offset-lg
+        className={`relative w-full -rotate-2 rounded-xl border-2 border-ink bg-white p-6 sm:p-7 shadow-offset-lg
         transition-transform duration-500 ease-out hover:rotate-0`}
       >
         <div className="flex items-center gap-4">
@@ -185,7 +193,8 @@ export function BusinessCard() {
               href="tel:+33635964465"
               className="group inline-flex items-center gap-3 font-semibold hover:text-coral-700"
             >
-              <Phone aria-hidden="true" strokeWidth={1.8} className="h-4.5 w-4.5 text-ocean-500" />
+              {/* Icons counter-rotate the card's -2deg so their straight strokes stay pixel-aligned (no jaggies) */}
+              <Phone aria-hidden="true" strokeWidth={1.8} className="h-4.5 w-4.5 rotate-2 text-ocean-500" />
               06 35 96 44 65
             </a>
           </li>
@@ -194,12 +203,12 @@ export function BusinessCard() {
               href="mailto:jongeau.m@gmail.com"
               className="group inline-flex items-center gap-3 font-semibold hover:text-coral-700"
             >
-              <Mail aria-hidden="true" strokeWidth={1.8} className="h-4.5 w-4.5 text-ocean-500" />
+              <Mail aria-hidden="true" strokeWidth={1.8} className="h-4.5 w-4.5 rotate-2 text-ocean-500" />
               jongeau.m@gmail.com
             </a>
           </li>
           <li className="inline-flex items-center gap-3 text-ink-soft">
-            <MapPin aria-hidden="true" strokeWidth={1.8} className="h-4.5 w-4.5 text-ocean-500" />
+            <MapPin aria-hidden="true" strokeWidth={1.8} className="h-4.5 w-4.5 rotate-2 text-ocean-500" />
             Rochefort, Charente-Maritime
           </li>
         </ul>
