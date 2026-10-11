@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import { faq } from '../Data/faq.js';
 import SectionHeading from './SectionHeading.jsx';
+import Collapsible from './Collapsible.jsx';
 
 const MotionPlus = motion.create(Plus);
 
@@ -30,6 +31,7 @@ export default function FAQ() {
                     type="button"
                     onClick={() => toggle(item.id)}
                     aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${item.id}`}
                     className="group flex w-full items-center justify-between gap-6 py-6 text-left cursor-pointer
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ocean-400/70"
                   >
@@ -50,19 +52,9 @@ export default function FAQ() {
                       />
                     </span>
                   </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeInOut' }}
-                        className="overflow-hidden"
-                      >
-                        <p className="max-w-2xl pb-7 text-lg text-ink-soft leading-relaxed">{item.answer}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <Collapsible open={isOpen} id={`faq-answer-${item.id}`}>
+                    <p className="max-w-2xl pb-7 text-lg text-ink-soft leading-relaxed">{item.answer}</p>
+                  </Collapsible>
                 </div>
               );
             })}

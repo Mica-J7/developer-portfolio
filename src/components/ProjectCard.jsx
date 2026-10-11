@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronDown, ExternalLink } from 'lucide-react';
+import Collapsible from './Collapsible.jsx';
 
 const MotionChevronDown = motion.create(ChevronDown);
 
@@ -86,6 +87,7 @@ export default function ProjectCard({ p, idx }) {
               type="button"
               onClick={() => setDetailsOpen((prev) => !prev)}
               aria-expanded={detailsOpen}
+              aria-controls={`project-details-${p.id}`}
               className="mt-4 inline-flex w-48 items-center justify-between gap-1.5 self-start rounded-full border-2 border-ink bg-paper px-4 py-1.5 text-sm font-semibold text-ink hover:bg-sun transition-colors cursor-pointer"
             >
               <span>{detailsOpen ? 'Masquer le détail' : 'Voir le détail'}</span>
@@ -97,20 +99,10 @@ export default function ProjectCard({ p, idx }) {
               />
             </button>
 
-            <AnimatePresence initial={false}>
-              {detailsOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
-                  className="overflow-hidden"
-                >
-                  <BulletList label="Fonctionnalités :" items={p.features} />
-                  <BulletList label="Aspects techniques :" items={p.technical} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <Collapsible open={detailsOpen} id={`project-details-${p.id}`}>
+              <BulletList label="Fonctionnalités :" items={p.features} />
+              <BulletList label="Aspects techniques :" items={p.technical} />
+            </Collapsible>
           </>
         )}
 

@@ -17,8 +17,8 @@ Dans le site, le logo n'est pas une image : il est dessiné en SVG par `src/comp
 | `logo-header-light.png` | 912×208 (@4x) | version complète sur fond clair, fond transparent |
 | `logo-header-dark.png` | 912×208 (@4x) | version complète sur fond sombre, fond transparent |
 | `logo-signature-mail.png` | 684×156 (@3x) | signature d'email, à afficher en 228×52 |
-| `favicon-32.png` | 32×32 | favicon, fond transparent |
-| `favicon-64.png` | 64×64 | favicon HD, fond transparent |
+| `favicon-32.png` | 32×32 | favicon, fond transparent. Version simplifiée : pastille seule de bord à bord, sans ombre, « M » agrandi (lisible à 16 px) |
+| `favicon-64.png` | 64×64 | favicon HD, même version simplifiée |
 | `apple-touch-icon-180.png` | 180×180 | `apple-touch-icon`, fond papier |
 | `icon-512.png` | 512×512 | icône PWA / manifest, fond papier |
 | `icon-maskable-512.png` | 512×512 | icône `maskable` (symbole dans la zone sûre) |

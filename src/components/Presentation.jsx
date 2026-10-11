@@ -201,13 +201,13 @@ export default function Presentation() {
               style={{ fontVariationSettings: '"SOFT" 100' }}
               {...cascade(0.12)}
             >
-              Des sites web qui vous <span className="marker">ramènent des clients</span>,{' '}
-              <em className="font-medium text-coral-600">faits main</em> à Rochefort.
+              Des sites web qui vous <span className="marker">rendent visible</span> auprès de{' '}
+              <em className="font-medium text-coral-600">vos futurs clients</em>.
             </motion.h1>
 
             <motion.p className="mt-9 sm:mt-7 max-w-xl text-lg text-ink-soft leading-relaxed" {...cascade(0.2)}>
-              Sites vitrines, boutiques en ligne et outils sur mesure pour les indépendants et petites entreprises du
-              17. Un seul interlocuteur, du premier échange à la mise en ligne.
+              Sites vitrines, boutiques en ligne et outils sur mesure pour les indépendants et petites entreprises de
+              Charente-Maritime. Un seul interlocuteur, du premier échange à la mise en ligne.
             </motion.p>
 
             {/* Phones: links stacked and centered. sm+: one left-aligned wrapping row. */}
@@ -267,10 +267,12 @@ export default function Presentation() {
         </div>
       </div>
 
-      {/* Promise strip: full-width ink ribbon that closes the dotted hero cleanly */}
+      {/* Promise strip: full-width ink ribbon that closes the dotted hero cleanly. Phones: a left-aligned column
+          (stars lined up), centered as a block in the ribbon. sm+: centered wrapping row. */}
       <motion.div className="relative mt-5 z-10 bg-ink" {...cascade(0.45)}>
         <ul
-          className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 py-5 sm:px-8 lg:px-12
+          className="mx-auto flex w-fit max-w-7xl flex-col items-start gap-y-2 px-6 py-5
+          sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-8 sm:px-8 lg:px-12
           font-archivo text-sm font-semibold uppercase tracking-[0.14em] text-paper"
         >
           {promises.map((p) => (
