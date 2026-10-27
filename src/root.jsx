@@ -23,6 +23,10 @@ export function links() {
     { rel: 'icon', type: 'image/png', href: '/brand/favicon-32.png' },
     { rel: 'icon', href: '/brand/favicon-32.png', sizes: '32x32', type: 'image/png' },
     { rel: 'icon', href: '/brand/favicon-64.png', sizes: '64x64', type: 'image/png' },
+    // Google Search only uses favicons sized in multiples of 48px; without one it fell back to the padded app icon.
+    { rel: 'icon', href: '/brand/favicon-48.png', sizes: '48x48', type: 'image/png' },
+    { rel: 'icon', href: '/brand/favicon-96.png', sizes: '96x96', type: 'image/png' },
+    { rel: 'icon', href: '/brand/favicon-192.png', sizes: '192x192', type: 'image/png' },
     { rel: 'apple-touch-icon', href: '/brand/apple-touch-icon-180.png' },
     { rel: 'manifest', href: '/brand/manifest.webmanifest' },
   ];

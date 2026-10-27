@@ -19,6 +19,8 @@ Dans le site, le logo n'est pas une image : il est dessiné en SVG par `src/comp
 | `logo-signature-mail.png` | 684×156 (@3x) | signature d'email, à afficher en 228×52 |
 | `favicon-32.png` | 32×32 | favicon, fond transparent. Version simplifiée : pastille seule de bord à bord, sans ombre, « M » agrandi (lisible à 16 px) |
 | `favicon-64.png` | 64×64 | favicon HD, même version simplifiée |
+| `favicon-48.png`, `favicon-96.png`, `favicon-192.png` | 48, 96, 192 | même version simplifiée, aux tailles multiples de 48 px exigées par Google pour l'icône des résultats de recherche |
+| `../favicon.ico` | 16, 32, 48 | même version simplifiée, à la racine du site (`/favicon.ico`, demandé d'office par les navigateurs et Google) |
 | `apple-touch-icon-180.png` | 180×180 | `apple-touch-icon`, fond papier |
 | `icon-512.png` | 512×512 | icône PWA / manifest, fond papier |
 | `icon-maskable-512.png` | 512×512 | icône `maskable` (symbole dans la zone sûre) |
