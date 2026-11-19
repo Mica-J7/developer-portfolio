@@ -78,7 +78,7 @@ export function Chalkboard() {
         </ul>
 
         <p className="mt-7 text-center font-hand text-2xl leading-none text-coral-400 -rotate-2" style={chalk}>
-          Devis offert !
+          Devis gratuit !
         </p>
       </div>
     </motion.div>
@@ -92,32 +92,54 @@ export function Chalkboard() {
 const poses = [
   { left: 0, top: 70, rotate: -6, z: 1, out: { x: -110, y: 10 } },
   { left: 280, top: 84, rotate: 6, z: 2, out: { x: 110, y: 10 } },
-  { left: 140, top: 0, rotate: -1, z: 3, out: { x: 0, y: -40 } },
+  // Already on top of the stack: no shuffle needed, hovering it counts as hovering nothing
+  { left: 140, top: 0, rotate: -1, z: 3, out: { x: 0, y: -40 }, still: true },
 ];
 const SHUFFLE_S = 0.6;
+// Projects shown on the polaroids, in pose order (left, right, center). My Session takes the center,
+// the card on top of the stack.
+const polaroidIds = [8, 9, 1];
 
 export function Polaroids() {
   // `active` drives the slide animation right away; `raised` (the layer) follows at mid-course. Framer
   // Motion applies zIndex instantly, so the step is timed by hand instead of animated.
+  // Only one card moves at a time: hovers are recorded in `hovered`, and each finished animation runs
+  // `step()` again to catch up with it (put the current card back first, then bring the hovered one out).
+  // Quick mouse sweeps therefore never start overlapping or half-finished shuffles.
   const [active, setActive] = useState(null);
   const [raised, setRaised] = useState(null);
-  const timer = useRef(null);
-  useEffect(() => () => clearTimeout(timer.current), []);
+  const hovered = useRef(null);
+  const current = useRef(null);
+  const busy = useRef(false);
+  const timers = useRef([]);
+  useEffect(() => () => timers.current.forEach(clearTimeout), []);
 
+  const step = () => {
+    if (busy.current || current.current === hovered.current) return;
+    const next = current.current !== null ? null : hovered.current;
+    current.current = next;
+    busy.current = true;
+    setActive(next);
+    timers.current = [
+      setTimeout(() => setRaised(next), (SHUFFLE_S * 1000) / 2),
+      setTimeout(() => {
+        busy.current = false;
+        step();
+      }, SHUFFLE_S * 1000),
+    ];
+  };
   const hover = (id) => {
-    setActive(id);
-    clearTimeout(timer.current);
-    timer.current = setTimeout(() => setRaised(id), (SHUFFLE_S * 1000) / 2);
+    hovered.current = id;
+    step();
   };
   const unhover = (id) => {
-    setActive((cur) => (cur === id ? null : cur));
-    clearTimeout(timer.current);
-    timer.current = setTimeout(() => setRaised((cur) => (cur === id ? null : cur)), (SHUFFLE_S * 1000) / 2);
+    if (hovered.current === id) hovered.current = null;
+    step();
   };
 
   const shots = projects.projects
-    .filter((p) => p.type === 'perso')
-    .slice(0, 3)
+    .filter((p) => polaroidIds.includes(p.id))
+    .sort((a, b) => polaroidIds.indexOf(a.id) - polaroidIds.indexOf(b.id))
     .map((p, i) => ({
       id: p.id,
       image: p.image,
@@ -139,8 +161,8 @@ export function Polaroids() {
             key={s.id}
             className="absolute w-56"
             style={{ left: s.pose.left, top: s.pose.top, zIndex: raised === s.id ? 10 : z }}
-            onMouseEnter={() => hover(s.id)}
-            onMouseLeave={() => unhover(s.id)}
+            onMouseEnter={s.pose.still ? undefined : () => hover(s.id)}
+            onMouseLeave={s.pose.still ? undefined : () => unhover(s.id)}
           >
             <motion.figure
               style={{ rotate }}

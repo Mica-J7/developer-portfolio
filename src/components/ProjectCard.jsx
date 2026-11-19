@@ -31,7 +31,8 @@ export default function ProjectCard({ p, idx }) {
   const mainTitle = titleMatch ? titleMatch[1] : p.title;
   const titleNote = titleMatch ? titleMatch[2] : null;
 
-  const hasDetails = Boolean(p.features || p.technical);
+  const isClient = p.type === 'client';
+  const hasDetails =Boolean(p.features || p.technical);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const imageLayoutId = `project-image-${p.id}`;
@@ -52,9 +53,7 @@ export default function ProjectCard({ p, idx }) {
   return (
     <motion.article
       key={p.id}
-      className="group flex flex-col overflow-hidden rounded-2xl border-2 border-ink bg-white
-             shadow-offset transition-[translate,box-shadow] duration-200
-             hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-offset-lg"
+      className="group flex flex-col overflow-hidden rounded-2xl border-2 border-ink bg-white shadow-offset"
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -75,6 +74,9 @@ export default function ProjectCard({ p, idx }) {
         </div>
       </div>
       <div className="flex h-full flex-1 flex-col py-4 px-6">
+        <p className="mb-1 font-archivo text-[0.65rem] font-extrabold uppercase tracking-[0.28em] text-coral-600">
+          {isClient ? 'Mission client' : 'Projet personnel'}
+        </p>
         <h3 className="font-serif text-3xl font-semibold text-ink">
           {mainTitle}
           {titleNote && <span className="ml-2 font-hand text-xl font-normal text-coral-600">({titleNote})</span>}
@@ -100,8 +102,9 @@ export default function ProjectCard({ p, idx }) {
             </button>
 
             <Collapsible open={detailsOpen} id={`project-details-${p.id}`}>
-              <BulletList label="Fonctionnalités :" items={p.features} />
-              <BulletList label="Aspects techniques :" items={p.technical} />
+              {/* Missions on an existing site override the labels, since their lists describe interventions */}
+              <BulletList label={p.featuresLabel || 'Fonctionnalités :'} items={p.features} />
+              <BulletList label={p.technicalLabel || 'Aspects techniques :'} items={p.technical} />
             </Collapsible>
           </>
         )}

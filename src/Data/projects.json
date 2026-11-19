@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": 1,
-      "title": "My Session (projet toujours en cours)",
+      "title": "My Session",
       "description": "Site permettant d'enregistrer ses séances de musculation et de suivre sa progression, avec bibliothèque d'exercices et statistiques détaillées.",
       "features": [
         "Bibliothèque d'exercices avec possibilité de créer ses propres exercices",
@@ -17,11 +17,58 @@
         "API REST développée avec Django REST Framework",
         "Design responsive (mobile, tablette, ordinateur)"
       ],
-      "image": "/images-projects/mysession.webp",
+      "image": "/images-projects/mysession-v2.webp",
       "imageAlt": "Capture d'écran de My Session, application de suivi de séances de musculation avec statistiques.",
       "techs": ["React", "Next.js", "TypeScript", "Tailwind", "Django", "DRF", "PostgreSQL"],
       "live": "https://my-session.app",
       "type": "perso"
+    },
+    {
+      "id": 10,
+      "title": "Kheez",
+      "description": "Site WordPress d'un service de conciergerie de luxe à Paris : reprise du module de réservation, corrections, performances, maintenance et lancement d'une campagne Google Ads.",
+      "featuresLabel": "Sur le site :",
+      "technicalLabel": "Google Ads :",
+      "features": [
+        "Reprise du développement du module de réservation SIVTC, abandonné par son éditeur",
+        "Nouvelles fonctionnalités du module : choix du nombre de passagers, modale d'options, envoi automatique des factures et formulaire de commande revu",
+        "Création des cartes de trajets à prix fixe, reliées au module de réservation",
+        "Correction de bugs d'affichage, de navigation et de liens cassés",
+        "Amélioration des performances, notamment sur les images (formats et compression)",
+        "Maintenance continue : mises à jour de WordPress, du thème et des extensions, sauvegardes, corrections et ajouts selon les besoins du client"
+      ],
+      "technical": [
+        "Mise en place des balises de suivi des conversions",
+        "Bandeau de consentement aux cookies conforme au RGPD",
+        "Création de la campagne et suivi pendant un mois"
+      ],
+      "image": "/images-projects/kheez-v2.webp",
+      "imageAlt": "Capture d'écran du site Kheez, service de conciergerie de luxe à Paris, avec son offre de chauffeur privé et ses trajets à prix fixe.",
+      "techs": ["WordPress", "Elementor", "PHP", "Google Ads", "RGPD"],
+      "live": "https://kheez.com",
+      "type": "client"
+    },
+    {
+      "id": 11,
+      "title": "Artisan MG",
+      "description": "Site d'un couvreur dans l'Yonne : corrections, refonte des formulaires de contact, mise en page, performances, SEO et suivi d'une campagne Google Ads.",
+      "featuresLabel": "Sur le site :",
+      "technicalLabel": "Google Ads :",
+      "features": [
+        "Correction de bugs d'affichage et de navigation",
+        "Refonte des formulaires de contact",
+        "Modifications de mise en page",
+        "Optimisation des performances et du référencement naturel (SEO)"
+      ],
+      "technical": [
+        "Mise en place des balises de suivi des conversions",
+        "Suivi de la campagne pendant deux mois"
+      ],
+      "image": "/images-projects/artisanmg-v2.webp",
+      "imageAlt": "Capture d'écran du site Artisan MG, couvreur dans l'Yonne, avec appel et demande de devis gratuit.",
+      "techs": ["HTML", "PHP", "SEO", "Google Ads"],
+      "live": "https://artisanmg.fr",
+      "type": "client"
     },
     {
       "id": 8,
@@ -44,7 +91,7 @@
       "image": "/images-projects/greenhorizon.webp",
       "imageAlt": "Capture d'écran du site vitrine Vert Horizon, réalisé pour un paysagiste, avec présentation des services et demande de devis.",
       "techs": ["PHP 8.2", "Symfony 7.4", "Stimulus", "Twig"],
-      "type": "perso"
+      "type": "client"
     },
     {
       "id": 9,
@@ -62,7 +109,7 @@
       "image": "/images-projects/segurie.webp",
       "imageAlt": "Capture d'écran du site vitrine du Château de Ségurie, domaine viticole, avec présentation des cuvées et page de dégustation.",
       "techs": ["PHP 8.2+", "Symfony 7.4", "Twig"],
-      "type": "perso"
+      "type": "client"
     },
     {
       "id": 7,
@@ -85,7 +132,7 @@
       "image": "/images-projects/elowcraft.webp",
       "imageAlt": "Capture d'écran de l'outil Elowcraft, qui détecte les moments forts d'une VOD Twitch à partir du chat replay.",
       "techs": ["Python", "Streamlit", "Pandas", "NumPy", "yt-dlp", "TwitchDownloaderCLI", "Typer"],
-      "type": "perso"
+      "type": "client"
     }
   ]
 }

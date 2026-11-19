@@ -11,7 +11,7 @@ export function meta() {
     {
       name: 'description',
       content:
-        'Découvrez les projets web conçus et développés par Michaël Jongeau, développeur freelance : applications sur mesure, outils métier et sites vitrines.',
+        'Découvrez les réalisations de Michaël Jongeau, développeur freelance : missions clients (maintenance, correctifs, Google Ads), applications sur mesure, outils métier et sites vitrines.',
     },
     { tagName: 'link', rel: 'canonical', href: 'https://jongeau-m.fr/realisations' },
     { property: 'og:title', content: 'Réalisations - Michaël Jongeau, Développeur Web Freelance' },
@@ -40,7 +40,7 @@ export default function Realisations() {
                   Mes <span className="marker">réalisations</span>
                 </>
               }
-              intro="Applications web et outils sur mesure : découvrez quelques projets personnels que j'ai conçus et développés de bout en bout, du cahier des charges à la mise en ligne."
+              intro="Sites et outils créés pour mes clients, reprise et maintenance de sites existants, campagnes Google Ads, et My Session, mon application personnelle."
             />
             <motion.div
               className="mt-11 sm:mt-9 flex flex-col items-center gap-y-5 sm:flex-row sm:flex-wrap sm:gap-x-8"
